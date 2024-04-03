@@ -20,71 +20,54 @@
     <div class="flex flex-col min-h-screen">
 
         <div class="flex-grow">
-            <header class="m-5 lg:px-5">
-                <div class="mx-5">
-                    <nav class="flex justify-between items-center py-5 w-full">
-                        <div class="flex justify-start">
-                            <a href="index.html" class="text-3xl max-sm:text-2lg font-bold text-[#0f5cd9]">All <span
-                                    class="text-blue-300">N</span> One</a>
+            <header class="my-5 px-20 max-lg:px-5 max-sm:px-5">
+                <nav class="flex justify-between items-center py-5 w-full">
+                    <div class="flex justify-start">
+                        <a href="index.html" class="text-3xl max-sm:text-2lg max-extraSm:text-[22px] font-bold">ALL
+                            N
+                            ONE</a>
+                    </div>
+
+                    <!-- <label
+                            class="hidden md:flex justify-center items-center bg-blue-200 p-3 lg:w-[490px] max-lg:w-[300px] md:w-[250px] rounded-lg groups mx-5">
+                            <span class="ml-5 mr-1"><i class="fa-solid fa-magnifying-glass fa-lg"></i></span>
+                            <input
+                                class="bg-inherit outline-none w-full h-full text-base font-medium text-gray-500 border-0 focus:ring-0 mr-5"
+                                type="text" placeholder="Search for an item"></input>
+                        </label> -->
+
+                    <div class="flex max-md:hidden justify-end gap-10 max-lg:gap-5">
+                        <a href="/index.html"
+                            class="text-slate-400 font-medium transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:text-slate-600">Home</a>
+                        <a href="/pages/products.html"
+                            class="text-slate-400 font-medium transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:text-slate-600">Products</a>
+                        <a href="/pages/about.html"
+                            class="text-slate-400 font-medium transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:text-slate-600">About
+                            Us</a>
+                        <a href="/pages/contact.html"
+                            class="text-slate-400  font-medium transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:text-slate-600">Contact</a>
+                    </div>
+
+                    <div class="flex max-md:hidden justify-end gap-5">
+                        <div class="flex flex-row items-center gap-2">
+                            <a href="/pages/login.html" class="text-base font-medium"><i
+                                    class="fa-solid fa-user"></i><span class="mx-2"></span></a>
+
+                            <div class="border-l-2 border-l-[#4949499e] h-[20px] w-[5px]"></div>
+
+                            <a href="/pages/cart.html" class="text-base font-medium"><i
+                                    class="fa-solid fa-cart-shopping"></i><span class="mx-2">Cart</span></a>
                         </div>
+                    </div>
 
-                        <div class="flex max-md:hidden justify-end gap-5">
-                            <label
-                                class="flex justify-end items-center bg-blue-200 p-3 lg:w-[490px] max-lg:w-[300px] md:w-[250px] rounded-lg groups mx-5">
-                                <span class="ml-5 mr-1"><i class="fa-solid fa-magnifying-glass fa-lg"></i></span>
-                                <input
-                                    class="bg-inherit outline-none w-full h-full text-base font-medium text-gray-500 border-0 focus:ring-0 mr-5"
-                                    type="text" placeholder="Search for an item"></input>
-                            </label>
-
-                            <div class="flex flex-row items-center gap-2">
-                                <a href="/pages/login.html" class="text-base font-medium"><i
-                                        class="fa-solid fa-user"></i><span class="mx-2">Sign Up/Sign In</span></a>
-
-                                <div class="border-l-2 border-l-[#4949499e] h-[20px] w-[5px]"></div>
-
-                                <a href="/pages/cart.html" class="text-base font-medium"><i
-                                        class="fa-solid fa-cart-shopping"></i><span class="mx-2">Cart</span></a>
-                            </div>
-                        </div>
-
-                        <div class="max-md:flex hidden justify-end">
-                            <button
-                                class="flex justify-center items-center bg-blue-200 p-3 size-[50px] max-sm:size-[45px] rounded-lg groups mx-5">
-                                <i class="fa-solid fa-bars fa-lg"></i>
-                            </button>
-                        </div>
-                    </nav>
-                </div>
+                    <div class="max-md:flex hidden justify-end">
+                        <button
+                            class="flex justify-center items-center bg-slate-200 p-3 size-[50px] max-sm:size-[45px] rounded-lg ml-2">
+                            <i class="fa-solid fa-bars fa-lg"></i>
+                        </button>
+                    </div>
+                </nav>
             </header>
-
-            <hr class="border-[#4949499e] opacity-50 w-full h-[2px] max-md:opacity-0" />
-
-            <section role="categories" class="flex max-md:hidden justify-center items-center my-5">
-                <div class="flex flex-row justify-center items-center gap-5">
-
-                    <a href="/pages/categories.html"
-                        class="text-base font-medium text-center bg-blue-300 p-3 rounded-xl">
-                        Categories
-
-                        <span class="ml-2"><i class="fa-solid fa-chevron-down"></i></span>
-                    </a>
-
-                    <a href="/pages/products.html" class="text-base font-medium text-center bg-blue-100 p-3 rounded-xl">
-                        Products
-                        <span class="ml-2"><i class="fa-solid fa-chevron-down"></i></span>
-                    </a>
-
-                    <a href="/pages/services.html" class="text-base font-medium text-center bg-blue-100 p-3 rounded-xl">
-                        Services
-
-                        <span class="ml-2"><i class="fa-solid fa-chevron-down"></i></span>
-                    </a>
-
-                </div>
-            </section>
-
-            <hr class="border-[#4949499e] opacity-50 w-full h-[2px] max-md:opacity-0" />
 
             <!-- <section role="home-page" class="flex justify-center items-center my-5">
                 <div class="w-3/4 max-w-[1200px] h-[300px] max-lg:h-[200px] relative">
@@ -143,16 +126,99 @@
                                 <i class="fa-solid fa-chevron-right fa-lg"></i>
                             </span>
                         </div>
+
                     </div>
                 </div>
             </section> -->
 
+            <section role="top-products" class="justify-center max-md:justify-start items-center my-5 w-full">
+                <div class="relative w-full h-[600px] bg-[#faf4f1] overflow-hidden">
 
+                    <div
+                        class="absolute rounded-full bg-[#f9e9e4] size-96 flex justify-center items-center top-96 left-20">
+                        <div class="size-36 bg-white border-16 rounded-full border-[#f9e9e4]"></div>
+                    </div>
+
+                    <div
+                        class="absolute rounded-full bg-[#f9e9e4] size-[600px] flex justify-center items-center -top-96 right-56 max-lg:right-24">
+                        <div class="size-56 bg-white border-16 rounded-full border-[#f9e9e4]"></div>
+                    </div>
+
+                    <div class="relative flex justify-between items-center h-full mx-10">
+                        <div class="flex justify-center items-center gap-64 max-lg:gap-36 w-full">
+                            <div
+                                class="flex flex-col gap-2 lg:w-min w-full h-full justify-center items-start text-left text-wrap text-black z-20">
+                                <h1 class="text-6xl max-sm:text-4xl font-bold">Hello world!</h1>
+
+                                <p class="text-xl max-sm:w-full break-words font-medium text-slate-400">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                                    quidem.dawdwadwadwadwadwadawdawdwadawdawd awdawdwadawdaw dawd dwa daw
+                                </p>
+
+                                <button
+                                    class="bg-[#3175f0] bg-opacity-80 hover:bg-opacity-100 w-[200px] h-[50px] max-sm:w-full rounded-lg mt-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110">
+                                    <a href="/pages/products.html" class="text-white font-medium">Shop
+                                        Now <span class="mx-2"> <i class="fa-solid fa-arrow-right"></i> </span> </a>
+                                </button>
+                            </div>
+
+                            <div class="w-fit content max-md:hidden">
+                                <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6426/6426000_sd.jpg;maxHeight=640;maxWidth=550"
+                                    alt="placeholder"
+                                    class="object-covern no-background size-[80%] max-md:size-[100%] skew-y-12">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <section role="category-selector" class="flex flex-col items-center w-full my-10">
+                <div class="flex max-md:hidden justify-center items-center mb-5 gap-36">
+                    <h1 class="text-3xl font-bold">Browse by <span class="font-kalam">Category</span>
+                    </h1>
+
+                    <button
+                        class="bg-[#3175f0] bg-opacity-80 hover:bg-opacity-100 w-[200px] h-[50px] max-sm:w-full rounded-lg transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110">
+                        <a href="/pages/products.html" class="text-white font-medium">View All <span class="mx-2">
+                                <i class="fa-solid fa-arrow-right"></i> </span> </a>
+                    </button>
+                </div>
+
+                <h1 class="content md:hidden text-3xl font-bold mb-5">Browse by <span class="font-kalam">Category</span>
+                </h1>
+
+                <div class="flex justify-center items-center">
+                    <div
+                        class="grid max-md:grid-rows-1 grid-cols-3 grid-flow-row max-sm:grid-rows-3 max-md:grid-cols-1 max-md:grid-flow-col justify-center items-center gap-5">
+                        <button
+                            class="w-[200px] h-[200px] bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                            <img src="assets/images/food.png" alt="food" class="size-[100px]">
+                            <h1 class="text-2xl font-bold font-kalam">Food</h1>
+                        </button>
+
+                        <button
+                            class="w-[200px] h-[200px] bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                            <img src="assets/images/electronics.png" alt="electronics" class="size-[100px]">
+                            <h1 class="text-2xl font-bold font-kalam">Electronics</h1>
+                        </button>
+
+                        <button
+                            class="w-[200px] h-[200px] bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                            <img src="assets/images/clothing.png" alt="clothing" class="size-[100px]">
+                            <h1 class="text-2xl font-bold font-kalam">Clothing</h1>
+                        </button>
+                    </div>
+            </section>
+
+
+            <!-- 
             <section role="home-page" class="flex justify-center max-md:justify-start max-md:mx-10 items-center my-5">
                 <div class="w-3/4 max-md:w-11/12 max-w-[1200px] h-[300px] max-lg:h-[200px] relative">
                     <div class="flex justify-between items-center h-full">
                         <div id="scrollable-div"
-                            class="w-full h-full bg-inherit overflow-x-hidden max-md:overflow-x-auto overflow-y-hidden flex items-center gap-4">
+                            class="w-full h-full bg-inherit overflow-x-hidden max-md:overflow-x-auto overflow-y-hidden no-scrollbar flex items-center gap-4">
 
                             <div
                                 class="w-[250px] h-fit p-20 flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
@@ -207,12 +273,12 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
 
         </div>
 
         <footer>
-            <div class="mt-auto bg-[#f8f8f9] border-t-[1px] border-[#49494920]">
+            <div class="mt-auto border-t-[1px] border-[#49494920]">
                 <div class="container mx-auto pb-12">
 
                     <div class="my-20">
