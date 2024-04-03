@@ -34,6 +34,10 @@ tailwind.config = {
                 '3xl': '1920px',
                 // => @media (min-width: 1920px) { ...
             },
+
+            gridAutoFlow: {
+                'row': 'row',
+            },
         },
     },
 }

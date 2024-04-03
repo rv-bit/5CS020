@@ -147,10 +147,10 @@
                     <div class="relative flex justify-between items-center h-full mx-10">
                         <div class="flex justify-center items-center gap-64 max-lg:gap-36 w-full">
                             <div
-                                class="flex flex-col gap-2 lg:w-min w-full h-full justify-center items-start text-left text-wrap text-black z-20">
-                                <h1 class="text-6xl max-sm:text-4xl font-bold">Hello world!</h1>
+                                class="flex flex-col gap-2 lg:w-min max-lg:w-1/2 max-md:w-full h-full justify-center items-start text-left text-wrap text-black z-20">
+                                <h1 class="text-6xl max-sm:text-4xl font-bold mb-5">Hello world!</h1>
 
-                                <p class="text-xl max-sm:w-full break-words font-medium text-slate-400">
+                                <p class="text-xl w-full break-words font-medium text-slate-400">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
                                     quidem.dawdwadwadwadwadwadawdawdwadawdawd awdawdwadawdaw dawd dwa daw
                                 </p>
@@ -165,7 +165,7 @@
                             <div class="w-fit content max-md:hidden">
                                 <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6426/6426000_sd.jpg;maxHeight=640;maxWidth=550"
                                     alt="placeholder"
-                                    class="object-covern no-background size-[80%] max-md:size-[100%] skew-y-12">
+                                    class="object-covern no-background size-[80%] max-md:size-[100%] skew-y-6">
                             </div>
                         </div>
 
@@ -175,43 +175,134 @@
             </section>
 
             <section role="category-selector" class="flex flex-col items-center w-full my-10">
-                <div class="flex max-md:hidden justify-center items-center mb-5 gap-36">
-                    <h1 class="text-3xl font-bold">Browse by <span class="font-kalam">Category</span>
-                    </h1>
-
-                    <button
-                        class="bg-[#3175f0] bg-opacity-80 hover:bg-opacity-100 w-[200px] h-[50px] max-sm:w-full rounded-lg transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110">
-                        <a href="/pages/products.html" class="text-white font-medium">View All <span class="mx-2">
-                                <i class="fa-solid fa-arrow-right"></i> </span> </a>
-                    </button>
-                </div>
-
-                <h1 class="content md:hidden text-3xl font-bold mb-5">Browse by <span class="font-kalam">Category</span>
-                </h1>
-
-                <div class="flex justify-center items-center">
-                    <div
-                        class="grid max-md:grid-rows-1 grid-cols-3 grid-flow-row max-sm:grid-rows-3 max-md:grid-cols-1 max-md:grid-flow-col justify-center items-center gap-5">
-                        <button
-                            class="w-[200px] h-[200px] bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
-                            <img src="assets/images/food.png" alt="food" class="size-[100px]">
-                            <h1 class="text-2xl font-bold font-kalam">Food</h1>
-                        </button>
+                <div class="max-w-1/2 h-full">
+                    <div class="flex max-md:hidden justify-between items-center mb-5">
+                        <h1 class="text-3xl font-bold">Browse by <span class="font-kalam">Category</span>
+                        </h1>
 
                         <button
-                            class="w-[200px] h-[200px] bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
-                            <img src="assets/images/electronics.png" alt="electronics" class="size-[100px]">
-                            <h1 class="text-2xl font-bold font-kalam">Electronics</h1>
-                        </button>
-
-                        <button
-                            class="w-[200px] h-[200px] bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
-                            <img src="assets/images/clothing.png" alt="clothing" class="size-[100px]">
-                            <h1 class="text-2xl font-bold font-kalam">Clothing</h1>
+                            class="bg-[#3175f0] bg-opacity-80 hover:bg-opacity-100 w-[200px] h-[50px] max-sm:w-full rounded-lg transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110">
+                            <a href="/pages/products.html" class="text-white font-medium">View All <span class="mx-2">
+                                    <i class="fa-solid fa-arrow-right"></i> </span> </a>
                         </button>
                     </div>
+
+                    <h1 class="content md:hidden text-3xl font-bold text-center mb-5">Browse by <span
+                            class="font-kalam">Category</span>
+                    </h1>
+
+                    <div class="flex justify-center items-center">
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-auto justify-center items-center gap-5">
+
+                            <button
+                                class="size-64 bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                <img src="assets/images/food.png" alt="food" class="size-[100px]">
+                                <h1 class="text-2xl font-bold font-kalam">Food</h1>
+                            </button>
+
+                            <button
+                                class="size-64 bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                <img src="assets/images/electronics.png" alt="electronics" class="size-[100px]">
+                                <h1 class="text-2xl font-bold font-kalam">Electronics</h1>
+                            </button>
+
+                            <button
+                                class="size-64 bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                <img src="assets/images/clothing.png" alt="clothing" class="size-[100px]">
+                                <h1 class="text-2xl font-bold font-kalam">Clothing</h1>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </section>
 
+            <section role="featured-products" class="flex flex-col items-center w-full my-20">
+                <div class="max-w-1/2 h-full">
+                    <div class="flex max-md:hidden justify-between items-center mb-5">
+
+                        <h1 class="text-3xl font-bold">Featured Products</h1>
+
+                        <button
+                            class="bg-[#3175f0] bg-opacity-80 hover:bg-opacity-100 w-[200px] h-[50px] max-sm:w-full rounded-lg transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110">
+                            <a href="/pages/products.html" class="text-white
+                                font-medium">Shop All <span class="mx-2"> <i class="fa-solid fa-arrow-right"></i>
+                                </span>
+                            </a>
+                        </button>
+                    </div>
+
+                    <h1 class="content md:hidden text-3xl font-bold mb-5 text-center">Featured Products</h1>
+
+                    <div class="flex justify-center items-center">
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-auto justify-center items-center gap-5">
+
+                            <button
+                                class="size-64 bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                <img src="assets/images/food.png" alt="food" class="size-[100px]">
+                                <h1 class="text-2xl font-bold font-kalam">Food</h1>
+                            </button>
+
+                            <button
+                                class="size-64 bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                <img src="assets/images/electronics.png" alt="electronics" class="size-[100px]">
+                                <h1 class="text-2xl font-bold font-kalam">Electronics</h1>
+                            </button>
+
+                            <button
+                                class="size-64 bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                <img src="assets/images/clothing.png" alt="clothing" class="size-[100px]">
+                                <h1 class="text-2xl font-bold font-kalam">Clothing</h1>
+                            </button>
+
+                            <button
+                                class="size-64 bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                <img src="assets/images/clothing.png" alt="clothing" class="size-[100px]">
+                                <h1 class="text-2xl font-bold font-kalam">Clothing</h1>
+                            </button>
+
+                            <button
+                                class="size-64 bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                <img src="assets/images/clothing.png" alt="clothing" class="size-[100px]">
+                                <h1 class="text-2xl font-bold font-kalam">Clothing</h1>
+                            </button>
+                            <button
+                                class="size-64 bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                <img src="assets/images/clothing.png" alt="clothing" class="size-[100px]">
+                                <h1 class="text-2xl font-bold font-kalam">Clothing</h1>
+                            </button>
+                            <button
+                                class="size-64 bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                <img src="assets/images/clothing.png" alt="clothing" class="size-[100px]">
+                                <h1 class="text-2xl font-bold font-kalam">Clothing</h1>
+                            </button>
+                            <button
+                                class="size-64 bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                <img src="assets/images/clothing.png" alt="clothing" class="size-[100px]">
+                                <h1 class="text-2xl font-bold font-kalam">Clothing</h1>
+                            </button>
+                            <button
+                                class="size-64 bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                <img src="assets/images/clothing.png" alt="clothing" class="size-[100px]">
+                                <h1 class="text-2xl font-bold font-kalam">Clothing</h1>
+                            </button>
+                            <button
+                                class="size-64 bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                <img src="assets/images/clothing.png" alt="clothing" class="size-[100px]">
+                                <h1 class="text-2xl font-bold font-kalam">Clothing</h1>
+                            </button>
+                            <button
+                                class="size-64 bg-inherit border-2 rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                <img src="assets/images/clothing.png" alt="clothing" class="size-[100px]">
+                                <h1 class="text-2xl font-bold font-kalam">Clothing</h1>
+                            </button>
+
+                            </var>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- 
             <section role="home-page" class="flex justify-center max-md:justify-start max-md:mx-10 items-center my-5">
