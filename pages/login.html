@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/src/tailwind.config.js"></script>
+
+    <script src="https://kit.fontawesome.com/feee4c1bf8.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../index.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="flex flex-col min-h-screen">
+
+        <div class="flex-grow">
+            <header class="m-5 lg:px-5">
+                <div class="container mx-auto">
+                    <nav class="flex justify-between items-center py-5 w-full">
+                        <div class="flex justify-start">
+                            <a href="../index.html" class="text-3xl max-sm:text-2lg font-bold text-[#0f5cd9]">All <span
+                                    class="text-blue-300">N</span> One</a>
+                        </div>
+
+                        <div class="hidden md:flex justify-end gap-5">
+                            <label
+                                class="flex justify-end items-center bg-blue-200 p-3 w-[500px] max-lg:w-[300px] rounded-lg groups mx-5">
+                                <span class="ml-5 mr-1"><i class="fa-solid fa-magnifying-glass fa-lg"></i></span>
+                                <input
+                                    class="bg-inherit outline-none w-full h-full text-base font-medium text-gray-500 border-0 focus:ring-0 mr-5"
+                                    type="text" placeholder="Search for an item"></input>
+                            </label>
+
+                            <div class="flex flex-row items-center gap-2">
+                                <a href="/pages/login.html" class="text-base font-medium"><i
+                                        class="fa-solid fa-user"></i><span class="mx-2">Sign Up/Sign In</span></a>
+
+                                <div class="border-l-2 border-l-[#4949499e] h-[20px] w-[5px]"></div>
+
+                                <a href="/pages/cart.html" class="text-base font-medium"><i
+                                        class="fa-solid fa-cart-shopping"></i><span class="mx-2">Cart</span></a>
+                            </div>
+                        </div>
+
+                        <div class="flex md:hidden justify-end">
+                            <button
+                                class="flex justify-center items-center bg-blue-200 p-3 size-[50px] max-sm:size-[45px] rounded-lg groups mx-5">
+                                <i class="fa-solid fa-bars fa-lg"></i>
+                            </button>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+
+            <hr class="border-[#4949499e] opacity-50 w-full h-[2px] max-md:opacity-0" />
+
+            <section role="home-page" class="flex justify-center items-center my-5">
+                <h1 class="text-3xl font-bold underline text-clifford">
+                    Hello world!
+                </h1>
+            </section>
+        </div>
+
+        <footer>
+            <div class="mt-auto bg-[#f8f8f9] border-t-[1px] border-[#49494920]">
+                <div class="container mx-auto pb-12">
+
+                    <div class="my-20">
+                        <div class="flex flex-row max-sm:flex-col justify-center items-center gap-10 mt-5">
+                            <a href="/pages/about.html" class="text-base font-medium text-center">About</a>
+                            <a href="/pages/contact.html" class="text-base font-medium text-center">Contact</a>
+
+                            <a href="index.html" class="text-base font-medium text-center">Home</a>
+                        </div>
+                    </div>
+
+                    <hr class="border-[#4949499e] opacity-50" />
+
+                    <div class="flex flex-col align-middle justify-center mt-4 mb-[-10px] gap-5">
+                        <p class="text-base font-medium text-center underline">
+                            <a href="https://www.wlv.ac.uk/">
+                                © 2024 Company, Inc.
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

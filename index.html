@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/src/tailwind.config.js"></script>
+
+    <script src="https://kit.fontawesome.com/feee4c1bf8.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="index.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="flex flex-col min-h-screen">
+
+        <div class="flex-grow">
+            <header class="m-5 lg:px-5">
+                <div class="mx-5">
+                    <nav class="flex justify-between items-center py-5 w-full">
+                        <div class="flex justify-start">
+                            <a href="index.html" class="text-3xl max-sm:text-2lg font-bold text-[#0f5cd9]">All <span
+                                    class="text-blue-300">N</span> One</a>
+                        </div>
+
+                        <div class="flex max-md:hidden justify-end gap-5">
+                            <label
+                                class="flex justify-end items-center bg-blue-200 p-3 lg:w-[490px] max-lg:w-[300px] md:w-[250px] rounded-lg groups mx-5">
+                                <span class="ml-5 mr-1"><i class="fa-solid fa-magnifying-glass fa-lg"></i></span>
+                                <input
+                                    class="bg-inherit outline-none w-full h-full text-base font-medium text-gray-500 border-0 focus:ring-0 mr-5"
+                                    type="text" placeholder="Search for an item"></input>
+                            </label>
+
+                            <div class="flex flex-row items-center gap-2">
+                                <a href="/pages/login.html" class="text-base font-medium"><i
+                                        class="fa-solid fa-user"></i><span class="mx-2">Sign Up/Sign In</span></a>
+
+                                <div class="border-l-2 border-l-[#4949499e] h-[20px] w-[5px]"></div>
+
+                                <a href="/pages/cart.html" class="text-base font-medium"><i
+                                        class="fa-solid fa-cart-shopping"></i><span class="mx-2">Cart</span></a>
+                            </div>
+                        </div>
+
+                        <div class="max-md:flex hidden justify-end">
+                            <button
+                                class="flex justify-center items-center bg-blue-200 p-3 size-[50px] max-sm:size-[45px] rounded-lg groups mx-5">
+                                <i class="fa-solid fa-bars fa-lg"></i>
+                            </button>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+
+            <hr class="border-[#4949499e] opacity-50 w-full h-[2px] max-md:opacity-0" />
+
+            <section role="categories" class="flex max-md:hidden justify-center items-center my-5">
+                <div class="flex flex-row justify-center items-center gap-5">
+
+                    <a href="/pages/categories.html"
+                        class="text-base font-medium text-center bg-blue-300 p-3 rounded-xl">
+                        Categories
+
+                        <span class="ml-2"><i class="fa-solid fa-chevron-down"></i></span>
+                    </a>
+
+                    <a href="/pages/products.html" class="text-base font-medium text-center bg-blue-100 p-3 rounded-xl">
+                        Products
+                        <span class="ml-2"><i class="fa-solid fa-chevron-down"></i></span>
+                    </a>
+
+                    <a href="/pages/services.html" class="text-base font-medium text-center bg-blue-100 p-3 rounded-xl">
+                        Services
+
+                        <span class="ml-2"><i class="fa-solid fa-chevron-down"></i></span>
+                    </a>
+
+                </div>
+            </section>
+
+            <hr class="border-[#4949499e] opacity-50 w-full h-[2px] max-md:opacity-0" />
+
+            <!-- <section role="home-page" class="flex justify-center items-center my-5">
+                <div class="w-3/4 max-w-[1200px] h-[300px] max-lg:h-[200px] relative">
+                    <div class="flex justify-between items-center h-full">
+
+                        <div
+                            class="w-full h-full bg-[#0f5cd9] max-md:bg-inherit rounded-2xl overflow-hidden text-white max-md:hidden">
+                            <div id="data_home_slide_show"
+                                class="slide-show flex justify-between items-center p-5 w-full h-full transition transition-all">
+
+                                <div
+                                    class="flex flex-col gap-2 w-full max-lg:w-3/5 h-full justify-start items-start ml-4 lg:ml-16 mt-14 lg:mt-24">
+                                    <h1 data-slide_title="Title" class="text-3xl max-lg:text-xl font-bold">
+                                        Hello world!
+                                    </h1>
+
+                                    <p data-slide_description="Description"
+                                        class="text-5xl max-lg:text-3xl font-medium text-clamp-2">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.
+                                    </p>
+                                </div>
+
+                                <div class="flex w-full h-full m-20">
+                                    <img data-slidenumber="0" src="https://via.placeholder.com/150" alt="placeholder"
+                                        class="w-full h-full object-contain bg-transparent">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="data_home_slide_shows" class="max-md:block hidden w-full h-full">
+                            <img data-slidenumber="0" src="https://via.placeholder.com/150" alt="placeholder"
+                                class="w-full h-full object-cover bg-transparent opacity-60">
+
+                            <div class="-mt-32">
+                                <h1 data-slide_title=" Title" class="text-3xl max-lg:text-xl font-bold">
+                                    Hello world!
+                                </h1>
+
+                                <p data-slide_description="Description"
+                                    class="text-5xl max-lg:text-3xl font-medium text-clamp-2">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div onclick="change_slide(true)"
+                            class="size-[50px] rounded-full bg-[#f8f8f9] flex justify-center items-center absolute -left-6 top-1/2 transform -translate-y-1/2 hover:cursor-pointer">
+                            <span class="rounded-full size-[40px] flex justify-center items-center bg-blue-200">
+                                <i class="fa-solid fa-chevron-left fa-lg"></i>
+                            </span>
+                        </div>
+
+                        <div onclick="change_slide(false)"
+                            class="size-[50px] rounded-full bg-[#f8f8f9] flex justify-center items-center absolute -right-6 top-1/2 transform -translate-y-1/2 hover:cursor-pointer">
+                            <span class="rounded-full size-[40px] flex justify-center items-center bg-blue-200">
+                                <i class="fa-solid fa-chevron-right fa-lg"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+
+
+            <section role="home-page" class="flex justify-center max-md:justify-start max-md:mx-10 items-center my-5">
+                <div class="w-3/4 max-md:w-11/12 max-w-[1200px] h-[300px] max-lg:h-[200px] relative">
+                    <div class="flex justify-between items-center h-full">
+                        <div id="scrollable-div"
+                            class="w-full h-full bg-inherit overflow-x-hidden max-md:overflow-x-auto overflow-y-hidden flex items-center gap-4">
+
+                            <div
+                                class="w-[250px] h-fit p-20 flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
+                                <h1 class="text-3xl font-bold">Hello world!</h1>
+                            </div>
+
+                            <div
+                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
+                                <h1 class="text-3xl font-bold">Hello world!</h1>
+                            </div>
+                            <div
+                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
+                                <h1 class="text-3xl font-bold">Hello world!</h1>
+                            </div>
+                            <div
+                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
+                                <h1 class="text-3xl font-bold">Hello world!</h1>
+                            </div>
+                            <div
+                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
+                                <h1 class="text-3xl font-bold">Hello world!</h1>
+                            </div>
+                            <div
+                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
+                                <h1 class="text-3xl font-bold">Hello world!</h1>
+                            </div>
+                            <div
+                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
+                                <h1 class="text-3xl font-bold">Hello world!</h1>
+                            </div>
+                            <div
+                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
+                                <h1 class="text-3xl font-bold">Hello world!</h1>
+                            </div>
+                            <div
+                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
+                                <h1 class="text-3xl font-bold">Hello world!</h1>
+                            </div>
+
+                            <div
+                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
+                                <h1 class="text-3xl font-bold">Hello world!</h1>
+                            </div>
+                            <div
+                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
+                                <h1 class="text-3xl font-bold">Hello world!</h1>
+                            </div>
+                            <div
+                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
+                                <h1 class="text-3xl font-bold">Hello world!</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <footer>
+            <div class="mt-auto bg-[#f8f8f9] border-t-[1px] border-[#49494920]">
+                <div class="container mx-auto pb-12">
+
+                    <div class="my-20">
+                        <div class="flex flex-row max-sm:flex-col justify-center items-center gap-10 mt-5">
+                            <a href="/pages/about.html" class="text-base font-medium text-center">About</a>
+                            <a href="/pages/contact.html" class="text-base font-medium text-center">Contact</a>
+
+                            <a href="index.html" class="text-base font-medium text-center">Home</a>
+                        </div>
+                    </div>
+
+                    <hr class="border-[#4949499e] opacity-50" />
+
+                    <div class="flex flex-col align-middle justify-center mt-4 mb-[-10px] gap-5">
+                        <p class="text-base font-medium text-center underline">
+                            <a href="https://www.wlv.ac.uk/">
+                                © 2024 Company, Inc.
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="./src/index.js"></script>
+</body>
+
+</html>

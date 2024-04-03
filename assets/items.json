@@ -1,0 +1,92 @@
+[
+    {
+        "product_name": "iPhone 13",
+        "product_price": 999.99,
+        "product_quantity": 20,
+        "product_category": "Electronics",
+        "product_image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-select-2021?wid=834&hei=1000&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1632376723000",
+        "product_brand": "Apple",
+        "product_description": "The iPhone 13 is the latest smartphone from Apple, featuring a powerful A15 Bionic chip, advanced camera system, and stunning Super Retina XDR display."
+    },
+    {
+        "product_name": "Pizza Margherita",
+        "product_price": 12.99,
+        "product_quantity": 30,
+        "product_category": "Food",
+        "product_image": "https://www.simplyrecipes.com/wp-content/uploads/2007/01/pizza-margherita-horiz-a-2000.jpg",
+        "product_brand": "N/A",
+        "product_description": "A classic Italian pizza topped with tomatoes, fresh mozzarella, basil, and olive oil."
+    },
+    {
+        "product_name": "Levi's 501 Original Fit Jeans",
+        "product_price": 59.99,
+        "product_quantity": 15,
+        "product_category": "Clothing",
+        "product_image": "https://images.levi.com/is/image/Levi/cdfdb_005010185-front-pdp.jpg?$grid_desktop_full$",
+        "product_brand": "Levi's",
+        "product_description": "Levi's 501 Original Fit Jeans are iconic and timeless, featuring a straight leg, button fly, and classic five-pocket styling."
+    },
+    {
+        "product_name": "Samsung 55\" Smart TV",
+        "product_price": 799.99,
+        "product_quantity": 10,
+        "product_category": "Electronics",
+        "product_image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6426/6426000_sd.jpg;maxHeight=640;maxWidth=550",
+        "product_brand": "Samsung",
+        "product_description": "The Samsung 55\" Smart TV offers stunning 4K resolution, a sleek design, and built-in smart features for streaming your favorite content."
+    },
+    {
+        "product_name": "Chicken Caesar Salad",
+        "product_price": 9.99,
+        "product_quantity": 25,
+        "product_category": "Food",
+        "product_image": "https://www.simplyrecipes.com/wp-content/uploads/2018/06/HT-Classic-Caesar-Salad-LEAD-6-600x840.jpg",
+        "product_brand": "N/A",
+        "product_description": "A delicious salad made with romaine lettuce, grilled chicken, Parmesan cheese, croutons, and Caesar dressing."
+    },
+    {
+        "product_name": "Nike Air Force 1 Sneakers",
+        "product_price": 89.99,
+        "product_quantity": 20,
+        "product_category": "Clothing",
+        "product_image": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/30b8322b-7dd1-4732-b8b8-396826d7be9e/air-force-1-07-mens-shoe-Znvj8P.png",
+        "product_brand": "Nike",
+        "product_description": "The Nike Air Force 1 Sneakers feature a classic design, comfortable fit, and iconic Nike Air cushioning for all-day wear."
+    },
+    {
+        "product_name": "Sony Noise Cancelling Headphones",
+        "product_price": 299.99,
+        "product_quantity": 15,
+        "product_category": "Electronics",
+        "product_image": "https://images-na.ssl-images-amazon.com/images/I/81oZ0TjOq7L._AC_SL1500_.jpg",
+        "product_brand": "Sony",
+        "product_description": "Sony Noise Cancelling Headphones offer industry-leading noise cancellation, wireless connectivity, and premium sound quality for immersive listening experiences."
+    },
+    {
+        "product_name": "Sushi Combo Platter",
+        "product_price": 24.99,
+        "product_quantity": 20,
+        "product_category": "Food",
+        "product_image": "https://www.thespruceeats.com/thmb/CzS8NrJFzzXJfIn1O2pQZsYJzL0=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/sushi-combo-5836f9e13df78c6f6a6b42ad.jpg",
+        "product_brand": "N/A",
+        "product_description": "A delicious assortment of sushi rolls, nigiri, and sashimi, perfect for sharing or enjoying on your own."
+    },
+    {
+        "product_name": "Adidas Ultraboost Running Shoes",
+        "product_price": 179.99,
+        "product_quantity": 25,
+        "product_category": "Clothing",
+        "product_image": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/50995441a7b84731b0eaac4000d45a0a_9366/Ultraboost_21_Shoes_White_FW4353_01_standard.jpg",
+        "product_brand": "Adidas",
+        "product_description": "The Adidas Ultraboost Running Shoes feature responsive cushioning, a lightweight design, and a supportive fit for optimal performance on your runs."
+    },
+    {
+        "product_name": "Apple Watch Series 7",
+        "product_price": 399.99,
+        "product_quantity": 15,
+        "product_category": "Electronics",
+        "product_image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/apple-watch-s7-40mm-blue-cell-202109?wid=750&hei=1080&fmt=jpeg&qlt=80&op_usm=0.5,0.5&.v=1631151072000",
+        "product_brand": "Apple",
+        "product_description": "The Apple Watch Series 7 features a larger, always-on Retina display, advanced health monitoring, and customizable watch faces, making it the ultimate companion for your active lifestyle."
+    }
+]
