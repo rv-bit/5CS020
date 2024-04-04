@@ -23,8 +23,7 @@
             <header class="my-5 px-20 max-lg:px-5 max-sm:px-5">
                 <nav class="flex justify-between items-center py-5 w-full">
                     <div class="flex justify-start">
-                        <a href="index.html" class="text-3xl max-sm:text-2lg max-extraSm:text-[22px] font-bold">ALL
-                            N
+                        <a href="index.html" class="text-3xl max-sm:text-2lg max-extraSm:text-[22px] font-bold">ALL N
                             ONE</a>
                     </div>
 
@@ -67,7 +66,7 @@
                         </button>
 
                         <div id="menu_dropdown"
-                            class="transition-all ease-in-out duration-50 hidden flex-col justify-center items-center bg-slate-200 h-screen w-screen rounded-lg z-[999] fixed top-0 left-0 gap-2">
+                            class="transition-all ease-in-out duration-50 hidden flex-col justify-center items-center text-center bg-slate-200 h-screen w-screen rounded-lg z-[999] fixed top-0 left-0 gap-2">
 
                             <button onclick="openMenu()"
                                 class="flex justify-start items-start bg-slate-200 p-3 size-[50px] max-sm:size-[45px] rounded-lg ml-2">
@@ -100,68 +99,6 @@
                 </nav>
             </header>
 
-            <!-- <section role="home-page" class="flex justify-center items-center my-5">
-                <div class="w-3/4 max-w-[1200px] h-[300px] max-lg:h-[200px] relative">
-                    <div class="flex justify-between items-center h-full">
-
-                        <div
-                            class="w-full h-full bg-[#0f5cd9] max-md:bg-inherit rounded-2xl overflow-hidden text-white max-md:hidden">
-                            <div id="data_home_slide_show"
-                                class="slide-show flex justify-between items-center p-5 w-full h-full transition transition-all">
-
-                                <div
-                                    class="flex flex-col gap-2 w-full max-lg:w-3/5 h-full justify-start items-start ml-4 lg:ml-16 mt-14 lg:mt-24">
-                                    <h1 data-slide_title="Title" class="text-3xl max-lg:text-xl font-bold">
-                                        Hello world!
-                                    </h1>
-
-                                    <p data-slide_description="Description"
-                                        class="text-5xl max-lg:text-3xl font-medium text-clamp-2">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.
-                                    </p>
-                                </div>
-
-                                <div class="flex w-full h-full m-20">
-                                    <img data-slidenumber="0" src="https://via.placeholder.com/150" alt="placeholder"
-                                        class="w-full h-full object-contain bg-transparent">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="data_home_slide_shows" class="max-md:block hidden w-full h-full">
-                            <img data-slidenumber="0" src="https://via.placeholder.com/150" alt="placeholder"
-                                class="w-full h-full object-cover bg-transparent opacity-60">
-
-                            <div class="-mt-32">
-                                <h1 data-slide_title=" Title" class="text-3xl max-lg:text-xl font-bold">
-                                    Hello world!
-                                </h1>
-
-                                <p data-slide_description="Description"
-                                    class="text-5xl max-lg:text-3xl font-medium text-clamp-2">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div onclick="change_slide(true)"
-                            class="size-[50px] rounded-full bg-[#f8f8f9] flex justify-center items-center absolute -left-6 top-1/2 transform -translate-y-1/2 hover:cursor-pointer">
-                            <span class="rounded-full size-[40px] flex justify-center items-center bg-blue-200">
-                                <i class="fa-solid fa-chevron-left fa-lg"></i>
-                            </span>
-                        </div>
-
-                        <div onclick="change_slide(false)"
-                            class="size-[50px] rounded-full bg-[#f8f8f9] flex justify-center items-center absolute -right-6 top-1/2 transform -translate-y-1/2 hover:cursor-pointer">
-                            <span class="rounded-full size-[40px] flex justify-center items-center bg-blue-200">
-                                <i class="fa-solid fa-chevron-right fa-lg"></i>
-                            </span>
-                        </div>
-
-                    </div>
-                </div>
-            </section> -->
-
             <section role="top-products" class="justify-center max-md:justify-start items-center my-5 w-full">
                 <div class="relative w-full h-[600px] bg-[#faf4f1] overflow-hidden">
 
@@ -184,7 +121,7 @@
                                 Hello world!</h1>
 
                             <p data-top-product-description="Lorem..."
-                                class="text-xl w-1/2 max-md:w-full break-words font-medium text-slate-400">
+                                class="text-xl w-full lg:w-1/2 break-words font-medium text-slate-400">
 
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
                                 quidem.dawdwadwadwadwadwadawdawdwadawdawd awdawdwadawdaw dawd dwa daw
@@ -216,11 +153,14 @@
                         <h1 class="text-3xl font-bold">Browse by <span class="font-kalam">Category</span>
                         </h1>
 
-                        <button
+                        <a href="/pages/products.html"
                             class="bg-[#3175f0] bg-opacity-80 hover:bg-opacity-100 w-[200px] h-[50px] max-sm:w-full rounded-lg transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110">
-                            <a href="/pages/products.html" class="text-white font-semibold">View All <span class="mx-2">
-                                    <i class="fa-solid fa-arrow-right"></i> </span> </a>
-                        </button>
+
+                            <span
+                                class="flex justify-center items-center text-center w-full h-full text-white font-semibold">
+                                View All <span class="mx-2"> <i class="fa-solid fa-arrow-right"></i> </span>
+                            </span>
+                        </a>
                     </div>
 
                     <h1 class="content md:hidden text-3xl font-bold text-center mb-5">Browse by <span
@@ -259,20 +199,21 @@
 
                         <h1 class="text-3xl font-bold">Featured Products</h1>
 
-                        <button
+                        <a href="/pages/products.html"
                             class="bg-[#3175f0] bg-opacity-80 hover:bg-opacity-100 w-[200px] h-[50px] max-sm:w-full rounded-md transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110">
-                            <a href="/pages/products.html" class="text-white
-                                font-semibold">Shop All <span class="mx-2"> <i class="fa-solid fa-arrow-right"></i>
-                                </span>
-                            </a>
-                        </button>
+
+                            <span
+                                class="flex justify-center items-center text-center w-full h-full text-white font-semibold">
+                                Shop All <span class="mx-2"> <i class="fa-solid fa-arrow-right"></i> </span>
+                            </span>
+                        </a>
                     </div>
 
                     <h1 class="content md:hidden text-3xl font-bold mb-5 text-center">Featured Products</h1>
 
                     <div class="flex justify-center items-center">
                         <div
-                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-auto justify-center items-center gap-5">
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-auto justify-center items-center gap-5">
 
                             <div class="w-64 max-extraSm:w-56 h-auto flex flex-col gap-2">
                                 <button
@@ -369,69 +310,6 @@
 
                 </div>
             </section>
-
-            <!-- 
-            <section role="home-page" class="flex justify-center max-md:justify-start max-md:mx-10 items-center my-5">
-                <div class="w-3/4 max-md:w-11/12 max-w-[1200px] h-[300px] max-lg:h-[200px] relative">
-                    <div class="flex justify-between items-center h-full">
-                        <div id="scrollable-div"
-                            class="w-full h-full bg-inherit overflow-x-hidden max-md:overflow-x-auto overflow-y-hidden no-scrollbar flex items-center gap-4">
-
-                            <div
-                                class="w-[250px] h-fit p-20 flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
-                                <h1 class="text-3xl font-bold">Hello world!</h1>
-                            </div>
-
-                            <div
-                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
-                                <h1 class="text-3xl font-bold">Hello world!</h1>
-                            </div>
-                            <div
-                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
-                                <h1 class="text-3xl font-bold">Hello world!</h1>
-                            </div>
-                            <div
-                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
-                                <h1 class="text-3xl font-bold">Hello world!</h1>
-                            </div>
-                            <div
-                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
-                                <h1 class="text-3xl font-bold">Hello world!</h1>
-                            </div>
-                            <div
-                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
-                                <h1 class="text-3xl font-bold">Hello world!</h1>
-                            </div>
-                            <div
-                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
-                                <h1 class="text-3xl font-bold">Hello world!</h1>
-                            </div>
-                            <div
-                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
-                                <h1 class="text-3xl font-bold">Hello world!</h1>
-                            </div>
-                            <div
-                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
-                                <h1 class="text-3xl font-bold">Hello world!</h1>
-                            </div>
-
-                            <div
-                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
-                                <h1 class="text-3xl font-bold">Hello world!</h1>
-                            </div>
-                            <div
-                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
-                                <h1 class="text-3xl font-bold">Hello world!</h1>
-                            </div>
-                            <div
-                                class="size-[250px] p-20  flex justify-center items-center bg-[#0f5cd9] text-white rounded-2xl">
-                                <h1 class="text-3xl font-bold">Hello world!</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-
         </div>
 
         <footer class="my-20 mx-5 flex justify-center items-center">
