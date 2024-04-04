@@ -76,7 +76,7 @@
   cursor: grabbing;
 }
 
-.no-background {
+[data-top-product-image] {
 	background-color: transparent;
 	mix-blend-mode: multiply;
 }

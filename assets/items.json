@@ -1,15 +1,18 @@
 [
     {
         "product_name": "iPhone 13",
+        "product_id": "iphone-13",
         "product_price": 999.99,
         "product_quantity": 20,
         "product_category": "Electronics",
         "product_image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-select-2021?wid=834&hei=1000&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1632376723000",
         "product_brand": "Apple",
+        "top_seller": true,
         "product_description": "The iPhone 13 is the latest smartphone from Apple, featuring a powerful A15 Bionic chip, advanced camera system, and stunning Super Retina XDR display."
     },
     {
         "product_name": "Pizza Margherita",
+        "product_id": "pizza-margherita",
         "product_price": 12.99,
         "product_quantity": 30,
         "product_category": "Food",
@@ -19,15 +22,18 @@
     },
     {
         "product_name": "Levi's 501 Original Fit Jeans",
+        "product_id": "levis-501-jeans",
         "product_price": 59.99,
         "product_quantity": 15,
         "product_category": "Clothing",
         "product_image": "https://images.levi.com/is/image/Levi/cdfdb_005010185-front-pdp.jpg?$grid_desktop_full$",
         "product_brand": "Levi's",
+        "top_seller": true,
         "product_description": "Levi's 501 Original Fit Jeans are iconic and timeless, featuring a straight leg, button fly, and classic five-pocket styling."
     },
     {
         "product_name": "Samsung 55\" Smart TV",
+        "product_id": "samsung-55-tv",
         "product_price": 799.99,
         "product_quantity": 10,
         "product_category": "Electronics",
@@ -37,6 +43,7 @@
     },
     {
         "product_name": "Chicken Caesar Salad",
+        "product_id": "chicken-caesar-salad",
         "product_price": 9.99,
         "product_quantity": 25,
         "product_category": "Food",
@@ -46,15 +53,18 @@
     },
     {
         "product_name": "Nike Air Force 1 Sneakers",
+        "product_id": "nike-air-force-1",
         "product_price": 89.99,
         "product_quantity": 20,
         "product_category": "Clothing",
         "product_image": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/30b8322b-7dd1-4732-b8b8-396826d7be9e/air-force-1-07-mens-shoe-Znvj8P.png",
         "product_brand": "Nike",
+        "top_seller": true,
         "product_description": "The Nike Air Force 1 Sneakers feature a classic design, comfortable fit, and iconic Nike Air cushioning for all-day wear."
     },
     {
         "product_name": "Sony Noise Cancelling Headphones",
+        "product_id": "sony-noise-cancelling-headphones",
         "product_price": 299.99,
         "product_quantity": 15,
         "product_category": "Electronics",
@@ -64,6 +74,7 @@
     },
     {
         "product_name": "Sushi Combo Platter",
+        "product_id": "sushi-combo-platter",
         "product_price": 24.99,
         "product_quantity": 20,
         "product_category": "Food",
@@ -73,6 +84,7 @@
     },
     {
         "product_name": "Adidas Ultraboost Running Shoes",
+        "product_id": "adidas-ultraboost-shoes",
         "product_price": 179.99,
         "product_quantity": 25,
         "product_category": "Clothing",
@@ -82,6 +94,7 @@
     },
     {
         "product_name": "Apple Watch Series 7",
+        "product_id": "apple-watch-series-7",
         "product_price": 399.99,
         "product_quantity": 15,
         "product_category": "Electronics",
