@@ -50,22 +50,38 @@ let currentProductIndex = 0;
 const updateProduct = () => {
     const product = products[currentProductIndex];
 
-    const titleElement = document.querySelector('[data-top-product-title]');
-    const descriptionElement = document.querySelector('[data-top-product-description]');
-    const productIdElement = document.querySelector('[data-top-product-product_id]');
-    const imageElement = document.querySelector('[data-top-product-image]');
+    const parentDiv = document.getElementById('data_home_top_products');
+    const contentDivs = parentDiv.querySelectorAll('.flex');
 
-    titleElement.setAttribute('data-top-product-title', product.title);
-    descriptionElement.setAttribute('data-top-product-description', product.description);
-    productIdElement.setAttribute('data-top-product-product_id', product.productId);
+    contentDivs.forEach(div => div.classList.add('slide-out'));
 
-    titleElement.innerHTML = product.title
-    descriptionElement.innerHTML = product.description
-    productIdElement.href = `product.html?product_id=${product.productId}`;
+    setTimeout(() => {
+        const titleElement = document.querySelector('[data-top-product-title]');
+        const descriptionElement = document.querySelector('[data-top-product-description]');
+        const productIdElement = document.querySelector('[data-top-product-product_id]');
+        const imageElement = document.querySelector('[data-top-product-image]');
 
-    imageElement.setAttribute('src', product.image);
+        titleElement.setAttribute('data-top-product-title', product.title);
+        descriptionElement.setAttribute('data-top-product-description', product.description);
+        productIdElement.setAttribute('data-top-product-product_id', product.productId);
 
-    currentProductIndex = (currentProductIndex + 1) % products.length;
+        titleElement.innerHTML = product.title
+        descriptionElement.innerHTML = product.description
+        productIdElement.href = `product.html?product_id=${product.productId}`;
+
+        imageElement.setAttribute('src', product.image);
+
+        contentDivs.forEach(div => {
+            div.classList.remove('slide-out');
+            div.classList.add('slide-in');
+        });
+
+        setTimeout(() => {
+            contentDivs.forEach(div => div.classList.remove('slide-in'));
+            currentProductIndex = (currentProductIndex + 1) % products.length;
+        }, 500); // Remove the class after 0.5s, which is the duration of the animation
+
+    }, 500);
 }
 
 let dataItems = [];
