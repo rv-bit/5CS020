@@ -144,32 +144,39 @@
                         <div class="size-56 bg-white border-16 rounded-full border-[#f9e9e4]"></div>
                     </div>
 
-                    <div class="relative flex justify-between items-center h-full mx-10">
-                        <div class="flex justify-center items-center gap-64 max-lg:gap-36 w-full">
-                            <div
-                                class="flex flex-col gap-2 lg:w-min max-lg:w-1/2 max-md:w-full h-full justify-center items-start text-left text-wrap text-black z-20">
-                                <h1 class="text-6xl max-sm:text-4xl font-bold mb-5">Hello world!</h1>
+                    <!-- <div class="flex justify-center items-center w-full h-full"> -->
+                    <div id="data_home_top_products"
+                        class="relative grid max-md:grid-cols-1 grid-cols-2 justify-center items-center lg:w-full h-full gap-20 mx-10">
 
-                                <p class="text-xl w-full break-words font-medium text-slate-400">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-                                    quidem.dawdwadwadwadwadwadawdawdwadawdawd awdawdwadawdaw dawd dwa daw
-                                </p>
+                        <div
+                            class="flex flex-col gap-2 w-full h-fit justify-center items-end text-end max-md:text-start max-md:items-start text-wrap text-black z-20">
+                            <h1 data-top-product-title="Hello world" class="text-6xl max-sm:text-4xl font-bold mb-5">
+                                Hello world!</h1>
 
-                                <button
-                                    class="bg-[#3175f0] bg-opacity-80 hover:bg-opacity-100 w-[200px] h-[50px] max-sm:w-full rounded-lg mt-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110">
-                                    <a href="/pages/products.html" class="text-white font-medium">Shop
-                                        Now <span class="mx-2"> <i class="fa-solid fa-arrow-right"></i> </span> </a>
-                                </button>
-                            </div>
+                            <p data-top-product-description="Lorem..."
+                                class="text-xl w-full break-words font-medium text-slate-400">
 
-                            <div class="w-fit content max-md:hidden">
-                                <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6426/6426000_sd.jpg;maxHeight=640;maxWidth=550"
-                                    alt="placeholder"
-                                    class="object-covern no-background size-[80%] max-md:size-[100%] skew-y-6">
-                            </div>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+                                quidem.dawdwadwadwadwadwadawdawdwadawdawd awdawdwadawdaw dawd dwa daw
+                            </p>
+
+                            <a data-top-product-product_id="item" href="/pages/products.html"
+                                class="text-white font-medium bg-[#3175f0] bg-opacity-80 hover:bg-opacity-100 w-[200px] h-[50px] max-sm:w-full rounded-lg mt-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110">
+
+                                <span class="flex justify-center items-center text-center w-full h-full">
+                                    Shop Now <span class="mx-2"> <i class="fa-solid fa-arrow-right"></i> </span>
+                                </span>
+                            </a>
+                        </div>
+
+                        <div class="max-lg:w-fit w-full max-h-fit flex justify-start items-start max-md:hidden">
+                            <img data-top-product-image=""
+                                src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6426/6426000_sd.jpg;maxHeight=640;maxWidth=550"
+                                alt="placeholder" class="object-covern no-background w-[32rem] h-fit">
                         </div>
 
                     </div>
+                    <!-- </div> -->
 
                 </div>
             </section>
