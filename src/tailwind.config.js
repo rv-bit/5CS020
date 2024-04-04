@@ -38,6 +38,10 @@ tailwind.config = {
             gridAutoFlow: {
                 'row': 'row',
             },
+
+            zIndex: {
+                '999': '999',
+            }
         },
     },
 }

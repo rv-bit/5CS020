@@ -90,6 +90,15 @@
   from { transform: translateX(250%); }
   to { transform: translateX(0); }
 }
+@keyframes slide-bottom {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slide-top {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
+}
 
 .slide-out {
   animation: slide-out 0.5s forwards;
@@ -97,4 +106,12 @@
 
 .slide-in {
   animation: slide-in 0.5s forwards;
+}
+
+.slide-bottom {
+  animation: slide-bottom 0.5s forwards;
+}
+
+.slide-top {
+  animation: slide-top 0.5s forwards;
 }

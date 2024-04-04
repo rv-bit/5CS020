@@ -61,11 +61,42 @@
                     </div>
 
                     <div class="max-md:flex hidden justify-end">
-                        <button
+                        <button id="menu_button" onclick="openMenu()"
                             class="flex justify-center items-center bg-slate-200 p-3 size-[50px] max-sm:size-[45px] rounded-lg ml-2">
                             <i class="fa-solid fa-bars fa-lg"></i>
                         </button>
+
+                        <div id="menu_dropdown"
+                            class="transition-all ease-in-out duration-50 hidden flex-col justify-center items-center bg-slate-200 h-screen w-screen rounded-lg z-[999] fixed top-0 left-0 gap-2">
+
+                            <button onclick="openMenu()"
+                                class="flex justify-start items-start bg-slate-200 p-3 size-[50px] max-sm:size-[45px] rounded-lg ml-2">
+                                <i class="fa-solid fa-times fa-lg"></i>
+                            </button>
+
+                            <a href="/index.html"
+                                class="text-slate-400 font-medium text-5xl transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:text-slate-600">
+                                Home
+                            </a>
+                            <a href="/pages/products.html"
+                                class="text-slate-400 font-medium text-5xl transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:text-slate-600">
+                                Products
+                            </a>
+                            <a href="/pages/about.html"
+                                class="text-slate-400 font-medium text-5xl transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:text-slate-600">
+                                About Us
+                            </a>
+                            <a href="/pages/contact.html"
+                                class="text-slate-400 font-medium text-5xl transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:text-slate-600">Contact
+                            </a>
+
+                            <a href="/pages/login.html"
+                                class="text-slate-400 font-medium text-5xl transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:text-slate-600">
+                                Login/Sign Up
+                            </a>
+                        </div>
                     </div>
+
                 </nav>
             </header>
 
