@@ -64,9 +64,6 @@
 		scrollbar-width: none;  /* Firefox */
 	}
 }
-select:focus {
-	  outline: none;
-}
 #scrollable-div {
   cursor: grab;
 }
@@ -75,7 +72,7 @@ select:focus {
   cursor: grabbing;
 }
 
-[data-top-product-image] {
+.bg-no-white {
 	background-color: transparent;
 	mix-blend-mode: multiply;
 }
