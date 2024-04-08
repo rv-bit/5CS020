@@ -64,10 +64,9 @@
 		scrollbar-width: none;  /* Firefox */
 	}
 }
-.font-kalam {
-	font-family: 'Kalam', cursive;
+select:focus {
+	  outline: none;
 }
-
 #scrollable-div {
   cursor: grab;
 }

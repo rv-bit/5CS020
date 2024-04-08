@@ -91,10 +91,185 @@
                 </nav>
             </header>
 
-            <section role="home-page" class="flex justify-center items-center my-5">
-                <h1 class="text-3xl font-bold underline text-clifford">
-                    Hello world!
-                </h1>
+            <section role="products" class="flex my-5 w-full h-full mt-20">
+                <div class="flex justify-between w-full h-full">
+
+                    <section role="filters-side" class="flex justify-start ml-10 w-[300px] h-full">
+                        <div class="flex flex-col gap-4">
+                            <h1 class="text-3xl font-bold">Filters</h1>
+
+                            <div class="flex flex-col gap-5">
+                                <div class="flex flex-col gap-2">
+                                    <h1 class="text-xl font-bold">Category</h1>
+                                    <div class="flex gap-2">
+                                        <input type="checkbox" name="category" id="category1" value="category1">
+                                        <label for="category1">Category 1</label>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <input type="checkbox" name="category" id="category2" value="category2">
+                                        <label for="category2">Category 2</label>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <input type="checkbox" name="category" id="category3" value="category3">
+                                        <label for="category3">Category 3</label>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-col gap-2">
+                                    <h1 class="text-xl font-bold">Price</h1>
+                                    <div class="flex gap-2">
+                                        <input type="checkbox" name="price" id="price1" value="price1">
+                                        <label for="price1">Price 1</label>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <input type="checkbox" name="price" id="price2" value="price2">
+                                        <label for="price2">Price 2</label>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <input type="checkbox" name="price" id="price3" value="price3">
+                                        <label for="price3">Price 3</label>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-col gap-2">
+                                    <h1 class="text-xl font-bold">Brand</h1>
+                                    <div class="flex gap-2">
+                                        <input type="checkbox" name="brand" id="brand1" value="brand1">
+                                        <label for="brand1">Brand 1</label>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <input type="checkbox" name="brand" id="brand2" value="brand2">
+                                        <label for="brand2">Brand 2</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section role="products-list" class="flex flex-col w-full h-full mr-10">
+                        <div class="flex justify-between items-center mb-5">
+                            <h1 class="text-3xl font-semibold">Category</h1>
+
+                            <div class="flex justify-end items-end">
+                                <div
+                                    class="flex flex-row items-center justify-center bg-[#f5f5f5] px-5 py-3 rounded-lg gap-6">
+                                    <section role="selector">
+                                        <label for="sort" class="text-base font-medium">
+                                            Sort By:
+
+                                            <select name="sort" id="sort" type="text"
+                                                class="bg-transparent border-0 focus:outline-0 bg-none">
+                                                <option value="price">Price</option>
+                                                <option value="default">Defaultdawudhawijd</option>
+                                                <option value="name">Name</option>
+                                            </select>
+                                        </label>
+
+                                    </section>
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-sliders-horizontal">
+                                        <line x1="21" x2="14" y1="4" y2="4" />
+                                        <line x1="10" x2="3" y1="4" y2="4" />
+                                        <line x1="21" x2="12" y1="12" y2="12" />
+                                        <line x1="8" x2="3" y1="12" y2="12" />
+                                        <line x1="21" x2="16" y1="20" y2="20" />
+                                        <line x1="12" x2="3" y1="20" y2="20" />
+                                        <line x1="14" x2="14" y1="2" y2="6" />
+                                        <line x1="8" x2="8" y1="10" y2="14" />
+                                        <line x1="16" x2="16" y1="18" y2="22" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div role="filters-added" class="flex justify-start items-start gap-3 mb-10">
+
+                            <div class="flex flex-row gap-2 bg-[#f5f5f5] px-5 py-3 rounded-lg opacity-60">
+                                <p class="text-base font-medium">Category 1</p>
+
+                                <div
+                                    class="transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-x">
+                                        <path d="M18 6 6 18" />
+                                        <path d="m6 6 12 12" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-row gap-2 bg-[#f5f5f5] px-5 py-3 rounded-lg opacity-60">
+                                <p class="text-base font-medium">Category 1</p>
+
+                                <div
+                                    class="transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-x">
+                                        <path d="M18 6 6 18" />
+                                        <path d="m6 6 12 12" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-row gap-2 bg-[#f5f5f5] px-5 py-3 rounded-lg opacity-60">
+                                <p class="text-base font-medium">Category 1</p>
+
+                                <div
+                                    class="transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:cursor-pointer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-x">
+                                        <path d="M18 6 6 18" />
+                                        <path d="m6 6 12 12" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-5 w-full h-full">
+                            <div class="flex flex-col items-center gap-5">
+                                <img src="../assets/products/product1.jpg" alt="product1" class="w-[200px] h-[200px]">
+                                <h1 class="text-xl font-bold">Product 1</h1>
+                                <p class="text-base font-medium">£100</p>
+                                <button
+                                    class="bg-[#3f7ef0] text-white text-base font-medium rounded-lg p-2 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110">Add
+                                    to Cart</button>
+                            </div>
+
+                            <div class="flex flex-col items-center gap-5">
+                                <img src="../assets/products/product2.jpg" alt="product2" class="w-[200px] h-[200px]">
+                                <h1 class="text-xl font-bold">Product 2</h1>
+                                <p class="text-base font-medium">£200</p>
+                                <button
+                                    class="bg-[#3f7ef0] text-white text-base font-medium rounded-lg p-2 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110">Add
+                                    to Cart</button>
+                            </div>
+
+                            <div class="flex flex-col items-center gap-5">
+                                <img src="../assets/products/product3.jpg" alt="product3" class="w-[200px] h-[200px]">
+                                <h1 class="text-xl font-bold">Product 3</h1>
+                                <p class="text-base font-medium">£300</p>
+                                <button
+                                    class="bg-[#3f7ef0] text-white text-base font-medium rounded-lg p-2 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110">Add
+                                    to Cart</button>
+                            </div>
+
+                            <div class="flex flex-col items-center gap-5">
+                                <img src="../assets/products/product4.jpg" alt="product4" class="w-[200px] h-[200px]">
+                                <h1 class="text-xl font-bold">Product 4</h1>
+                                <p class="text base font-medium">£400</p>
+                                <button
+                                    class="bg-[#3f7ef0] text-white text-base font-medium rounded-lg p-2 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110">Add
+                                    to Cart</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
             </section>
         </div>
 

@@ -41,7 +41,14 @@ tailwind.config = {
 
             zIndex: {
                 '999': '999',
-            }
+            },
+
+            fontFamily: {
+                'sans': ['Inter', 'sans-serif'],
+                'serif': ['Merriweather', 'serif'],
+                'mono': ['Fira Code', 'monospace'],
+                'kalam': ['Kalam', 'cursive'],
+            },
         },
     },
 }
