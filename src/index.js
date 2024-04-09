@@ -1,6 +1,6 @@
 async function fetchItems() {
     try {
-        const response = await fetch('assets/items.json');
+        const response = await fetch('../assets/items.json');
         const dataItems = await response.json();
 
         return dataItems;
@@ -87,6 +87,8 @@ const openMenu = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchItems().then((data) => {
+        if (!data) return;
+
         if (data.length === 0) {
             return;
         }

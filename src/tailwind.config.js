@@ -39,10 +39,6 @@ tailwind.config = {
                 'row': 'row',
             },
 
-            gridTemplateColumns: {
-                'products': 'repeat(auto-fill, minmax(350px, auto))',
-            },
-
             zIndex: {
                 '999': '999',
             },
