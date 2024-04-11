@@ -159,7 +159,7 @@
             </section>
 
             <section role="category-selector" class="flex flex-col items-center w-full my-10">
-                <div class="max-w-1/2 h-full">
+                <div class="max-w-1/2 max-sm:w-full h-full">
                     <div class="flex max-md:hidden justify-between items-center mb-5">
                         <h1 class="text-3xl font-bold">Browse by <span class="font-kalam">Category</span>
                         </h1>
@@ -178,24 +178,24 @@
                             class="font-kalam">Category</span>
                     </h1>
 
-                    <div class="flex justify-center items-center">
+                    <div class="flex justify-center items-center w-full">
                         <div
-                            class="grid grid-cols-1 extraSm:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 2xl:grid-cols-auto justify-center items-center gap-5">
+                            class="grid grid-cols-1 extraSm:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 2xl:grid-cols-auto justify-center items-center max-sm:place-items-center gap-5 mx-5 w-full">
 
                             <button
-                                class="size-56 max-md:size-52 bg-inherit border rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                class="size-56 max-md:size-52 max-sm:w-full bg-inherit border rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
                                 <img src="assets/images/food.png" alt="food" class="size-[100px]">
                                 <h1 class="text-2xl font-bold font-kalam">Food</h1>
                             </button>
 
                             <button
-                                class="size-56 max-md:size-52 bg-inherit border rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                class="size-56 max-md:size-52 max-sm:w-full bg-inherit border rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
                                 <img src="assets/images/electronics.png" alt="electronics" class="size-[100px]">
                                 <h1 class="text-2xl font-bold font-kalam">Electronics</h1>
                             </button>
 
                             <button
-                                class="size-56 max-md:size-52 bg-inherit border rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
+                                class="size-56 max-md:size-52 max-sm:w-full bg-inherit border rounded-2xl flex flex-col gap-5 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 justify-center items-center">
                                 <img src="assets/images/clothing.png" alt="clothing" class="size-[100px]">
                                 <h1 class="text-2xl font-bold font-kalam">Clothing</h1>
                             </button>
@@ -205,8 +205,8 @@
             </section>
 
             <section role="featured-products"
-                class="flex flex-col items-center w-full max-md:w-full max-lg:w-[90%] my-20 max-md:mx-0 max-lg:mx-10">
-                <div class="max-w-1/2 h-full">
+                class="flex flex-col justify-center items-center w-full max-md:w-full max-lg:w-[90%] my-20 max-md:mx-0 max-lg:mx-10">
+                <div class="max-w-1/2 max-sm:w-full h-full">
                     <div class="flex max-md:hidden justify-between items-center mb-5">
 
                         <h1 class="text-3xl font-bold">Featured Products</h1>
@@ -223,12 +223,12 @@
 
                     <h1 class="content md:hidden text-3xl font-bold mb-5 text-center">Featured Products</h1>
 
-                    <div class="flex justify-center items-center">
+                    <div class="flex justify-center items-center w-full">
                         <div
-                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-auto justify-center items-center gap-5 max-sm:gap-10">
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-auto justify-center items-center max-sm:place-items-center gap-5 max-sm:gap-10 mx-5 w-full">
 
                             <div
-                                class="flex flex-col bg-[#f6f6f6] rounded-xl border-2 w-[350px] h-full overflow-hidden">
+                                class="flex flex-col bg-[#f6f6f6] rounded-xl border-2 w-64 max-lg:w-[14rem] max-sm:w-[80%] max-extraSm:w-full h-full overflow-hidden">
                                 <div class="flex justify-end items-end my-3 mx-3 text-slate-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -240,9 +240,9 @@
                                 </div>
 
                                 <section role="product-image"
-                                    class="w-full h-full flex justify-center items-center relative">
+                                    class="w-full h-full flex justify-center items-center relative my-10">
                                     <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-select-2021?wid=834&hei=1000&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1632376723000"
-                                        alt="product1" class="w-[260px] h-[300px] object-cover bg-no-white">
+                                        alt="product1" class="size-[100px] object-cover bg-no-white">
                                 </section>
 
                                 <section role="product-info" class="border-t-2 w-full h-full">
@@ -281,7 +281,7 @@
                             </div>
 
                             <div
-                                class="flex flex-col bg-[#f6f6f6] rounded-xl border-2 w-[350px] h-full overflow-hidden">
+                                class="flex flex-col bg-[#f6f6f6] rounded-xl border-2 w-64 max-lg:w-[14rem] max-sm:w-[80%] max-extraSm:w-full h-full overflow-hidden">
                                 <div class="flex justify-end items-end my-3 mx-3 text-slate-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -293,9 +293,9 @@
                                 </div>
 
                                 <section role="product-image"
-                                    class="w-full h-full flex justify-center items-center relative">
+                                    class="w-full h-full flex justify-center items-center relative my-10">
                                     <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-select-2021?wid=834&hei=1000&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1632376723000"
-                                        alt="product1" class="w-[260px] h-[300px] object-cover bg-no-white">
+                                        alt="product1" class="size-[100px] object-cover bg-no-white">
                                 </section>
 
                                 <section role="product-info" class="border-t-2 w-full h-full">
@@ -334,7 +334,7 @@
                             </div>
 
                             <div
-                                class="flex flex-col bg-[#f6f6f6] rounded-xl border-2 w-[350px] h-full overflow-hidden">
+                                class="flex flex-col bg-[#f6f6f6] rounded-xl border-2 w-64 max-lg:w-[14rem] max-sm:w-[80%] max-extraSm:w-full h-full overflow-hidden">
                                 <div class="flex justify-end items-end my-3 mx-3 text-slate-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -346,9 +346,9 @@
                                 </div>
 
                                 <section role="product-image"
-                                    class="w-full h-full flex justify-center items-center relative">
+                                    class="w-full h-full flex justify-center items-center relative my-10">
                                     <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-select-2021?wid=834&hei=1000&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1632376723000"
-                                        alt="product1" class="w-[260px] h-[300px] object-cover bg-no-white">
+                                        alt="product1" class="size-[100px] object-cover bg-no-white">
                                 </section>
 
                                 <section role="product-info" class="border-t-2 w-full h-full">
@@ -387,7 +387,7 @@
                             </div>
 
                             <div
-                                class="flex flex-col bg-[#f6f6f6] rounded-xl border-2 w-[350px] h-full overflow-hidden">
+                                class="flex flex-col bg-[#f6f6f6] rounded-xl border-2 w-64 max-lg:w-[14rem] max-sm:w-[80%] max-extraSm:w-full h-full overflow-hidden">
                                 <div class="flex justify-end items-end my-3 mx-3 text-slate-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -399,9 +399,9 @@
                                 </div>
 
                                 <section role="product-image"
-                                    class="w-full h-full flex justify-center items-center relative">
+                                    class="w-full h-full flex justify-center items-center relative my-10">
                                     <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-select-2021?wid=834&hei=1000&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1632376723000"
-                                        alt="product1" class="w-[260px] h-[300px] object-cover bg-no-white">
+                                        alt="product1" class="size-[100px] object-cover bg-no-white">
                                 </section>
 
                                 <section role="product-info" class="border-t-2 w-full h-full">
@@ -440,7 +440,7 @@
                             </div>
 
                             <div
-                                class="flex flex-col bg-[#f6f6f6] rounded-xl border-2 w-[350px] h-full overflow-hidden">
+                                class="flex flex-col bg-[#f6f6f6] rounded-xl border-2 w-64 max-lg:w-[14rem] max-sm:w-[80%] max-extraSm:w-full h-full overflow-hidden">
                                 <div class="flex justify-end items-end my-3 mx-3 text-slate-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -452,9 +452,9 @@
                                 </div>
 
                                 <section role="product-image"
-                                    class="w-full h-full flex justify-center items-center relative">
+                                    class="w-full h-full flex justify-center items-center relative my-10">
                                     <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-select-2021?wid=834&hei=1000&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1632376723000"
-                                        alt="product1" class="w-[260px] h-[300px] object-cover bg-no-white">
+                                        alt="product1" class="size-[100px] object-cover bg-no-white">
                                 </section>
 
                                 <section role="product-info" class="border-t-2 w-full h-full">
@@ -493,7 +493,7 @@
                             </div>
 
                             <div
-                                class="flex flex-col bg-[#f6f6f6] rounded-xl border-2 w-[350px] h-full overflow-hidden">
+                                class="flex flex-col bg-[#f6f6f6] rounded-xl border-2 w-64 max-lg:w-[14rem] max-sm:w-[80%] max-extraSm:w-full h-full overflow-hidden">
                                 <div class="flex justify-end items-end my-3 mx-3 text-slate-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -505,9 +505,115 @@
                                 </div>
 
                                 <section role="product-image"
-                                    class="w-full h-full flex justify-center items-center relative">
+                                    class="w-full h-full flex justify-center items-center relative my-10">
                                     <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-select-2021?wid=834&hei=1000&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1632376723000"
-                                        alt="product1" class="w-[260px] h-[300px] object-cover bg-no-white">
+                                        alt="product1" class="size-[100px] object-cover bg-no-white">
+                                </section>
+
+                                <section role="product-info" class="border-t-2 w-full h-full">
+                                    <div class="grid grid-cols-2 justify-center items-center mx-3 my-3 gap-3">
+                                        <h1 class="col-span-2 text-xl font-bold truncate">Product 1dawdiwajdia</h1>
+
+                                        <section role="information"
+                                            class="flex justify-between w-full h-full col-span-2">
+                                            <div role="pricing-products" class="flex flex-col gap-[0.05rem]">
+                                                <p class="text-sm text-slate-400 font-medium">Price:</p>
+                                                <h1 class="text-2xl font-semibold">£100</s>
+                                            </div>
+
+                                            <div class="flex justify-end items-center">
+                                                <button
+                                                    class="bg-[#3f7ef0] text-white rounded-lg p-2 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 w-max flex justify-center items-center">
+
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="lucide lucide-shopping-basket">
+                                                        <path d="m15 11-1 9" />
+                                                        <path d="m19 11-4-7" />
+                                                        <path d="M2 11h20" />
+                                                        <path
+                                                            d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4" />
+                                                        <path d="M4.5 15.5h15" />
+                                                        <path d="m5 11 4-7" />
+                                                        <path d="m9 11 1 9" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </section>
+                            </div>
+
+                            <div
+                                class="flex flex-col bg-[#f6f6f6] rounded-xl border-2 w-64 max-lg:w-[14rem] max-sm:w-[80%] max-extraSm:w-full h-full overflow-hidden">
+                                <div class="flex justify-end items-end my-3 mx-3 text-slate-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-heart transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-100 hover:text-red-400 hover:cursor-pointer">
+                                        <path
+                                            d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                                    </svg>
+                                </div>
+
+                                <section role="product-image"
+                                    class="w-full h-full flex justify-center items-center relative my-10">
+                                    <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-select-2021?wid=834&hei=1000&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1632376723000"
+                                        alt="product1" class="size-[100px] object-cover bg-no-white">
+                                </section>
+
+                                <section role="product-info" class="border-t-2 w-full h-full">
+                                    <div class="grid grid-cols-2 justify-center items-center mx-3 my-3 gap-3">
+                                        <h1 class="col-span-2 text-xl font-bold truncate">Product 1dawdiwajdia</h1>
+
+                                        <section role="information"
+                                            class="flex justify-between w-full h-full col-span-2">
+                                            <div role="pricing-products" class="flex flex-col gap-[0.05rem]">
+                                                <p class="text-sm text-slate-400 font-medium">Price:</p>
+                                                <h1 class="text-2xl font-semibold">£100</s>
+                                            </div>
+
+                                            <div class="flex justify-end items-center">
+                                                <button
+                                                    class="bg-[#3f7ef0] text-white rounded-lg p-2 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 w-max flex justify-center items-center">
+
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="lucide lucide-shopping-basket">
+                                                        <path d="m15 11-1 9" />
+                                                        <path d="m19 11-4-7" />
+                                                        <path d="M2 11h20" />
+                                                        <path
+                                                            d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4" />
+                                                        <path d="M4.5 15.5h15" />
+                                                        <path d="m5 11 4-7" />
+                                                        <path d="m9 11 1 9" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </section>
+                            </div>
+
+                            <div
+                                class="flex flex-col bg-[#f6f6f6] rounded-xl border-2 w-64 max-lg:w-[14rem] max-sm:w-[80%] max-extraSm:w-full h-full overflow-hidden">
+                                <div class="flex justify-end items-end my-3 mx-3 text-slate-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-heart transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-100 hover:text-red-400 hover:cursor-pointer">
+                                        <path
+                                            d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                                    </svg>
+                                </div>
+
+                                <section role="product-image"
+                                    class="w-full h-full flex justify-center items-center relative my-10">
+                                    <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-select-2021?wid=834&hei=1000&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1632376723000"
+                                        alt="product1" class="size-[100px] object-cover bg-no-white">
                                 </section>
 
                                 <section role="product-info" class="border-t-2 w-full h-full">
@@ -859,6 +965,7 @@
     </div>
 
     <script src="./src/index.js"></script>
+    <script src="./src/utils.js"></script>
 </body>
 
 </html>
