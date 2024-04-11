@@ -1,3 +1,4 @@
 > University E-Commerce Project 
 
-> **Vanilla JS, CSS3, HTML5**
+> **Stack**
+> **Vanilla JS, HTML5, Tailwind CSS**
