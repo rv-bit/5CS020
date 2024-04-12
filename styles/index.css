@@ -48,8 +48,6 @@
 
 		-webkit-font-smoothing: auto;
 		-moz-osx-font-smoothing: auto;
-
-		scroll-behavior: smooth;
 	}
 }
 
@@ -78,19 +76,30 @@
 .no-scrollbar::-webkit-scrollbar {
 	display: none;
 }
+
+.no-input-spin::-webkit-outer-spin-button,
+.no-input-spin::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.no-input-spin[type=number] {
+  -moz-appearance: textfield;
+}
+
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
 	-ms-overflow-style: none;  /* IE and Edge */
 	scrollbar-width: none;  /* Firefox */
 }
 
-
-#scrollable-div {
-  cursor: grab;
+.scrollable-div {
+	cursor: grab;
 }
 
-#scrollable-div.active {
-  cursor: grabbing;
+.scrollable-div.active {
+	cursor: grabbing;
 }
 
 .bg-no-white {
@@ -98,6 +107,7 @@
 	mix-blend-mode: multiply;
 }
 
+/* Animation */
 .slide-out {
   animation: slide-out 0.5s forwards;
 }

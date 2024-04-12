@@ -32,13 +32,15 @@ const updateProduct = () => {
         const productIdElement = document.querySelector('[data-top-product-product_id]');
         const imageElement = document.querySelector('[data-top-product-image]');
 
+        const productID = product.product_name.replace(/\s/g, '-').toLowerCase();
+
         titleElement.setAttribute('data-top-product-title', product.product_name);
         descriptionElement.setAttribute('data-top-product-description', product.product_description);
-        productIdElement.setAttribute('data-top-product-product_id', product.product_id);
+        productIdElement.setAttribute('data-top-product-product_id', productID);
 
         titleElement.innerHTML = product.product_name
         descriptionElement.innerHTML = product.product_description
-        productIdElement.href = `product.html?product_id=${product.product_id}`;
+        productIdElement.href = `product.html?product_id=${productID}`;
 
         imageElement.setAttribute('src', product.product_image);
 

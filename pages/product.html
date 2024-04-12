@@ -81,7 +81,7 @@
                         </button>
 
                         <div id="menu_dropdown"
-                            class="hidden flex-col justify-center items-center bg-slate-200 h-screen w-screen rounded-lg z-[999] fixed top-0 left-0 gap-2">
+                            class="hidden flex-col justify-center items-center bg-slate-200 h-screen w-screen rounded-lg z-999 fixed top-0 left-0 gap-2">
 
                             <button onclick="openMenu()"
                                 class="flex justify-start items-start bg-slate-200 p-3 size-[50px] max-sm:size-[45px] rounded-lg ml-2">
@@ -101,7 +101,8 @@
                                 About Us
                             </a>
                             <a href="/pages/contact.html"
-                                class="text-slate-400 font-medium text-5xl transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:text-slate-600">Contact
+                                class="text-slate-400 font-medium text-5xl transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:text-slate-600">
+                                Contact
                             </a>
 
                             <a href="/pages/login.html"
@@ -113,7 +114,570 @@
 
                 </nav>
             </header>
+
+            <section role="main-product" class="flex flex-col justify-center items-center w-full h-full">
+                <div
+                    class="flex justify-center items-start max-2xl:justify-start max-md:flex-col max-2xl:gap-5 gap-16 w-full h-full px-5">
+
+                    <div class="w-[700px] max-md:w-full max-lg:w-1/2 h-full flex flex-col gap-2 relative">
+                        <div id="product_image"
+                            class="w-full h-full py-20 bg-[#faf4f1] flex justify-center items-center rounded-lg">
+                            <img src="../assets/images/products/iphone_15.png" alt="product"
+                                class="size-[400px] max-lg:size-4/5 rounded-lg" />
+                        </div>
+
+                        <div
+                            class="flex flex-row flex-nowrap overflow-x-auto overflow-y-visible no-scrollbar justify-start items-start gap-3 w-full h-full p-2 pt-3 scrollable-div">
+
+                            <button onclick="selectImage(this)"
+                                class="product-thumbnail size-[100px] flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-full shrink-0">
+                                <img src="../assets/images/products/iphone_15_blue.png" alt="product"
+                                    class="w-full h-full" />
+                            </button>
+                            <button onclick="selectImage(this)"
+                                class="product-thumbnail w-[100px] h-full flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-full shrink-0">
+                                <img src="../assets/images/products/iphone_15.png" alt="product"
+                                    class="w-full h-full" />
+                            </button>
+                            <button onclick="selectImage(this)"
+                                class="product-thumbnail w-[100px] h-full flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-full shrink-0">
+                                <img src="../assets/images/products/iphone_15.png" alt="product"
+                                    class="w-full h-full" />
+                            </button>
+                            <button onclick="selectImage(this)"
+                                class="product-thumbnail w-[100px] h-full flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-full shrink-0">
+                                <img src="../assets/images/products/iphone_15.png" alt="product"
+                                    class="w-full h-full" />
+                            </button>
+                            <button onclick="selectImage(this)"
+                                class="product-thumbnail w-[100px] h-full flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-full shrink-0">
+                                <img src="../assets/images/products/iphone_15.png" alt="product"
+                                    class="w-full h-full" />
+                            </button>
+                            <button onclick="selectImage(this)"
+                                class="product-thumbnail w-[100px] h-full flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-full shrink-0">
+                                <img src="../assets/images/products/iphone_15.png" alt="product"
+                                    class="w-full h-full" />
+                            </button>
+                            <button onclick="selectImage(this)"
+                                class="product-thumbnail w-[100px] h-full flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-full shrink-0">
+                                <img src="../assets/images/products/iphone_15.png" alt="product"
+                                    class="w-full h-full" />
+                            </button>
+                            <button onclick="selectImage(this)"
+                                class="product-thumbnail w-[100px] h-full flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-full shrink-0">
+                                <img src="../assets/images/products/iphone_15.png" alt="product"
+                                    class="w-full h-full" />
+                            </button>
+                            <button onclick="selectImage(this)"
+                                class="product-thumbnail w-[100px] h-full flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-full shrink-0">
+                                <img src="../assets/images/products/iphone_15.png" alt="product"
+                                    class="w-full h-full" />
+                            </button>
+                            <button onclick="selectImage(this)"
+                                class="product-thumbnail w-[100px] h-full flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-full shrink-0">
+                                <img src="../assets/images/products/iphone_15.png" alt="product"
+                                    class="w-full h-full" />
+                            </button>
+                            <button onclick="selectImage(this)"
+                                class="product-thumbnail w-[100px] h-full flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-full shrink-0">
+                                <img src="../assets/images/products/iphone_15.png" alt="product"
+                                    class="w-full h-full" />
+                            </button>
+                        </div>
+
+                        <div onclick="slideImages(this)"
+                            class="size-[50px] rounded-full bg-[#f8f8f9] flex max-2xl:hidden justify-center items-center absolute -left-14 top-[91%] transform -translate-y-1/2 hover:cursor-pointer">
+                            <span class="rounded-full size-[40px] flex justify-center items-center bg-blue-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-chevron-left">
+                                    <path d="m15 18-6-6 6-6" />
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div onclick="slideImages(this, 'next')"
+                            class="size-[50px] rounded-full bg-[#f8f8f9] flex max-2xl:hidden justify-center items-center absolute -right-14 top-[91%] transform -translate-y-1/2 hover:cursor-pointer">
+                            <span class="rounded-full size-[40px] flex justify-center items-center bg-blue-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-chevron-right">
+                                    <path d="m9 18 6-6-6-6" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div
+                        class="flex flex-col justify-center items-start gap-5 w-full 2xl:max-w-[25%] max-2xl:max-w-full max-md:w-full h-full p-5 pt-0 max-md:p-0">
+                        <section role="info"
+                            class="flex flex-col gap-2 max-w-[500px] max-2xl:max-w-[90%] max-md:max-w-full">
+                            <h1 class="text-5xl text-[#4c4c44] break-words">Product Namedawihdwa</h1>
+                            <h2 class="text-2xl font-medium text-[#4c4c44]">£100.00</h2>
+                            <p class="text-base text-[#8c8c86] opactity-40 font-medium break-words">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea accusantium autem error
+                                nemo accusamus, sequi mollitia eaque debitis vero eos, ab facere labore neque similique
+                                assumenda molestiae et. Numquam, quas.
+                            </p>
+                        </section>
+
+                        <section role="filters"
+                            class="flex max-xl:flex-col max-md:flex-row max-sm:flex-col flex-wrap justify-start items-start gap-5 max-2xl:max-w-[500px] max-xl:w-full max-md:w-full">
+                            <section role="color" class="flex flex-col gap-2">
+                                <h1 class="text-2xl font-medium text-[#4c4c44]">Color</h1>
+                                <div class="flex flex-row max-sm:flex-wrap gap-2">
+                                    <button onclick="selectFilters(this, 'color-filter')" data-color="blue"
+                                        class="color-filter size-[50px] rounded-full bg-[#f8f8f9] border border-black border-opacity-30">
+                                        <span class="rounded-full size-[40px] bg-blue-200"></span>
+                                    </button>
+                                    <button onclick="selectFilters(this, 'color-filter')" data-color="red"
+                                        class="color-filter size-[50px] rounded-full bg-[#f8f8f9] border border-black border-opacity-30">
+                                        <span class="rounded-full size-[40px] bg-red-200"></span>
+                                    </button>
+                                    <button onclick="selectFilters(this, 'color-filter')" data-color="green"
+                                        class="color-filter size-[50px] rounded-full bg-[#f8f8f9] border border-black border-opacity-30">
+                                        <span class="rounded-full size-[40px] bg-green-200"></span>
+                                    </button>
+                                    <button onclick="selectFilters(this, 'color-filter')" data-color="yellow"
+                                        class="color-filter size-[50px] rounded-full bg-[#f8f8f9] border border-black border-opacity-30">
+                                        <span class="rounded-full size-[40px] bg-yellow-200"></span>
+                                    </button>
+                                </div>
+                            </section>
+
+                            <section role="size" class="flex flex-col gap-2">
+                                <h1 class="text-2xl font-medium text-[#4c4c44]">Size</h1>
+                                <div class="flex flex-row max-sm:flex-wrap gap-2">
+                                    <button onclick="selectFilters(this, 'size-filter')"
+                                        class="size-filter size-[50px] rounded-full bg-[#f8f8f9] border border-black border-opacity-30">
+                                        <span class="text-base font-medium">S</span>
+                                    </button>
+                                    <button onclick="selectFilters(this, 'size-filter')"
+                                        class="size-filter size-[50px] rounded-full bg-[#f8f8f9] border border-black border-opacity-30">
+                                        <span class="text-base font-medium">M</span>
+                                    </button>
+                                    <button onclick="selectFilters(this, 'size-filter')"
+                                        class="size-filter size-[50px] rounded-full bg-[#f8f8f9] border border-black border-opacity-30">
+                                        <span class="text-base font-medium">L</span>
+                                    </button>
+                                    <button onclick="selectFilters(this, 'size-filter')"
+                                        class="size-filter size-[50px] rounded-full bg-[#f8f8f9] border border-black border-opacity-30">
+                                        <span class="text-base font-medium">XL</span>
+                                    </button>
+                                </div>
+                            </section>
+                        </section>
+
+                        <section role="add-to-cart-buy-now"
+                            class="grid grid-cols-2 justify-start items-start gap-2 w-full xl:max-w-[500px]">
+
+                            <div class="col-span-2 flex flex-row max-sm:flex-col justify-center items-center gap-2">
+                                <div
+                                    class="flex justify-between flex-row border border-black rounded-[5px] w-2/5 max-sm:w-full h-[50px] overflow-hidden">
+                                    <button onclick="quantityChange(this)"
+                                        class="size-auto hover:bg-[#8c8c86] opactity-40 max-md:mr-2 px-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus">
+                                            <path d="M5 12h14" />
+                                        </svg>
+                                    </button>
+                                    <input type="number"
+                                        class="h-full max-w-[60px] max-xl:max-w-[45px] text-center focus:outline-none border-0 focus:ring-transparent no-input-spin"
+                                        value="1" />
+                                    <button onclick="quantityChange(this, 'increase')"
+                                        class="size-auto hover:bg-[#8c8c86] opactity-40 max-md:ml-2 px-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus">
+                                            <path d="M5 12h14" />
+                                            <path d="M12 5v14" />
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                <button
+                                    class="w-3/5 max-sm:w-full h-[50px] bg-black text-white text-base text-center font-medium rounded-[5px] flex justify-center items-center">
+                                    Add To Cart
+                                </button>
+                            </div>
+
+                            <button
+                                class="col-span-2 w-full h-[50px] bg-[#3f7ef0] text-white text-base text-center font-medium rounded-[5px] flex justify-center items-center">
+                                Buy Now
+                            </button>
+                        </section>
+
+                        <section role="payments"
+                            class="flex flex-col justify-start items-start gap-2 w-full xl:max-w-[500px]">
+                            <div
+                                class="w-full h-auto bg-[#FBE6DC] flex max-sm:flex-col justify-between items-center gap-2 rounded-[5px] p-5">
+                                <h1 class="text-md font-medium text-[#4c4c44]">Payments</h1>
+
+                                <div role="cards"
+                                    class="flex flex-wrap justify-end max-sm:justify-center items-center gap-2">
+                                    <img src="../assets/images/svg/applepay-outline.svg" alt="apple-pay"
+                                        class="size-[50px] max-xl:size-[40px]" />
+                                    <img src="../assets/images/svg/mastercard-outline.svg" alt="mastercard-pay"
+                                        class="size-[50px] max-xl:size-[40px]" />
+                                    <img src="../assets/images/svg/visa-outline.svg" alt="visa-pay"
+                                        class="size-[50px] max-xl:size-[40px]" />
+                                    <img src="../assets/images/svg/paypal-outline.svg" alt="paypal-pay"
+                                        class="size-[50px] max-xl:size-[40px]" />
+                                </div>
+                            </div>
+                            <div
+                                class="w-full h-auto bg-[#FBE6DC] flex max-sm:flex-col justify-between items-center gap-2 rounded-[5px] p-5">
+                                <h1 class="text-md font-medium text-[#4c4c44]">We refund within 30 days</h1>
+                                <div class="flex justify-center max-sm:justify-center items-center">
+                                    <div
+                                        class="flex justify-center items-center text-md font-medium text-[#4c4c44] hover:cursor-pointer">
+                                        <h1>Read More</h1>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-chevron-right">
+                                                <path d="m9 18 6-6-6-6" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section role="extra-details" class="flex flex-col gap-5 pt-5 w-full xl:max-w-[500px]">
+                            <div class="flex flex-col gap-2">
+                                <div class="flex justify-between items-center mr-2 hover:cursor-pointer"
+                                    onclick="closeOptions(this)">
+                                    <h1 class="text-xl font-medium">Extra Details</h1>
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-plus hidden">
+                                        <path d="M5 12h14" />
+                                        <path d="M12 5v14" />
+                                    </svg>
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-minus">
+                                        <path d="M5 12h14" />
+                                    </svg>
+                                </div>
+
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex flex-row justify-between items-center">
+                                        <h1 class="text-base font-medium text-[#4c4c44]">SKU</h1>
+                                        <p class="text-base font-medium text-[#8c8c86]">1234567890</p>
+                                    </div>
+                                    <div class="flex flex-row justify-between items-center">
+                                        <h1 class="text-base font-medium text-[#4c4c44]">Category</h1>
+                                        <p class="text-base font-medium text-[#8c8c86]">Electronics</p>
+                                    </div>
+                                    <div class="flex flex-row justify-between items-center">
+                                        <h1 class="text-base font-medium text-[#4c4c44]">Tags</h1>
+                                        <p class="text-base font-medium text-[#8c8c86]">Apple, iPhone, 15</p>
+                                    </div>
+                                    <div class="flex flex-row justify-between items-center">
+                                        <h1 class="text-base font-medium text-[#4c4c44]">Share</h1>
+                                        <div
+                                            class="flex flex-row justify-start items-center gap-2 text-[#8c8c86] font-medium">
+                                            <a href="https://www.facebook.com/">
+                                                <i class="fab fa-facebook"></i>
+                                            </a>
+                                            <a href="https://www.instagram.com/">
+                                                <i class="fab fa-instagram"></i>
+                                            </a>
+                                            <a href="https://www.twitter.com/">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+                                            <a href="https://www.linkedin.com/">
+                                                <i class="fab fa-linkedin"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col gap-2">
+                                <div class="flex justify-between items-center mr-2 hover:cursor-pointer"
+                                    onclick="closeOptions(this)">
+                                    <h1 class="text-xl font-medium">Extra Details</h1>
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-plus hidden">
+                                        <path d="M5 12h14" />
+                                        <path d="M12 5v14" />
+                                    </svg>
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-minus">
+                                        <path d="M5 12h14" />
+                                    </svg>
+                                </div>
+
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex flex-row justify-between items-center">
+                                        <h1 class="text-base font-medium text-[#4c4c44]">SKU</h1>
+                                        <p class="text-base font-medium text-[#8c8c86]">1234567890</p>
+                                    </div>
+                                    <div class="flex flex-row justify-between items-center">
+                                        <h1 class="text-base font-medium text-[#4c4c44]">Category</h1>
+                                        <p class="text-base font-medium text-[#8c8c86]">Electronics</p>
+                                    </div>
+                                    <div class="flex flex-row justify-between items-center">
+                                        <h1 class="text-base font-medium text-[#4c4c44]">Tags</h1>
+                                        <p class="text-base font-medium text-[#8c8c86]">Apple, iPhone, 15</p>
+                                    </div>
+                                    <div class="flex flex-row justify-between items-center">
+                                        <h1 class="text-base font-medium text-[#4c4c44]">Share</h1>
+                                        <div
+                                            class="flex flex-row justify-start items-center gap-2 text-[#8c8c86] font-medium">
+                                            <a href="https://www.facebook.com/">
+                                                <i class="fab fa-facebook"></i>
+                                            </a>
+                                            <a href="https://www.instagram.com/">
+                                                <i class="fab fa-instagram"></i>
+                                            </a>
+                                            <a href="https://www.twitter.com/">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+                                            <a href="https://www.linkedin.com/">
+                                                <i class="fab fa-linkedin"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+
+                <section role="faq" class="flex flex-col justify-center items-center w-full h-full my-20 gap-10 px-5">
+                    <h1 class="text-5xl font-bold text-[#4c4c44] text-center">FAQ</h1>
+
+                    <div class="grid grid-cols-2 max-md:grid-cols-1 gap-5 max-lg:w-full 2xl:max-w-[1500px] gap-20">
+
+                        <div class="flex flex-col gap-2 border-b-2 pb-5 max-w-full">
+                            <div class="flex justify-between items-center mr-2 hover:cursor-pointer"
+                                onclick="closeOptions(this)">
+                                <h1 class="text-xl font-medium">How long does shipping take?</h1>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-plus hidden">
+                                    <path d="M5 12h14" />
+                                    <path d="M12 5v14" />
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-minus">
+                                    <path d="M5 12h14" />
+                                </svg>
+                            </div>
+
+                            <div class="flex flex-col gap-2">
+                                <p class="text-base font-medium text-[#8c8c86] break-words">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elitdawdawdawdawdawdawdawdaw
+                                    dawwadioadiawjdiawjida
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2 border-b-2 pb-5 max-w-full">
+                            <div class="flex justify-between items-center mr-2 hover:cursor-pointer"
+                                onclick="closeOptions(this)">
+                                <h1 class="text-xl font-medium">How long does shipping take?</h1>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-plus hidden">
+                                    <path d="M5 12h14" />
+                                    <path d="M12 5v14" />
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-minus">
+                                    <path d="M5 12h14" />
+                                </svg>
+                            </div>
+
+                            <div class="flex flex-col gap-2">
+                                <p class="text-base font-medium text-[#8c8c86] break-words">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elitdawdawdawdawdawdawdawdaw
+                                    dawwadioadiawjdiawjida
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2 border-b-2 pb-5 max-w-full">
+                            <div class="flex justify-between items-center mr-2 hover:cursor-pointer"
+                                onclick="closeOptions(this)">
+                                <h1 class="text-xl font-medium">How long does shipping take?</h1>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-plus hidden">
+                                    <path d="M5 12h14" />
+                                    <path d="M12 5v14" />
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-minus">
+                                    <path d="M5 12h14" />
+                                </svg>
+                            </div>
+
+                            <div class="flex flex-col gap-2">
+                                <p class="text-base font-medium text-[#8c8c86] break-words">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elitdawdawdawdawdawdawdawdaw
+                                    dawwadioadiawjdiawjida
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2 border-b-2 pb-5 max-w-full">
+                            <div class="flex justify-between items-center mr-2 hover:cursor-pointer"
+                                onclick="closeOptions(this)">
+                                <h1 class="text-xl font-medium">How long does shipping take?</h1>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-plus hidden">
+                                    <path d="M5 12h14" />
+                                    <path d="M12 5v14" />
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-minus">
+                                    <path d="M5 12h14" />
+                                </svg>
+                            </div>
+
+                            <div class="flex flex-col gap-2">
+                                <p class="text-base font-medium text-[#8c8c86] break-words">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elitdawdawdawdawdawdawdawdaw
+                                    dawwadioadiawjdiawjida
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2 border-b-2 pb-5 max-w-full">
+                            <div class="flex justify-between items-center mr-2 hover:cursor-pointer"
+                                onclick="closeOptions(this)">
+                                <h1 class="text-xl font-medium">How long does shipping take?</h1>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-plus hidden">
+                                    <path d="M5 12h14" />
+                                    <path d="M12 5v14" />
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-minus">
+                                    <path d="M5 12h14" />
+                                </svg>
+                            </div>
+
+                            <div class="flex flex-col gap-2">
+                                <p class="text-base font-medium text-[#8c8c86] break-words">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elitdawdawdawdawdawdawdawdaw
+                                    dawwadioadiawjdiawjida
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2 border-b-2 pb-5 max-w-full">
+                            <div class="flex justify-between items-center mr-2 hover:cursor-pointer"
+                                onclick="closeOptions(this)">
+                                <h1 class="text-xl font-medium">How long does shipping take?</h1>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-plus hidden">
+                                    <path d="M5 12h14" />
+                                    <path d="M12 5v14" />
+                                </svg>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-minus">
+                                    <path d="M5 12h14" />
+                                </svg>
+                            </div>
+
+                            <div class="flex flex-col gap-2">
+                                <p class="text-base font-medium text-[#8c8c86] break-words">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elitdawdawdawdawdawdawdawdaw
+                                    dawwadioadiawjdiawjida
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <section role="info" class="flex flex-col items-center w-full">
+                    <div class="w-full min-h-[400px] h-auto p-5 bg-[#faf4f1] flex justify-center items-center">
+
+                        <div
+                            class="grid grid-cols-1 extraSm:grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 2xl:grid-cols-auto justify-center items-center gap-5">
+
+                            <div
+                                class="h-52 w-full md:size-60 lg:size-72 xl:size-80 rounded-md bg-white flex flex-col justify-center items-center gap-3 p-5">
+                                <img src="../assets/images/utils/shipping.png" alt="shipping"
+                                    class="size-[100px] max-md:size-[50px]">
+                                <h1 class="font-semibold mt-2">Free shipping</h1>
+                                <div class="text-center h-auto">
+                                    <p class="text-slate-400 text-[13px] break-words">
+                                        Our free shipping policy applies to all orders, regardless of order value or
+                                        destination.</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="h-52 w-full md:size-60 lg:size-72 xl:size-80 rounded-md  bg-white flex flex-col justify-center items-center gap-3 p-5">
+                                <img src="../assets/images/utils/card.png" alt="card"
+                                    class="size-[100px] max-md:size-[50px]">
+                                <h1 class="font-semibold mt-2">Secure Payments</h1>
+                                <div class="text-center h-auto">
+                                    <p class="text-slate-400 text-[13px] break-words">Your payments is always safe,
+                                        secure
+                                        and protected at all times.</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="h-52 w-full md:size-60 lg:size-72 xl:size-80 rounded-md bg-white flex flex-col justify-center items-center gap-3 p-5">
+                                <img src="../assets/images/utils/support.png" alt="support"
+                                    class="size-[100px] max-md:size-[50px]">
+                                <h1 class="font-semibold mt-2">Support Online 24/7</h1>
+                                <div class="text-center h-auto">
+                                    <p class="text-slate-400 text-[13px] break-words">
+                                        We are available 24/7 to assist you with any questions, or issue you may have.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            </section>
+
         </div>
+
 
         <footer class="mt-20 mx-5 flex justify-center items-center">
             <div
@@ -210,7 +774,7 @@
     </div>
 
     <script src="../src/utils.js"></script>
-    <!-- <script src="../src/product.js"></script> -->
+    <script src="../src/pages/product.js"></script>
 </body>
 
 </html>

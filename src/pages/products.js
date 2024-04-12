@@ -13,32 +13,6 @@ const adjustWidthSelectors = (selectedElement) => {
     document.body.removeChild(tempElement);
 }
 
-const closeOptions = (selectElement) => {
-    var children = selectElement.children;
-    var childOfChildSVG = children[0].children;
-    var childOfChildContent = children[1];
-
-    if (childOfChildSVG[2] === undefined) {
-        childOfChildSVG = childOfChildSVG[0].children;
-    }
-
-    if (childOfChildContent === undefined) {
-        childOfChildContent = children[0].children[1];
-    }
-
-    if (childOfChildSVG[1].classList.contains('hidden')) {
-        childOfChildSVG[1].classList.remove('hidden');
-        childOfChildSVG[2].classList.add('hidden');
-
-        childOfChildContent.classList.add('hidden');
-    } else {
-        childOfChildSVG[1].classList.add('hidden');
-        childOfChildSVG[2].classList.remove('hidden');
-
-        childOfChildContent.classList.remove('hidden');
-    }
-}
-
 const openFilterMenu = () => {
     const element = document.getElementById('menu_dropdown_filters');
     const body = document.querySelector('body');
@@ -65,13 +39,28 @@ const openFilterMenu = () => {
 
     element.classList.add('slide-bottom');
     setTimeout(() => {
-        menu.classList.remove('slide-bottom');
+        element.classList.remove('slide-bottom');
     }, 500); // Remove the class after 0.5s, which is the duration of the animation
+}
+
+const openProductPage = (element) => {
+    const elementParent = element.parentElement;
+    const elementGrandParent = elementParent.parentElement;
+    const elementGreatGrandParent = elementGrandParent.parentElement;
+    const elementGreatGreatGrandParent = elementGreatGrandParent.parentElement;
+
+    const productID = elementGreatGreatGrandParent.getAttribute('data-product-id');
+
+    window.location.href = `product.html?product_id=${productID}`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     window.onload = function () {
-        var selectElement = document.getElementById('sort');
-        adjustWidthSelectors(selectElement);
+        var selectElement = document.querySelectorAll('.sort-selector');
+        console.log(selectElement);
+
+        selectElement.forEach(element => {
+            adjustWidthSelectors(element);
+        });
     } // onload, adjust the width of the select element
 });
