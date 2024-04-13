@@ -53,3 +53,13 @@ const closeOptions = (selectElement) => {
         childOfChildContent.classList.remove('hidden');
     }
 }
+
+const amountOfProducts = localStorage.getItem('amountOfProducts') || 10;
+document.addEventListener('DOMContentLoaded', () => {
+    const products = document.querySelectorAll('.product-amount-baskets');
+
+    products.forEach(product => {
+        console.log(product)
+        product.textContent = amountOfProducts;
+    })
+});

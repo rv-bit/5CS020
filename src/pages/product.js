@@ -145,10 +145,6 @@ const quantityChange = (element, trigger) => {
 // });
 
 document.addEventListener('DOMContentLoaded', () => {
-    window.onload = function () {
-        console.log('loaded');
-    }
-
     let isDown = false;
     let startX;
     let scrollLeft;
