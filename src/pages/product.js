@@ -63,29 +63,6 @@ const selectFilters = (element, elementClass) => {
     // history.pushState({ state: urlParams.toString() }, '', newUrl);
 }
 
-const quantityChange = (element, trigger) => {
-    const elementParent = element.parentElement;
-    const elementChildren = elementParent.children;
-
-    const quantity = elementChildren[1];
-
-    if (trigger === 'increase') {
-        if (quantity.value === '10') {
-            alert('Maximum quantity reached for this product.');
-            return;
-        }
-
-        quantity.value = parseInt(quantity.value) + 1;
-        return;
-    }
-
-    if (quantity.value === '1') {
-        return;
-    }
-
-    quantity.value = parseInt(quantity.value) - 1;
-}
-
 // window.addEventListener('popstate', function (event) {
 //     const params = window.location.search.substring(1).split('&');
 

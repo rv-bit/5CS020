@@ -54,6 +54,45 @@ const closeOptions = (selectElement) => {
     }
 }
 
+const quantityChange = (element, trigger) => {
+    const elementParent = element.parentElement;
+    const elementChildren = elementParent.children;
+
+    const quantity = elementChildren[1];
+
+    if (trigger === 'input') {
+        if (quantity.value === '' || parseInt(quantity.value) < 0) {
+            quantity.value = 1;
+            return;
+        }
+
+        if (parseInt(quantity.value) > 10) {
+            alert('Maximum quantity reached for this product.');
+            quantity.value = 10;
+            return;
+        }
+
+        return;
+    }
+
+
+    if (trigger === 'increase') {
+        if (quantity.value === '10') {
+            alert('Maximum quantity reached for this product.');
+            return;
+        }
+
+        quantity.value = parseInt(quantity.value) + 1;
+        return;
+    }
+
+    if (quantity.value === '1') {
+        return;
+    }
+
+    quantity.value = parseInt(quantity.value) - 1;
+}
+
 const amountOfProducts = localStorage.getItem('amountOfProducts') || 10;
 document.addEventListener('DOMContentLoaded', () => {
     const products = document.querySelectorAll('.product-amount-baskets');

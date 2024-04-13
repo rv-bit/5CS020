@@ -48,6 +48,9 @@ tailwind.config = {
                 'serif': ['Merriweather', 'serif'],
                 'mono': ['Fira Code', 'monospace'],
                 'kalam': ['Kalam', 'cursive'],
+
+                'body': ['Inter', 'sans-serif'],
+                'Kanit': ['Kanit', 'sans-serif'],
             },
         },
     },
