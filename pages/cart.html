@@ -261,49 +261,70 @@
                         </div>
 
                         <section role="cart-summary"
-                            class="w-1/2 max-xl:w-full h-fit flex flex-col justify-start items-start gap-2 border rounded-sm p-10 sticky top-2">
+                            class="w-1/2 max-xl:w-full h-fit flex flex-col justify-start items-start gap-10 border rounded-sm p-10 sticky top-2">
 
-                            <div
-                                class="w-full h-full flex flex-col justify-start items-start gap-2 [&>*:last-child]:pb-5 border-b-2">
-                                <h1 class="font-Kanit text-3xl">Order Summary</h1>
+                            <section role="summary" class="w-full h-full">
+                                <div
+                                    class="w-full h-full flex flex-col justify-start items-start gap-2 [&>*:last-child]:pb-5 border-b-2">
+                                    <h1 class="font-Kanit text-3xl">Order Summary</h1>
 
-                                <section role="all-items" class="w-full h-full gap-2">
+                                    <section role="all-items" class="w-full h-full gap-2">
+                                        <div
+                                            class="w-full h-full flex justify-between items-center max-extraSm:items-start">
+                                            <h1 class="font-Kanit text-xl">Items in your basket </h1>
+                                            <h2 class="font-Kanit text-gray-500 text-xl">(4)</h2>
+                                        </div>
+
+                                    </section>
+
                                     <div
-                                        class="w-full h-full flex justify-between items-center max-extraSm:items-start">
-                                        <h1 class="font-Kanit text-xl">Items in your basket </h1>
-                                        <h2 class="font-Kanit text-gray-500 text-xl">(4)</h2>
+                                        class="w-full h-full flex max-extraSm:flex-col justify-between items-center max-extraSm:items-start">
+                                        <h1 class="font-Kanit text-xl">Delivery</h1>
+                                        <h2 class="font-Kanit font-medium text-xl">Free</h2>
                                     </div>
-
-                                </section>
+                                </div>
 
                                 <div
-                                    class="w-full h-full flex max-extraSm:flex-col justify-between items-center max-extraSm:items-start">
-                                    <h1 class="font-Kanit text-xl">Delivery</h1>
-                                    <h2 class="font-Kanit font-medium text-xl">Free</h2>
-                                </div>
-                            </div>
-
-                            <div
-                                class="w-full h-full flex max-extraSm:flex-col justify-between items-center max-extraSm:items-start pt-5">
-                                <div class="flex flex-col justify-start items-start">
-                                    <h1 class="font-Kanit text-xl">TOTAL</h1>
-                                    <p class="font-Kanit text-gray-500 font-medium text-md">(Including £62.56 taxes)</p>
-                                </div>
-                                <h2 class="font-Kanit font-medium text-xl">£157.23</h2>
-                            </div>
-
-                            <div class="w-full h-[70px] flex justify-center items-center pt-5">
-                                <button class="w-[60%] max-sm:w-full h-full relative">
-                                    <div
-                                        class="w-full h-full bg-[#646464] text-white font-Kanit text-xl py-3 px-5 rounded-sm z-10">
+                                    class="w-full h-full flex max-extraSm:flex-col justify-between items-center max-extraSm:items-start pt-5">
+                                    <div class="flex flex-col justify-start items-start">
+                                        <h1 class="font-Kanit text-xl">TOTAL</h1>
+                                        <p class="font-Kanit text-gray-500 font-medium text-md">(Including £62.56 taxes)
+                                        </p>
                                     </div>
+                                    <h2 class="font-Kanit font-medium text-xl">£157.23</h2>
+                                </div>
 
-                                    <div
-                                        class="w-full h-full flex justify-center items-center absolute top-0 left-0 bg-black text-white text-center font-Kanit text-xl py-3 px-5 rounded-sm transition ease-in-out delay-50 hover:-translate-y-2 hover:-translate-x-2 hover:scale-100 z-20">
-                                        CHECKOUT
-                                    </div>
-                                </button>
-                            </div>
+                                <div class="w-full h-[70px] flex justify-center items-center pt-5">
+                                    <button class="w-[60%] max-sm:w-full h-full relative">
+                                        <div
+                                            class="w-full h-full bg-[#646464] text-white font-Kanit text-xl py-3 px-5 rounded-sm z-10">
+                                        </div>
+
+                                        <div
+                                            class="w-full h-full flex justify-center items-center absolute top-0 left-0 bg-black text-white text-center font-Kanit text-xl py-3 px-5 rounded-sm transition ease-in-out delay-50 hover:-translate-y-2 hover:-translate-x-2 hover:scale-100 z-20">
+                                            CHECKOUT
+                                        </div>
+                                    </button>
+                                </div>
+                            </section>
+
+                            <section role="promo-code"
+                                class="w-full h-full flex flex-col justify-start items-start gap-2">
+                                <h1 class="font-Kanit text-xl">Promo Code</h1>
+
+                                <div
+                                    class="w-full h-[50px] flex justify-between items-center gap-2 border rounded-sm p-2 ">
+                                    <input type="text" id="promo_code" class="w-full h-full border-0 focus:ring-0" />
+                                    <button class="size-auto hover:text-gray-400 max-md:ml-2 px-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus">
+                                            <path d="M5 12h14" />
+                                            <path d="M12 5v14" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </section>
 
                         </section>
 
