@@ -161,14 +161,14 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollLeft = scrollableImages.scrollLeft;
     });
 
-    scrollableImages.addEventListener('mouseleave', () => {
+    scrollableImages.addEventListener('mouseleave', (e) => {
         isDown = false;
-        scrollableImages.scrollLeft = scrollLeft;
+        scrollableImages.scrollLeft = scrollableImages.scrollLeft;
     });
 
-    scrollableImages.addEventListener('mouseup', () => {
+    scrollableImages.addEventListener('mouseup', (e) => {
         isDown = false;
-        console.log('mouseup');
+        scrollableImages.scrollLeft = scrollableImages.scrollLeft;
     });
 
     scrollableImages.addEventListener('mousemove', (e) => {
