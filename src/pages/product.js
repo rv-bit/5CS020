@@ -21,10 +21,9 @@ const selectImage = (element) => {
     const elementGrandParent = elementParent.parentElement;
     const elementParentChildren = elementGrandParent.children;
 
-    const imageOfParentChildren = elementParentChildren[0].children[0].src;
     const imageOfElement = element.children[0].src;
 
-    elementParentChildren[0].children[0].src = imageOfElement;
+    elementParentChildren[0].children[1].children[0].src = imageOfElement;
 
     const buttons = document.querySelectorAll('.product-thumbnail');
     buttons.forEach(button => {

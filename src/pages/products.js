@@ -8,7 +8,6 @@ const adjustWidthSelectors = (selectedElement) => {
     tempElement.style.position = 'absolute'; // prevent it from affecting other elements
 
     document.body.appendChild(tempElement);
-    console.log(tempElement.offsetWidth); // log the width
     selectedElement.style.width = tempElement.offsetWidth + 10 + 'px';
     document.body.removeChild(tempElement);
 }
@@ -55,12 +54,8 @@ const openProductPage = (element) => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    window.onload = function () {
-        var selectElement = document.querySelectorAll('.sort-selector');
-        console.log(selectElement);
-
-        selectElement.forEach(element => {
-            adjustWidthSelectors(element);
-        });
-    } // onload, adjust the width of the select element
+    var selectElement = document.querySelectorAll('.sort-selector');
+    selectElement.forEach(element => {
+        adjustWidthSelectors(element);
+    });
 });
