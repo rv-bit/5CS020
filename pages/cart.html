@@ -131,9 +131,7 @@
                 </nav>
             </header>
 
-
             <section role="main-cart" class="flex flex-col justify-center items-center w-full h-full gap-10">
-
                 <div class="flex justify-center items-center flex-col max-2xl:gap-5 gap-10 w-full h-full px-5">
 
                     <section role="cart-top-info"
@@ -319,8 +317,9 @@
 
                             <section role="checkout"
                                 class="w-full h-full flex flex-col justify-start items-start gap-2">
-                                <div class="w-full h-[70px] flex justify-center items-center pt-5">
-                                    <button class="w-[60%] max-sm:w-full h-full relative shadow-2xl">
+                                <div class="w-full h-[50px] flex justify-center items-center">
+                                    <button class="w-[60%] max-sm:w-full h-full relative shadow-2xl"
+                                        onclick="window.location.href = 'checkout.html'">
                                         <div
                                             class="w-full h-full bg-[#646464] text-white font-Kanit text-xl py-3 px-5 rounded-sm z-10">
                                         </div>
@@ -425,98 +424,99 @@
             </section>
 
         </div>
-    </div>
 
-    <footer class="mt-20 mx-5 flex justify-center items-center">
-        <div
-            class="w-auto h-auto grid grid-cols-1 extraSm:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-auto items-center gap-28 max-sm:gap-10 my-10">
+        <footer class="mt-20 mx-5 flex justify-center items-center">
+            <div
+                class="w-auto h-auto grid grid-cols-1 extraSm:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-auto items-center gap-28 max-sm:gap-10 my-10">
 
-            <section role="logo-socials" class="flex flex-col items-start max-sm:items-center gap-5 max-sm:text-center">
-                <h1 class="text-3xl font-bold">ALL N ONE</h1>
+                <section role="logo-socials"
+                    class="flex flex-col items-start max-sm:items-center gap-5 max-sm:text-center">
+                    <h1 class="text-3xl font-bold">ALL N ONE</h1>
 
-                <div
-                    class="grid grid-cols-4 max-extraSm:grid-cols-2 extraSm:grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 2xl:grid-cols-auto gap-2">
-                    <a href="https://www.facebook.com/"
-                        class="size-12 max-extraSm:size-8 rounded-lg bg-[#ecf3fe] text-[#3f7ef0] text-2xl max-extraSm:text-lg font-medium flex justify-center items-center">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://www.instagram.com/"
-                        class="size-12 max-extraSm:size-8 rounded-lg bg-[#ecf3fe] text-[#3f7ef0] text-2xl max-extraSm:text-lg font-medium flex justify-center items-center">
-                        <i class="fab fa-instagram"></i></a>
-                    <a href="https://www.twitter.com/"
-                        class="size-12 max-extraSm:size-8 rounded-lg bg-[#ecf3fe] text-[#3f7ef0] text-2xl max-extraSm:text-lg font-medium flex justify-center items-center">
-                        <i class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com/"
-                        class="size-12 max-extraSm:size-8 rounded-lg bg-[#ecf3fe] text-[#3f7ef0] text-2xl max-extraSm:text-lg font-medium flex justify-center items-center">
-                        <i class="fab fa-linkedin"></i></a>
-                </div>
-
-                <p class="text-base font-medium">
-                    <a href="https://www.wlv.ac.uk/">
-                        © 2024 Company, Inc.
-                    </a>
-                </p>
-            </section>
-
-            <section role="about-us"
-                class="flex flex-col max-sm:items-center items-start justify-start gap-5 max-sm:text-center h-full">
-
-                <span class="flex flex-col max-sm:items-center gap-2">
-                    <h1 class="text-xl font-bold">Get To Know Us</h1>
-                    <hr class="w-[50px] border-2 rounded-md border-[#4949499e] opacity-50" />
-                </span>
-
-                <div class="flex flex-col gap-2 text-base text-slate-400 font-medium max-sm:text-center">
-                    <a href="/pages/about.html">About Us</a>
-                    <a href="/pages/contact.html">Contact</a>
-                    <a href="/pages/privacy.html">Privacy</a>
-                    <a href="/pages/terms.html">Terms</a>
-                </div>
-            </section>
-
-            <section role="orders-returns"
-                class="flex flex-col max-sm:items-center items-start justify-start gap-5 max-sm:text-center h-full">
-
-                <span class="flex flex-col max-sm:items-center gap-2">
-                    <h1 class="text-xl font-bold">Get To Know Us</h1>
-                    <hr class="w-[50px] border-2 rounded-md border-[#4949499e] opacity-50" />
-                </span>
-
-                <div class="flex flex-col gap-2 text-base text-slate-400 font-medium max-sm:text-center">
-                    <a href="/pages/about.html">About Us</a>
-                    <a href="/pages/contact.html">Contact</a>
-                    <a href="/pages/privacy.html">Privacy</a>
-                    <a href="/pages/terms.html">Terms</a>
-                </div>
-            </section>
-
-            <section role="contact"
-                class="flex flex-col max-sm:items-center items-start justify-start gap-5 max-sm:text-center h-full">
-
-                <span class="flex flex-col max-sm:items-center gap-2 w-fit">
-                    <h1 class="text-xl font-bold">Contact</h1>
-                    <hr class="w-[50px] border-2 rounded-md border-[#4949499e] opacity-50" />
-                </span>
-
-                <div class="flex flex-col items-start gap-3 text-base text-slate-400 font-medium max-sm:text-center">
-                    <div class="flex flex-row items-center justify-center gap-2">
-                        <i class="fa-solid fa-phone text-[#3f7ef0]"></i>
-                        <a href="tel:">+44 123 456 7890</a>
+                    <div
+                        class="grid grid-cols-4 max-extraSm:grid-cols-2 extraSm:grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 2xl:grid-cols-auto gap-2">
+                        <a href="https://www.facebook.com/"
+                            class="size-12 max-extraSm:size-8 rounded-lg bg-[#ecf3fe] text-[#3f7ef0] text-2xl max-extraSm:text-lg font-medium flex justify-center items-center">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/"
+                            class="size-12 max-extraSm:size-8 rounded-lg bg-[#ecf3fe] text-[#3f7ef0] text-2xl max-extraSm:text-lg font-medium flex justify-center items-center">
+                            <i class="fab fa-instagram"></i></a>
+                        <a href="https://www.twitter.com/"
+                            class="size-12 max-extraSm:size-8 rounded-lg bg-[#ecf3fe] text-[#3f7ef0] text-2xl max-extraSm:text-lg font-medium flex justify-center items-center">
+                            <i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/"
+                            class="size-12 max-extraSm:size-8 rounded-lg bg-[#ecf3fe] text-[#3f7ef0] text-2xl max-extraSm:text-lg font-medium flex justify-center items-center">
+                            <i class="fab fa-linkedin"></i></a>
                     </div>
 
-                    <div class="flex flex-row items-center justify-center gap-2">
-                        <i class="fa-solid fa-envelope text-[#3f7ef0]"></i>
-                        <a href="mailto:">R.Vilcu@wlv.ac.uk</a>
-                    </div>
+                    <p class="text-base font-medium">
+                        <a href="https://www.wlv.ac.uk/">
+                            © 2024 Company, Inc.
+                        </a>
+                    </p>
+                </section>
 
-                    <div class="flex flex-row items-center justify-center gap-2">
-                        <i class="fa-solid fa-map-marker-alt text-[#3f7ef0]"></i>
-                        <a href="https://www.google.com/maps">Wolverhampton, UK</a>
+                <section role="about-us"
+                    class="flex flex-col max-sm:items-center items-start justify-start gap-5 max-sm:text-center h-full">
+
+                    <span class="flex flex-col max-sm:items-center gap-2">
+                        <h1 class="text-xl font-bold">Get To Know Us</h1>
+                        <hr class="w-[50px] border-2 rounded-md border-[#4949499e] opacity-50" />
+                    </span>
+
+                    <div class="flex flex-col gap-2 text-base text-slate-400 font-medium max-sm:text-center">
+                        <a href="/pages/about.html">About Us</a>
+                        <a href="/pages/contact.html">Contact</a>
+                        <a href="/pages/privacy.html">Privacy</a>
+                        <a href="/pages/terms.html">Terms</a>
                     </div>
-                </div>
-            </section>
-        </div>
-    </footer>
+                </section>
+
+                <section role="orders-returns"
+                    class="flex flex-col max-sm:items-center items-start justify-start gap-5 max-sm:text-center h-full">
+
+                    <span class="flex flex-col max-sm:items-center gap-2">
+                        <h1 class="text-xl font-bold">Get To Know Us</h1>
+                        <hr class="w-[50px] border-2 rounded-md border-[#4949499e] opacity-50" />
+                    </span>
+
+                    <div class="flex flex-col gap-2 text-base text-slate-400 font-medium max-sm:text-center">
+                        <a href="/pages/about.html">About Us</a>
+                        <a href="/pages/contact.html">Contact</a>
+                        <a href="/pages/privacy.html">Privacy</a>
+                        <a href="/pages/terms.html">Terms</a>
+                    </div>
+                </section>
+
+                <section role="contact"
+                    class="flex flex-col max-sm:items-center items-start justify-start gap-5 max-sm:text-center h-full">
+
+                    <span class="flex flex-col max-sm:items-center gap-2 w-fit">
+                        <h1 class="text-xl font-bold">Contact</h1>
+                        <hr class="w-[50px] border-2 rounded-md border-[#4949499e] opacity-50" />
+                    </span>
+
+                    <div
+                        class="flex flex-col items-start gap-3 text-base text-slate-400 font-medium max-sm:text-center">
+                        <div class="flex flex-row items-center justify-center gap-2">
+                            <i class="fa-solid fa-phone text-[#3f7ef0]"></i>
+                            <a href="tel:">+44 123 456 7890</a>
+                        </div>
+
+                        <div class="flex flex-row items-center justify-center gap-2">
+                            <i class="fa-solid fa-envelope text-[#3f7ef0]"></i>
+                            <a href="mailto:">R.Vilcu@wlv.ac.uk</a>
+                        </div>
+
+                        <div class="flex flex-row items-center justify-center gap-2">
+                            <i class="fa-solid fa-map-marker-alt text-[#3f7ef0]"></i>
+                            <a href="https://www.google.com/maps">Wolverhampton, UK</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </footer>
     </div>
 
     <script src="../src/utils.js"></script>

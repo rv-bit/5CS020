@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/src/tailwind.config.js"></script>
+
+    <script src="https://kit.fontawesome.com/feee4c1bf8.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../styles/index.css">
+
+    <style>
+        :root {
+            --bg-color: #f0f1f2;
+        }
+
+        .left-shadow {
+            box-shadow:
+                -10px 0px 20px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .right-end-shadow {
+            position: relative;
+        }
+
+        .right-end-shadow:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: -10px;
+            width: 50%;
+            background: linear-gradient(to left, var(--bg-color), transparent);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .bg-color {
+            background-color: var(--bg-color);
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="w-[100%] h-lvh flex justify-center items-center bg-gray-100">
+        <div
+            class="max-w-[1600px] w-full h-[70%] flex justify-between items-center rounded-lg drop-shadow-2xl backdrop-blur-xl bg-color mx-10">
+
+            <section class="w-1/2 h-full z-10 flex flex-col justify-start items-start gap-20 p-10">
+
+                <button class="w-fit flex justify-start items-center text-[#958a8a] hover:underline"
+                    onclick="window.location.href = 'cart.html'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-chevron-left">
+                        <path d="m15 18-6-6 6-6" />
+                    </svg>
+
+                    <h1 class="font-medium">Go Back</h1>
+                </button>
+
+                <section role="summary-items" class="w-[95%] h-fit flex flex-col justify-start items-start gap-10">
+
+                    <div class="w-full h-fit flex flex-col justify-start items-start gap-1">
+                        <h1 class="text-md font-bold">3 Items</h1>
+
+                        <div class="flex justify-between items-center w-full h-fit">
+                            <h1 class="text-3xl font-medium">$72.24</h1>
+
+                            <div class="flex justify-end items-center gap-5">
+                                <button onclick="slideImages()" class="w-fit h-fit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-chevron-left">
+                                        <path d="m15 18-6-6 6-6" />
+                                    </svg>
+                                </button>
+
+                                <button onclick="slideImages('next')" class="w-fit h-fit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-chevron-right">
+                                        <path d="m9 18 6-6-6-6" />
+                                    </svg>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full h-full right-end-shadow">
+                        <div
+                            class="w-full flex flex-row flex-nowrap overflow-x-auto overflow-y-visible no-scrollbar scrollable-div justify-start items-start">
+                            <div class="w-[200px] h-full flex justify-start items-center shrink-0">
+                                <img src="../assets/images/products/iphone_15_blue.png" alt="checkout"
+                                    class="w-[90%] h-[90%] object-cover">
+                            </div>
+
+                            <div class="w-[200px] h-full flex justify-start items-center shrink-0">
+                                <img src="../assets/images/products/iphone_15_blue.png" alt="checkout"
+                                    class="w-[90%] h-[90%] object-cover">
+                            </div>
+
+                            <div class="w-[200px] h-full flex justify-start items-center shrink-0">
+                                <img src="../assets/images/products/iphone_15_blue.png" alt="checkout"
+                                    class="w-[90%] h-[90%] object-cover">
+                            </div>
+
+                            <div class="w-[200px] h-full flex justify-start items-center shrink-0">
+                                <img src="../assets/images/products/iphone_15_blue.png" alt="checkout"
+                                    class="w-[90%] h-[90%] object-cover">
+                            </div>
+
+                            <div class="w-[200px] h-full flex justify-start items-center shrink-0">
+                                <img src="../assets/images/products/iphone_15_blue.png" alt="checkout"
+                                    class="w-[90%] h-[90%] object-cover">
+                            </div>
+
+                            <div class="w-[200px] h-full flex justify-start items-center shrink-0">
+                                <img src="../assets/images/products/iphone_15_blue.png" alt="checkout"
+                                    class="w-[90%] h-[90%] object-cover">
+                            </div>
+
+                            <div class="w-[200px] h-full flex justify-start items-center shrink-0">
+                                <img src="../assets/images/products/iphone_15_blue.png" alt="checkout"
+                                    class="w-[90%] h-[90%] object-cover">
+                            </div>
+
+                            <div class="w-[200px] h-full flex justify-start items-center shrink-0">
+                                <img src="../assets/images/products/iphone_15_blue.png" alt="checkout"
+                                    class="w-[90%] h-[90%] object-cover">
+                            </div>
+
+                            <div class="w-[200px] h-full flex justify-start items-center shrink-0">
+                                <img src="../assets/images/products/iphone_15_blue.png" alt="checkout"
+                                    class="w-[90%] h-[90%] object-cover">
+                            </div>
+
+                            <div class="w-[200px] h-full flex justify-start items-center shrink-0">
+                                <img src="../assets/images/products/iphone_15_blue.png" alt="checkout"
+                                    class="w-[90%] h-[90%] object-cover">
+                            </div>
+
+                            <div class="w-[200px] h-full flex justify-start items-center shrink-0">
+                                <img src="../assets/images/products/iphone_15_blue.png" alt="checkout"
+                                    class="w-[90%] h-[90%] object-cover">
+                            </div>
+
+                            <div class="w-[200px] h-full flex justify-start items-center shrink-0">
+                                <img src="../assets/images/products/iphone_15_blue.png" alt="checkout"
+                                    class="w-[90%] h-[90%] object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section role="total-order" class="w-full h-full flex flex-col items-center gap-3">
+                    <div class="w-full h-fit flex justify-between items-center py-5 border-b-2 text-lg font-medium">
+                        <h1>Subtotal</h1>
+                        <h1>$72.24</h1>
+                    </div>
+
+                    <div class="w-full h-fit flex justify-between items-center py-5 border-b-2 text-lg text-zinc-600">
+                        <h1 class="opacity-40">Tax</h1>
+                        <h1 class="opacity-40">$0.00</h1>
+                    </div>
+
+                    <div class="w-full h-fit flex justify-between items-center py-5">
+                        <h1>Total</h1>
+                        <h1>$72.24</h1>
+                    </div>
+                </section>
+            </section>
+
+            <section class="w-1/2 h-full flex justify-end items-start p-10 z-20 left-shadow rounded-lg">
+
+            </section>
+        </div>
+    </div>
+
+    <script src="../src/utils.js"></script>
+    <script src="../src/pages/checkout.js"></script>
+</body>
+
+</html>

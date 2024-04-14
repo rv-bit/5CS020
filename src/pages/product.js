@@ -1,19 +1,3 @@
-const slideImages = (element, trigger) => {
-    const elementParent = element.parentElement;
-    const elementChildren = elementParent.children;
-
-    const imageSlider = elementChildren[1];
-
-    imageSlider.style.scrollBehavior = 'smooth';
-
-    if (trigger === 'next') {
-        imageSlider.scrollLeft += 100;
-        return;
-    }
-
-    imageSlider.scrollLeft -= 100;
-}
-
 const selectImage = (element) => {
     const elementChildren = element.children;
 

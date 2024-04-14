@@ -93,12 +93,29 @@ const quantityChange = (element, trigger) => {
     quantity.value = parseInt(quantity.value) - 1;
 }
 
+const slideImages = (trigger) => {
+    var element = document.querySelector('.scrollable-div');
+
+    if (trigger === 'next') {
+        element.scrollTo({
+            left: element.scrollLeft + 100,
+            behavior: 'smooth'
+        });
+
+        return;
+    }
+
+    element.scrollTo({
+        left: element.scrollLeft - 100,
+        behavior: 'smooth'
+    });
+}
+
 const amountOfProducts = localStorage.getItem('amountOfProducts') || 10;
 document.addEventListener('DOMContentLoaded', () => {
     const products = document.querySelectorAll('.product-amount-baskets');
 
     products.forEach(product => {
-        console.log(product)
         product.textContent = amountOfProducts;
     })
 });
