@@ -48,11 +48,11 @@
 </head>
 
 <body>
-    <div class="w-[100%] h-lvh flex justify-center items-center bg-gray-100">
+    <div class="w-[100%] h-lvh max-md:h-full flex justify-center items-center bg-gray-100 max-md:bg-color px-10">
         <div
-            class="max-w-[1600px] w-full h-[70%] flex justify-between items-center rounded-lg drop-shadow-2xl backdrop-blur-xl bg-color mx-10">
+            class="max-w-[1600px] w-full h-[70%] max-md:h-full flex max-md:flex-col items-center max-md:rounded-none max-md:drop-shadow-none max-md:backdrop-blur-none rounded-lg drop-shadow-2xl backdrop-blur-xl bg-color">
 
-            <section class="w-1/2 h-full z-10 flex flex-col justify-start items-start gap-20 p-10">
+            <section class="w-1/2 max-md:w-full h-full z-10 flex flex-col justify-start items-start gap-20 p-10">
 
                 <button class="w-fit flex justify-start items-center text-[#958a8a] hover:underline"
                     onclick="window.location.href = 'cart.html'">
@@ -65,15 +65,16 @@
                     <h1 class="font-medium">Go Back</h1>
                 </button>
 
-                <section role="summary-items" class="w-[95%] h-fit flex flex-col justify-start items-start gap-10">
+                <section role="summary-items" class="w-full h-fit flex flex-col justify-start items-start gap-10">
 
                     <div class="w-full h-fit flex flex-col justify-start items-start gap-1">
-                        <h1 class="text-md font-bold">3 Items</h1>
+                        <h1 class="text-md font-medium text-[#958a8a]">3 Items</h1>
 
                         <div class="flex justify-between items-center w-full h-fit">
-                            <h1 class="text-3xl font-medium">$72.24</h1>
+                            <h1 class="text-4xl font-[400] font-hammersmith">$72.24</h1>
 
-                            <div class="flex justify-end items-center gap-5">
+                            <div class="flex justify-end items-center gap-5 max-sm:hidden">
+
                                 <button onclick="slideImages()" class="w-fit h-fit">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -161,25 +162,128 @@
                 </section>
 
                 <section role="total-order" class="w-full h-full flex flex-col items-center gap-3">
-                    <div class="w-full h-fit flex justify-between items-center py-5 border-b-2 text-lg font-medium">
+                    <div class="w-full h-fit flex justify-between items-center py-5 border-b-2 text-md font-medium">
                         <h1>Subtotal</h1>
                         <h1>$72.24</h1>
                     </div>
 
-                    <div class="w-full h-fit flex justify-between items-center py-5 border-b-2 text-lg text-zinc-600">
+                    <div class="w-full h-fit flex justify-between items-center py-5 border-b-2 text-md text-zinc-600">
                         <h1 class="opacity-40">Tax</h1>
                         <h1 class="opacity-40">$0.00</h1>
                     </div>
 
-                    <div class="w-full h-fit flex justify-between items-center py-5">
+                    <div class="w-full h-fit flex justify-between items-center py-5 text-lg font-semibold">
                         <h1>Total</h1>
                         <h1>$72.24</h1>
                     </div>
                 </section>
             </section>
 
-            <section class="w-1/2 h-full flex justify-end items-start p-10 z-20 left-shadow rounded-lg">
+            <section
+                class="w-1/2 max-md:w-full h-full flex flex-col justify-center items-center gap-5 px-44 max-2xl:px-10 z-20 max-md:shadow-none max-md:rounded-none max-md:pb-10 left-shadow rounded-lg">
 
+                <div class="w-full h-fit flex flex-col gap-5">
+                    <h1 class="font-[400] font-hammersmith text-2xl text-left">Shipping Information</h1>
+
+                    <div class="w-full h-fit flex flex-col gap-2">
+                        <h1 class="text-md font-medium text-[#958a8a]">Contact Information</h1>
+                        <input type="text" placeholder="Enter your email"
+                            class="w-full flex h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                    </div>
+
+                    <div class="w-full h-fit flex flex-col gap-2">
+                        <h1 class="text-md font-medium text-[#958a8a]">Shipping Address</h1>
+
+                        <span>
+                            <input type="text" placeholder="Enter your address"
+                                class="w-full flex h-9 rounded-md border border-input rounded-b-none bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+
+                            <select
+                                class="w-full flex justify-between h-9 rounded-md border border-b-0 border-t-0 rounded-t-none rounded-b-none border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                                <div class="w-full h-full flex justify-between items-center gap-2">
+                                    <option value="default">Default</option>
+                                    <option value="name">Name</option>
+                                    <option value="price">Price</option>
+                                </div>
+                            </select>
+
+                            <input type="text" placeholder="Enter your address"
+                                class="w-full flex h-9 rounded-md border rounded-t-none bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                        </span>
+                    </div>
+                </div>
+
+                <div class="w-full h-fit flex flex-col gap-5">
+                    <h1 class="font-[400] font-hammersmith text-2xl text-left">Card Information</h1>
+
+                    <div class="w-full h-full flex flex-col gap-2">
+                        <h1 class="text-md font-medium text-[#958a8a]">Payment Information</h1>
+
+                        <input type="text" inputmode="numeric" placeholder="Enter your card number"
+                            class="w-full flex h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+
+                        <div class="w-full h-fit flex justify-between items-center gap-2">
+                            <input type="text" inputmode="numeric" placeholder="MM/YY"
+                                class="w-1/2 flex h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+
+                            <input type="text" inputmode="numeric" placeholder="CVV"
+                                class="w-1/2 flex h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                        </div>
+                    </div>
+
+                    <div class="w-full h-full flex flex-col justify-start items-start gap-5">
+
+                        <div class="w-fit h-fit flex items-center justify-center gap-2 bg-none">
+                            <input type="checkbox" onclick="closeOptions(this, 'no-svg')" id="billing-same"
+                                class="rounded-[4px] size-5 focus:ring-transparent focus:shadow-none focus:outline-0 bg-inherit text-[#3f7ef0]">
+                            <label for="billing-same" class="text-sm">Billing address same as shipping
+                                address.</label>
+                        </div>
+
+                        <div class="w-full h-fit flex flex-col gap-2">
+                            <h1 class="text-md font-medium text-[#958a8a]">Billing Address</h1>
+
+                            <span>
+                                <input type="text" placeholder="Enter your address"
+                                    class="w-full flex h-9 rounded-md border border-input rounded-b-none bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+
+                                <select
+                                    class="w-full flex justify-between h-9 rounded-md border border-b-0 border-t-0 rounded-t-none rounded-b-none border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                                    <div class="w-full h-full flex justify-between items-center gap-2">
+                                        <option value="default">Default</option>
+                                        <option value="name">Name</option>
+                                        <option value="price">Price</option>
+                                    </div>
+                                </select>
+
+                                <input type="text" placeholder="Enter your address"
+                                    class="w-full flex h-9 rounded-md border rounded-t-none bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="w-full h-fit flex flex-col justify-start items-center gap-5">
+                    <div class="w-full h-[50px] flex justify-center items-center">
+                        <button class="w-full h-full relative shadow-2xl" onclick="window.location.href = 'cart.html'">
+                            <div
+                                class="w-full h-full bg-[#646464] text-white font-Kanit text-xl py-3 px-5 rounded-lg z-10">
+                            </div>
+
+                            <div
+                                class="w-full h-full flex justify-center items-center absolute top-0 left-0 bg-black text-white text-center font-Kanit text-xl py-3 px-5 rounded-lg transition ease-in-out delay-50 hover:-translate-y-2 hover:-translate-x-2 hover:scale-100 z-20 hover:drop-shadow-2xl">
+                                Pay
+                            </div>
+                        </button>
+                    </div>
+
+                    <h1 class="text-[#958a8a] text-center ">By clicking the button, you agree to the <button
+                            class="underline">Terms And Conditions</button> as well as the <button
+                            class="underline">Terms
+                            of Safe</button></h1>
+
+                </div>
             </section>
         </div>
     </div>

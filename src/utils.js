@@ -28,11 +28,26 @@ const openMenu = () => {
     }, 500); // Remove the class after 0.5s, which is the duration of the animation
 }
 
-const closeOptions = (selectElement) => {
+const closeOptions = (selectElement, no_Svg) => { // no_Svg is a boolean that is used to determine if the selectElement is a child of a child of a child
     var parent = selectElement.parentElement;
     var childrenOfParent = parent.children;
 
     var children = selectElement.children;
+
+    if (no_Svg) {
+        var grandParent = parent.parentElement;
+        var grandChildren = grandParent.children;
+
+        if (grandChildren[1].classList.contains('flex')) {
+            grandChildren[1].classList.remove('flex');
+            grandChildren[1].classList.add('hidden');
+        } else {
+            grandChildren[1].classList.remove('hidden');
+            grandChildren[1].classList.add('flex');
+        }
+        return;
+    }
+
     var childOfChildSVG = children[0].children;
     var childOfChildContent = children[1];
 

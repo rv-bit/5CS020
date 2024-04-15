@@ -49,8 +49,9 @@ tailwind.config = {
                 'mono': ['Fira Code', 'monospace'],
                 'kalam': ['Kalam', 'cursive'],
 
-                'body': ['Inter', 'sans-serif'],
                 'Kanit': ['Kanit', 'sans-serif'],
+
+                'hammersmith': ['Hammersmith One', 'sans-serif'],
             },
         },
     },
