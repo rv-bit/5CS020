@@ -1,3 +1,14 @@
+async function fetchItems() {
+    try {
+        const response = await fetch('../assets/items.json');
+        const dataItems = await response.json();
+
+        return dataItems;
+    } catch (err) {
+        console.error(err);
+    }
+}
+
 const openMenu = () => {
     const menu = document.getElementById('menu_dropdown');
     const body = document.querySelector('body');
@@ -124,6 +135,44 @@ const slideImages = (trigger) => {
         left: element.scrollLeft - 100,
         behavior: 'smooth'
     });
+}
+
+const addToCart = (id, quantity) => {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const product = {
+        id: id,
+        quantity: quantity || 1
+    };
+
+    cart.push(product);
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+const addToWishlist = (id) => {
+    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+    const product = {
+        id: id
+    };
+
+    wishlist.push(product);
+
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+}
+
+const updateBasketNumber = () => {
+    const amountOfProducts = localStorage.getItem('amountOfProducts') || 0;
+
+    const amount = parseInt(amountOfProducts) + 1;
+
+    localStorage.setItem('amountOfProducts', amount);
+
+    const element = document.querySelectorAll('.product-amount-baskets');
+    element.forEach(product => {
+        element.textContent = amount;
+    })
 }
 
 const amountOfProducts = localStorage.getItem('amountOfProducts') || 10;

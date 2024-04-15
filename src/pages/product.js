@@ -104,7 +104,165 @@ const selectFilters = (element, elementClass) => {
 //     };
 // });
 
+let product = [];
+const createProductElement = () => {
+    const parentDiv = document.getElementById('data_product_information');
+
+    const parentChildren = parentDiv.children;
+
+    let productMainImageSection = parentChildren[0].children[0].children[1].children[0];
+    let productImagesSection = parentChildren[0].children[1];
+    let productImageControls = parentChildren[0].children[2];
+
+    var product_image = product.product_image;
+    const productId = product.product_name.replace(/\s/g, '-').toLowerCase();
+    const productCategory = product.product_category.toLowerCase();
+
+    let productImage = `../assets/images/products/${productCategory}/${product_image}`;
+
+    if (typeof product_image === undefined || product_image === '' || product_image === null) {
+        productImage = '../assets/images/utils/error.webp';
+    } else if (typeof product_image === 'object') {
+        productImage = `../assets/images/products/${productCategory}/${product_image[0]}`;
+    } else {
+        productImage = `../assets/images/products/${productCategory}/${product.product_image}`;
+    }
+
+    productMainImageSection.src = productImage;
+
+    if (typeof product_image === 'object') {
+        productImagesSection.innerHTML = '';
+        productImageControls.classList.remove('hidden');
+
+        product_image.forEach(image => {
+            const divImages = `
+                <button onclick="selectImage(this)"
+                    class="product-thumbnail w-auto h-auto flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-[25px] shrink-0 disable-dbl-tap-zoom">
+                    <img src="../assets/images/products/${productCategory}/${image}" alt="product"
+                        class="w-full h-[100px]" />
+                </button>
+            `
+
+            productImagesSection.innerHTML += divImages;
+        });
+    } else {
+        productImageControls.classList.add('hidden');
+    }
+
+    const productInfoSection = parentChildren[1].children[0];
+
+    let productTitleSection = parentChildren[1].children[0].children[0];
+    let productPriceSection = parentChildren[1].children[0].children[1];
+    let productDescriptionSection = parentChildren[1].children[0].children[2];
+
+    productTitleSection.innerText = product.product_name;
+    productPriceSection.innerText = `£${product.product_price}`;
+    productDescriptionSection.innerText = product.product_description;
+
+    // const productSizesSection = parentChildren[1].children[1].children[0];
+    // const productColorsSection = parentChildren[1].children[1].children[1];
+
+    // if (product.product_sizes) {
+    //     productSizesSection.innerHTML = '';
+    //     product.product_sizes.forEach(size => {
+    //         const divSizes = `
+    //             <button onclick="selectFilters(this, 'size-filter')"
+    //                 class="size-filter w-auto h-auto flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-[25px] shrink-0 disable-dbl-tap-zoom">
+    //                 ${size}
+    //             </button>
+    //         `
+
+    //         productSizesSection.innerHTML += divSizes;
+    //     });
+    // }
+
+    // if (product.product_colors) {
+    //     productColorsSection.innerHTML = '';
+    //     product.product_colors.forEach(color => {
+    //         const divColors = `
+    //             <button onclick="selectFilters(this, 'color-filter')"
+    //                 class="color-filter w-auto h-auto flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-[25px] shrink-0 disable-dbl-tap-zoom">
+    //                 ${color}
+    //             </button>
+    //         `
+
+    //         productColorsSection.innerHTML += divColors;
+    //     });
+    // }
+
+    const productExtraDetailsSection = parentDiv.querySelector('[role=extra-details]');
+    const productExtraDetails = productExtraDetailsSection.children[0].children[1];
+    const dataTags = generateTags(product);
+
+    const div = `
+        <div class="flex flex-row justify-between items-center">
+            <h1 class="text-base font-medium text-[#4c4c44]">SKU</h1>
+            <p class="text-base font-medium text-[#8c8c86]">${productId}</p>
+        </div>
+
+        <div class="flex flex-row justify-between items-center">
+            <h1 class="text-base font-medium text-[#4c4c44]">Category</h1>
+            <p class="text-base font-medium text-[#8c8c86]">${productCategory.toUpperCase()}</p>
+        </div>
+
+        <div class="flex flex-row justify-between items-center">
+            <h1 class="text-base font-medium text-[#4c4c44]">Tags</h1>
+            <p class="text-base font-medium text-[#8c8c86]">${dataTags.join(', ')}</p>
+        </div>
+    `
+    productExtraDetails.insertAdjacentHTML('afterbegin', div);
+    console.log('productExtraDetailsSection', productExtraDetailsSection.children[0].children[1]);
+}
+
+const generateTags = (data) => {
+    const tags = [];
+
+    tags.push(data.product_category);
+    tags.push(data.product_name);
+    tags.push(data.product_brand);
+
+    if (data.product_colors) {
+        data.product_colors.forEach(color => {
+            tags.push(color);
+        });
+    }
+
+    if (data.product_sizes) {
+        data.product_sizes.forEach(size => {
+            tags.push(size);
+        });
+    }
+
+    return tags;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const product_id = searchParams.get('product_id');
+
+    console.log('product_id', product_id);
+
+    if (product_id) {
+        fetchItems().then((data) => {
+            if (!data) return;
+
+            if (data.length === 0) {
+                return;
+            }
+
+            Object.entries(data).forEach(([key, value]) => {
+                const productId = value.product_name.replace(/\s/g, '-').toLowerCase();
+                if (productId !== product_id) return;
+
+                product = value;
+            });
+        }).then(() => {
+            createProductElement();
+        });
+    } else {
+        window.location.href = 'products.html';
+    }
+
     let isDown = false;
     let startX;
     let scrollLeft;

@@ -1,105 +1,100 @@
 [
     {
-        "product_name": "iPhone 13",
-        "product_id": "iphone-13",
-        "product_price": 999.99,
-        "product_quantity": 20,
+        "product_name": "Samsung Galaxy Tab S9 12inch 256GB Wi-Fi",
+        "product_price": 699.99,
+        "product_quantity": 12,
         "product_category": "Electronics",
-        "product_image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-select-2021?wid=834&hei=1000&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1632376723000",
-        "product_brand": "Apple",
-        "top_seller": true,
-        "product_description": "The iPhone 13 is the latest smartphone from Apple, featuring a powerful A15 Bionic chip, advanced camera system, and stunning Super Retina XDR display."
-    },
-    {
-        "product_name": "Pizza Margherita",
-        "product_id": "pizza-margherita",
-        "product_price": 12.99,
-        "product_quantity": 30,
-        "product_category": "Food",
-        "product_image": "https://www.simplyrecipes.com/wp-content/uploads/2007/01/pizza-margherita-horiz-a-2000.jpg",
-        "product_brand": "N/A",
-        "product_description": "A classic Italian pizza topped with tomatoes, fresh mozzarella, basil, and olive oil."
-    },
-    {
-        "product_name": "Levi's 501 Original Fit Jeans",
-        "product_id": "levis-501-jeans",
-        "product_price": 59.99,
-        "product_quantity": 15,
-        "product_category": "Clothing",
-        "product_image": "https://images.levi.com/is/image/Levi/cdfdb_005010185-front-pdp.jpg?$grid_desktop_full$",
-        "product_brand": "Levi's",
-        "top_seller": true,
-        "product_description": "Levi's 501 Original Fit Jeans are iconic and timeless, featuring a straight leg, button fly, and classic five-pocket styling."
-    },
-    {
-        "product_name": "Samsung 55\" Smart TV",
-        "product_id": "samsung-55-tv",
-        "product_price": 799.99,
-        "product_quantity": 10,
-        "product_category": "Electronics",
-        "product_image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6426/6426000_sd.jpg;maxHeight=640;maxWidth=550",
+        "product_image": "tablet-s9.avif",
         "product_brand": "Samsung",
-        "product_description": "The Samsung 55\" Smart TV offers stunning 4K resolution, a sleek design, and built-in smart features for streaming your favorite content."
+        "top_seller": true,
+        "product_description": "The Samsung Galaxy Tab S9+ Graphite features a super vibrant 12,4-inch 120Hz Dynamic AMOLED 2X Display making it perfect for family viewing. Whether you're watching a film or scrolling through old photos in the garden, vision booster has you covered, keeping the display visible even under sunlight. Never ending to do list? The enhanced S Pen comes in box. So, you can easily jot, draw and annotate on all your personal projects and even convert handwriting into text for when you don't feel like typing. The Galaxy Tab S9+ features IP68 water-resistant protection, so if you're enthralled in an eBook at the park and it starts raining, the odd splash is nothing to worry about. The incredible 120Hz display rate means the screen can refresh itself 120 times a second – making for truly epic gameplay. Featuring a powerful Snapdragon 8 Gen 2 processor, work in three apps at once with ease using multi-window."
     },
     {
-        "product_name": "Chicken Caesar Salad",
-        "product_id": "chicken-caesar-salad",
-        "product_price": 9.99,
-        "product_quantity": 25,
-        "product_category": "Food",
+        "product_name": "Apple Watch Series 8",
+        "product_price": 349.99,
+        "product_quantity": 50,
+        "product_category": "Electronics",
+        "product_image": [
+            "apple-watch-series-8-black.png",
+            "apple-watch-series-8-silver.png",
+            "apple-watch-series-8-red.png",
+            "apple-watch-series-8-silver-2.png"
+        ],
+        "product_brand": "Apple",
+        "product_description": "Apple Watch Series 8 helps you stay connected, active, healthy and safe. Featuring double tap, a magical way to interact with Apple Watch, an even brighter display, faster on-device Siri and Precision Finding for iPhone. Your essential companion for a healthy life is now even more powerful. The S9 chip enables a super-bright display and a magical new way to quickly and easily interact with your Apple Watch without touching the screen. Advanced health, safety and activity features provide powerful insights and help when you need it. An aluminum Apple Watch Series 9 paired with the latest Sport Loop is carbon neutral. Learn more about Apple's commitment to the environment. Keep an eye on your blood oxygen. Take an ECG5 anytime. Get notifications if you have an irregular heart rhythm. See how much time you spent in REM, Core or Deep sleep with Sleep Stages. Temperature sensing provides insights into overall well-being and cycle tracking. And take note of your state of mind to help build emotional awareness and resilience. Innovative Safety Features — Fall Detection and Crash Detection can connect you to emergency services in the event of a hard fall or a serious car crash. And Emergency SOS lets you call for help with the press of a button. Easily Customizable — With watch straps in a range of styles, materials and colors, as well as stylish and functional watch faces with complications tailored to your interests, you can change your watch to fit your mood or the moment."
+    },
+    {
+        "product_name": "Samsung Galaxy Book4 Pro 14inch Laptop Intel Core Ultra 7",
+        "product_price": 59.99,
+        "product_quantity": 8,
+        "product_category": "Electronics",
+        "product_image": "laptop-samsung.avif",
+        "product_brand": "Samsung",
+        "top_seller": true,
+        "product_description": "The Galaxy Book4 Pro might only be 11,6 mm thin, but it's packed with power. The Intel® Core™ Ultra 7 processor inside won't make you wait around. It's got 16 cores and it's supercharged by AI, so it'll speed through any task in its way. And when you're done with work, you can fire up a movie and truly appreciate the 3K AMOLED touchscreen. It's popping with colour and contrast, making every scene come to life. It runs at a 120 Hz refresh rate, which makes the laptop even snappier. And with a battery that will keep on going for up to 18 hours, you don't need to worry about finding a plug."
+    },
+    {
+        "product_name": "Cotton Jersey Overshirt",
+        "product_price": 29.49,
+        "product_quantity": 86,
+        "product_category": "Clothing",
+        "product_image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6426/6426000_sd.jpg;maxHeight=640;maxWidth=550",
+        "product_brand": "N/A",
+        "product_description": "Slim fit design. Fits true to size, take your normal size. Spread collar neckline. Centre front button placket fastening. Front upper patch pockets. Long set-in sleeves. Buttoned sleeve cuff. Stitched trim to finish hemline."
+    },
+    {
+        "product_name": "Textured Weave Quarter-Zip Polo Shirt",
+        "product_price": 48.95,
+        "product_quantity": 26,
+        "product_category": "Clothing",
         "product_image": "https://www.simplyrecipes.com/wp-content/uploads/2018/06/HT-Classic-Caesar-Salad-LEAD-6-600x840.jpg",
         "product_brand": "N/A",
-        "product_description": "A delicious salad made with romaine lettuce, grilled chicken, Parmesan cheese, croutons, and Caesar dressing."
+        "product_description": "Collared knit polo shirt with front zip fastening. Short sleeves. Ribbed trims."
     },
     {
-        "product_name": "Nike Air Force 1 Sneakers",
-        "product_id": "nike-air-force-1",
-        "product_price": 89.99,
-        "product_quantity": 20,
+        "product_name": "Boxy Moto Knitted Polo",
+        "product_price": 69.49,
+        "product_quantity": 43,
         "product_category": "Clothing",
         "product_image": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/30b8322b-7dd1-4732-b8b8-396826d7be9e/air-force-1-07-mens-shoe-Znvj8P.png",
-        "product_brand": "Nike",
+        "product_brand": "Boxy",
         "top_seller": true,
-        "product_description": "The Nike Air Force 1 Sneakers feature a classic design, comfortable fit, and iconic Nike Air cushioning for all-day wear."
+        "product_description": "We all know about t-shirts and vests, light layers which have stood the test of time. T-shirts are a seasonless staple which gives your wardrobe a solid foundation to build off. Wheather you're about plain tee, printed, striped or long-sleave or you're flexing something oversized for a confortably casula look, make sure your outfits have the foundations they need with our range of tees and vests. Combine a plain tee with denim and trainers for a versatile everyday outfit or pair with cropped trousers to secure minimalistic vibes."
     },
     {
-        "product_name": "Sony Noise Cancelling Headphones",
-        "product_id": "sony-noise-cancelling-headphones",
-        "product_price": 299.99,
-        "product_quantity": 15,
-        "product_category": "Electronics",
+        "product_name": "Nike Sportswear Womans Oversized Fleece Crew-Neck Swearshirt",
+        "product_price": 34.99,
+        "product_quantity": 62,
+        "product_category": "Clothing",
         "product_image": "https://images-na.ssl-images-amazon.com/images/I/81oZ0TjOq7L._AC_SL1500_.jpg",
-        "product_brand": "Sony",
-        "product_description": "Sony Noise Cancelling Headphones offer industry-leading noise cancellation, wireless connectivity, and premium sound quality for immersive listening experiences."
+        "product_brand": "Nike",
+        "product_description": "Deciding on what to wear has never been easier with this spacious layer. This sweatshirt's oversized fit pairs with varsity-inspired design details for effortless, classic style. Our midweight brushed fleece feels extra soft on the inside and smooth on the outside, helping you stay cosy while keeping its structured shape."
     },
     {
-        "product_name": "Sushi Combo Platter",
-        "product_id": "sushi-combo-platter",
-        "product_price": 24.99,
-        "product_quantity": 20,
+        "product_name": "Samyang Hot Chicken Flavor Ramen Buldak Carbonara",
+        "product_price": 1.99,
+        "product_quantity": 168,
         "product_category": "Food",
         "product_image": "https://www.thespruceeats.com/thmb/CzS8NrJFzzXJfIn1O2pQZsYJzL0=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/sushi-combo-5836f9e13df78c6f6a6b42ad.jpg",
-        "product_brand": "N/A",
-        "product_description": "A delicious assortment of sushi rolls, nigiri, and sashimi, perfect for sharing or enjoying on your own."
+        "product_brand": "Samyang",
+        "product_description": "Carbonara flavoured Hot Chicken Ramen made from wheat noodles."
     },
     {
-        "product_name": "Adidas Ultraboost Running Shoes",
-        "product_id": "adidas-ultraboost-shoes",
-        "product_price": 179.99,
-        "product_quantity": 25,
-        "product_category": "Clothing",
+        "product_name": "Nissin Roast Beef Flavour Noodle",
+        "product_price": 1.99,
+        "product_quantity": 216,
+        "product_category": "Flood",
         "product_image": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/50995441a7b84731b0eaac4000d45a0a_9366/Ultraboost_21_Shoes_White_FW4353_01_standard.jpg",
-        "product_brand": "Adidas",
-        "product_description": "The Adidas Ultraboost Running Shoes feature responsive cushioning, a lightweight design, and a supportive fit for optimal performance on your runs."
+        "product_brand": "Nissin",
+        "product_description": "Nissin are a beloved producer of instant noodles, enjoyed for their incredibly affordable prices and wide range of flavours. The Japanese brand specialises in offering ramen and noodle packets that effortlessly blend delicious flavour with quality and convenience. Choose from classics like chicken, vegetable, beef and much more to find tempting noodles that satisfy your flavour cravings."
     },
     {
-        "product_name": "Apple Watch Series 7",
-        "product_id": "apple-watch-series-7",
-        "product_price": 399.99,
-        "product_quantity": 15,
-        "product_category": "Electronics",
+        "product_name": "Lotte Pepero Biscuits Sticks with Crushed Cookies",
+        "product_price": 4.29,
+        "product_quantity": 98,
+        "product_category": "Food",
         "product_image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/apple-watch-s7-40mm-blue-cell-202109?wid=750&hei=1080&fmt=jpeg&qlt=80&op_usm=0.5,0.5&.v=1631151072000",
-        "product_brand": "Apple",
-        "product_description": "The Apple Watch Series 7 features a larger, always-on Retina display, advanced health monitoring, and customizable watch faces, making it the ultimate companion for your active lifestyle."
+        "product_brand": "Lotte",
+        "product_description": "These deliciously crunchy biscuit sticks are a fun and rarer alternative to the popular Glico Pocky. Pepero is Korea's answer to Pocky, produced by Korean confectionery company Lotte. To stand out from the crowd, they have made Pepero sticks with special features! Pepero Cookie & Cream, also known as 'White Cookie', is a biscuit stick covered in gorgeous thick creamy frosting, generously sprinkled with chunky bits of crushed chocolate cookie. Pepero come in smart packaging and make a lovely gift, but at this great everyday low price, you can afford to treat yourself too!"
     }
 ]
