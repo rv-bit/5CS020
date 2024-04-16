@@ -145,125 +145,8 @@
                     <section role="cart-cards"
                         class="w-[1500px] max-2xl:w-full h-fit flex max-xl:flex-col justify-center items-start gap-2">
 
-                        <div role="cart-item" class="w-full h-full flex flex-col justify-start items-start gap-2">
-
-                            <div role="cart-product"
-                                class="w-full h-fit max-h-[300px] max-md:max-h-fit flex justify-between max-md:flex-col max-md:justify-start border rounded-sm gap-2 p-5">
-
-                                <div class="w-full h-fit flex max-md:flex-col items-center gap-5">
-                                    <div class="w-fit h-full flex justify-start max-md:justify-center items-center">
-                                        <img src="../assets/images/products/iphone_15_blue.png" alt="product-1"
-                                            class="size-[200px] object-cover" />
-                                    </div>
-
-                                    <div class="w-[60%] max-md:w-full h-full flex flex-col gap-5">
-                                        <div class="h-full w-full flex flex-col gap-2">
-                                            <h1 class="font-Kanit text-3xl truncate">iPhone 15 Pro</h1>
-
-                                            <div class="w-full h-full flex flex-col">
-                                                <div class="flex justify-start items-center mr-2 hover:cursor-pointer"
-                                                    onclick="closeOptions(this)">
-                                                    <h1 class="text-xl font-Kanit pr-2">Description</h1>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="lucide lucide-plus">
-                                                        <path d="M5 12h14" />
-                                                        <path d="M12 5v14" />
-                                                    </svg>
-
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="lucide lucide-minus hidden">
-                                                        <path d="M5 12h14" />
-                                                    </svg>
-                                                </div>
-
-                                                <div class="w-full h-full hidden flex-col">
-                                                    <p
-                                                        class="font-Kanit text-md text-ellipsis text-ellipsis overflow-hidden">
-                                                        Lorem ipsum dolor sit
-                                                        amet consectetur
-                                                        adipisicing elit. Neque ex dolor nihil! Dolorem laudantium,
-                                                        voluptatem
-                                                        repudiandae quia eaque fugiat repellat autem cumque sunt
-                                                        consequatur
-                                                        facere
-                                                        exercitationem, quo culpa, fuga voluptate.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="w-fit h-fit max-md:w-full flex max-extraSm:flex-col gap-5">
-                                            <div
-                                                class="flex justify-between flex-row border border-black rounded-[5px] w-[150px] max-md:w-full h-[50px] overflow-hidden">
-                                                <button onclick="quantityChange(this)"
-                                                    class="size-auto hover:bg-[#8c8c86] opactity-40 max-md:mr-2 px-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="lucide lucide-minus">
-                                                        <path d="M5 12h14" />
-                                                    </svg>
-                                                </button>
-                                                <input onchange="quantityChange(this, 'input')" type="number"
-                                                    class="h-full max-w-[60px] max-xl:max-w-[45px] text-center focus:outline-none border-0 focus:ring-transparent no-input-spin"
-                                                    value="1" />
-                                                <button onclick="quantityChange(this, 'increase')"
-                                                    class="size-auto hover:bg-[#8c8c86] opactity-40 max-md:ml-2 px-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="lucide lucide-plus">
-                                                        <path d="M5 12h14" />
-                                                        <path d="M12 5v14" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-
-                                            <div
-                                                class="flex justify-center items-center max-extraSm:justify-start gap-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="lucide lucide-eye  transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-100 hover:text-blue-300 hover:cursor-pointer">
-                                                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                                                    <circle cx="12" cy="12" r="3" />
-                                                </svg>
-
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="lucide lucide-heart transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-100 hover:text-red-300 hover:cursor-pointer">
-                                                    <path
-                                                        d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                                                </svg>
-
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="lucide lucide-trash-2 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-100 hover:text-red-600 hover:cursor-pointer">
-                                                    <path d="M3 6h18" />
-                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                                                    <line x1="10" x2="10" y1="11" y2="17" />
-                                                    <line x1="14" x2="14" y1="11" y2="17" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="w-fit h-full flex flex-col justify-between max-extraSm:mt-2">
-                                    <div class="flex flex-col justify-start items-end gap-2">
-                                        <h2 class="font-Kanit text-lg max-extraSm:text-2xl">£39.99</h2>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                        <section role="cart-item" class="w-full h-full flex flex-col justify-start items-start gap-2">
+                        </section>
 
                         <section role="cart-summary"
                             class="w-1/2 max-xl:w-full h-fit flex flex-col justify-start items-start gap-10 border rounded-sm p-10 sticky top-2">
@@ -339,10 +222,10 @@
 
             </section>
 
-            <section role="saved-items" id="saved_items"
-                class="flex flex-col justify-center items-center w-full h-full gap-10 mt-20">
+            <section role="saved-items" class="flex flex-col justify-center items-center w-full h-full gap-10 mt-20">
 
-                <div class="flex justify-center items-center flex-col max-2xl:gap-5 gap-10 w-full h-full px-5">
+                <div role="saved-cart-cards"
+                    class="flex justify-center items-center flex-col max-2xl:gap-5 gap-10 w-full h-full px-5">
 
                     <section role="saved-cart-top-info"
                         class="w-[1500px] max-2xl:w-full h-full flex flex-col justify-center items-start">
@@ -351,73 +234,6 @@
 
                     <section role="saved-cart-item"
                         class="w-[1500px] max-2xl:w-full h-fit flex flex-col justify-center items-start gap-2">
-
-                        <div role="saved-cart-product"
-                            class="w-full h-fit max-h-[300px] max-md:max-h-fit flex justify-between items-center max-md:flex-col max-md:justify-start border rounded-sm gap-2 p-5">
-
-                            <div class="w-full h-fit flex max-md:flex-col items-center gap-5">
-                                <div class="w-fit h-full flex justify-start max-md:justify-center items-center">
-                                    <img src="../assets/images/products/iphone_15_blue.png" alt="product-1"
-                                        class="size-[200px] object-cover" />
-                                </div>
-
-                                <div class="w-[80%] max-xl:w-[60%] max-md:w-full h-full flex flex-col gap-5">
-                                    <div class="w-full h-full flex flex-col gap-2">
-                                        <h1 class="font-Kanit text-3xl truncate">
-                                            dwalkdjawdjiawdoijawidjawdjiawjdoawidowa</h1>
-
-                                        <div class="w-full h-full flex flex-col">
-                                            <div class="flex justify-start items-center mr-2 hover:cursor-pointer"
-                                                onclick="closeOptions(this)">
-                                                <h1 class="text-xl font-Kanit mr-2">Description</h1>
-
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="lucide lucide-plus">
-                                                    <path d="M5 12h14" />
-                                                    <path d="M12 5v14" />
-                                                </svg>
-
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                    class="lucide lucide-minus hidden">
-                                                    <path d="M5 12h14" />
-                                                </svg>
-                                            </div>
-
-                                            <div class="w-full h-full hidden flex-col">
-                                                <p
-                                                    class="font-Kanit text-md text-ellipsis text-ellipsis overflow-hidden">
-                                                    Lorem ipsum dolor sit
-                                                    amet consectetur
-                                                    adipisicing elit. Neque ex dolor nihil! Dolorem laudantium,
-                                                    voluptatem
-                                                    repudiandae quia eaque fugiat repellat autem cumque sunt
-                                                    consequatur
-                                                    facere
-                                                    exercitationem, quo culpa, fuga voluptate.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div
-                                        class="w-fit h-fit flex justify-center items-center max-extraSm:justify-start gap-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="lucide lucide-heart text-red-300 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-100 hover:text-gray-300 hover:cursor-pointer">
-                                            <path
-                                                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <h2 class="font-Kanit text-lg text-center max-extraSm:text-2xl">£39.99</h2>
-                        </div>
-
                     </section>
 
                 </div>
@@ -520,6 +336,7 @@
     </div>
 
     <script src="../src/utils.js"></script>
+    <script src="../src/pages/cart.js"></script>
 </body>
 
 </html>

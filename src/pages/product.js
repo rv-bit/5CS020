@@ -190,7 +190,49 @@ const createProductElement = () => {
     //     });
     // }
 
-    const productExtraDetailsSection = parentDiv.querySelector('[role=extra-details]');
+    const productAddToCartParentElement = parentDiv.querySelector('[role="add-to-cart-buy-now"]');
+
+    const divAddToCart = `
+        <div class="col-span-2 flex flex-row max-sm:flex-col justify-center items-center gap-2">
+            <div
+                class="flex justify-between flex-row border border-black rounded-[5px] w-2/5 max-sm:w-full h-[50px] overflow-hidden">
+                <button onclick="quantityChange(this, '${productId}')"
+                    class="size-auto hover:bg-[#8c8c86] opactity-40 max-md:mr-2 px-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus">
+                        <path d="M5 12h14" />
+                    </svg>
+                </button>
+                <input onchange="quantityChange(this, '${productId}', 'input')" type="number" inputmode="numeric"
+                    class="h-full max-w-[60px] max-xl:max-w-[45px] text-center focus:outline-none border-0 focus:ring-transparent no-input-spin"
+                    value="1" />
+                <button onclick="quantityChange(this, '${productId}', 'increase')"
+                    class="size-auto hover:bg-[#8c8c86] opactity-40 max-md:ml-2 px-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus">
+                        <path d="M5 12h14" />
+                        <path d="M12 5v14" />
+                    </svg>
+                </button>
+            </div>
+
+            <button onclick="addToCart('${productId}')"
+                class="w-3/5 max-sm:w-full h-[50px] bg-black text-white text-base text-center font-medium rounded-[5px] flex justify-center items-center">
+                Add To Cart
+            </button>
+        </div>
+
+        <button
+            class="col-span-2 w-full h-[50px] bg-[#3f7ef0] text-white text-base text-center font-medium rounded-[5px] flex justify-center items-center">
+            Buy Now
+        </button>
+    `
+
+    productAddToCartParentElement.insertAdjacentHTML('afterbegin', divAddToCart);
+
+    const productExtraDetailsSection = parentDiv.querySelector('[role="extra-details"]');
     const productExtraDetails = productExtraDetailsSection.children[0].children[1];
     const dataTags = generateTags(product);
 

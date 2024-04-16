@@ -80,7 +80,7 @@ const closeOptions = (selectElement, no_Svg) => { // no_Svg is a boolean that is
     }
 }
 
-const quantityChange = (element, trigger) => {
+const quantityChange = (element, productId, trigger) => {
     const elementParent = element.parentElement;
     const elementChildren = elementParent.children;
 
@@ -98,9 +98,9 @@ const quantityChange = (element, trigger) => {
             return;
         }
 
+        updateCart(productId, parseInt(quantity.value));
         return;
     }
-
 
     if (trigger === 'increase') {
         if (quantity.value === '10') {
@@ -109,6 +109,8 @@ const quantityChange = (element, trigger) => {
         }
 
         quantity.value = parseInt(quantity.value) + 1;
+
+        updateCart(productId, parseInt(quantity.value));
         return;
     }
 
@@ -117,6 +119,7 @@ const quantityChange = (element, trigger) => {
     }
 
     quantity.value = parseInt(quantity.value) - 1;
+    updateCart(productId, parseInt(quantity.value));
 }
 
 const slideImages = (trigger) => {
@@ -139,31 +142,85 @@ const slideImages = (trigger) => {
 
 const addToCart = (id, quantity) => {
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-
     const productExists = cartItems.find(product => product.id === id);
 
+    var quantity = parseInt(quantity) || 1;
+
     if (productExists) {
-        productExists.quantity += quantity || 1;
+        productExists.quantity += quantity;
 
         localStorage.setItem('cart', JSON.stringify(cartItems));
         return;
     }
 
+    const tempCart = JSON.parse(localStorage.getItem('tmpCart')) || [];
+    const productExistsTemp = tempCart.find(product => product.id === id);
+    const productIndexTemp = tempCart.findIndex(product => product.id === id);
+
     const product = {
         id: id,
-        quantity: quantity || 1
+        quantity: productExistsTemp ? productExistsTemp.quantity : quantity
     };
 
     cartItems.push(product);
+    tempCart.splice(productIndexTemp, 1);
 
     localStorage.setItem('cart', JSON.stringify(cartItems));
+    localStorage.setItem('tmpCart', JSON.stringify(tempCart));
 
     updateBasketNumber();
 }
 
-const addToWishlist = (id) => {
-    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+const updateCart = (id, quantity) => {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const productExists = cartItems.find(product => product.id === id);
 
+    if (!productExists) {
+        const tempCart = JSON.parse(localStorage.getItem('tmpCart')) || [];
+        const productExistsTemp = tempCart.find(product => product.id === id);
+
+        if (productExistsTemp) {
+            productExistsTemp.quantity = quantity;
+
+            localStorage.setItem('tmpCart', JSON.stringify(tempCart));
+            return;
+        }
+
+        const product = {
+            id: id,
+            quantity: quantity
+        };
+
+        tempCart.push(product);
+
+        localStorage.setItem('tmpCart', JSON.stringify(tempCart));
+        return;
+    }
+
+    productExists.quantity = quantity;
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+}
+
+const removeFromCart = (id, cb) => {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const productIndex = cartItems.findIndex(product => product.id === id);
+
+    if (productIndex === -1) {
+        return;
+    }
+
+    cartItems.splice(productIndex, 1);
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+
+    updateBasketNumber();
+
+    if (cb) {
+        cb(cartItems);
+    }
+}
+
+const addToWishlist = (id, cb, cb2) => {
+    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
     const productExists = wishlist.find(product => product.id === id);
 
     if (productExists) {
@@ -175,15 +232,36 @@ const addToWishlist = (id) => {
     };
 
     wishlist.push(product);
-
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+    if (cb) {
+        cb(wishlist);
+    }
+
+    if (cb2) {
+        console.log('cb2', cb2);
+    }
+}
+
+const removeFromWishlist = (id, cb) => {
+    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    const productIndex = wishlist.findIndex(product => product.id === id);
+
+    if (productIndex === -1) {
+        return;
+    }
+
+    wishlist.splice(productIndex, 1);
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+    if (cb) {
+        cb(wishlist);
+    }
 }
 
 const updateBasketNumber = () => {
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     const cartAmount = cartItems.length;
-
-    console.log(cartAmount, cartItems);
 
     const productAmn = document.querySelectorAll('.product-amount-baskets');
     productAmn.forEach(element => {

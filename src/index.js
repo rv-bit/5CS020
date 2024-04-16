@@ -169,7 +169,7 @@ const createFeaturedProducts = () => {
             </div>
         `;
 
-        parentDiv.innerHTML += div;
+        parentDiv.insertAdjacentHTML('afterbegin', div);
     });
 }
 
