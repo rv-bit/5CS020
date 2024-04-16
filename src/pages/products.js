@@ -83,20 +83,20 @@ const createProductElements = () => {
 
                 <section role="product-image" class="w-full h-full flex justify-center items-center relative">
                     <img src="${productImage}"
-                        alt="product-image" onerror="this.src='../assets/images/utils/error.webp'; this.alt='error-image'" class="w-[260px] h-[300px] max-sm:size-[50%] object-cover bg-no-white">
+                        alt="product-image" onerror="this.src='../assets/images/utils/error.webp'; this.alt='error-image'" class="w-[260px] h-[300px] max-sm:size-[70%] object-cover bg-no-white">
                 </section>
 
                 <section role="product-info" class="border-t-2 w-full h-full" data-product-id="${productId}">
                     <div class="grid grid-cols-2 justify-center items-center mx-3 my-3 gap-3">
                         <h1 data-title-product=${product.product_name} class="col-span-2 text-xl font-bold truncate">${product.product_name}</h1>
 
-                        <section role="information" class="flex justify-between w-full h-full col-span-2">
+                        <section role="information" class="flex justify-between max-sm:flex-col max-sm:gap-3 w-full h-full col-span-2">
                             <div role="pricing-products" class="flex flex-col gap-[0.05rem]">
                                 <p class="text-sm text-slate-400 font-medium">Price:</p>
                                 <h1 data-price-product=${product.product_price} class="text-2xl font-semibold">£${product.product_price}</s>
                             </div>
 
-                            <div class="flex justify-end items-center gap-2">
+                            <div class="flex justify-end max-sm:justify-start items-center gap-2">
                                 <button onclick="openProductPage(this)"
                                     class="bg-gray-200 text-black font-medium rounded-lg py-3 px-4 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 w-max flex justify-center items-center gap-2">
 

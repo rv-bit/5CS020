@@ -4,7 +4,10 @@
         "product_price": 699.99,
         "product_quantity": 12,
         "product_category": "Electronics",
-        "product_image": "tablet-s9.avif",
+        "product_image": [
+            "tablet-s9.avif",
+            "tablet-s9-black.avif"
+        ],
         "product_brand": "Samsung",
         "top_seller": true,
         "product_description": "The Samsung Galaxy Tab S9+ Graphite features a super vibrant 12,4-inch 120Hz Dynamic AMOLED 2X Display making it perfect for family viewing. Whether you're watching a film or scrolling through old photos in the garden, vision booster has you covered, keeping the display visible even under sunlight. Never ending to do list? The enhanced S Pen comes in box. So, you can easily jot, draw and annotate on all your personal projects and even convert handwriting into text for when you don't feel like typing. The Galaxy Tab S9+ features IP68 water-resistant protection, so if you're enthralled in an eBook at the park and it starts raining, the odd splash is nothing to worry about. The incredible 120Hz display rate means the screen can refresh itself 120 times a second – making for truly epic gameplay. Featuring a powerful Snapdragon 8 Gen 2 processor, work in three apps at once with ease using multi-window."
@@ -38,7 +41,12 @@
         "product_price": 29.49,
         "product_quantity": 86,
         "product_category": "Clothing",
-        "product_image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6426/6426000_sd.jpg;maxHeight=640;maxWidth=550",
+        "product_image": [
+            "cotton1.png",
+            "cotton2.png",
+            "cotton3.png",
+            "cotton4.png"
+        ],
         "product_brand": "N/A",
         "product_description": "Slim fit design. Fits true to size, take your normal size. Spread collar neckline. Centre front button placket fastening. Front upper patch pockets. Long set-in sleeves. Buttoned sleeve cuff. Stitched trim to finish hemline."
     },
@@ -47,8 +55,11 @@
         "product_price": 48.95,
         "product_quantity": 26,
         "product_category": "Clothing",
-        "product_image": "https://www.simplyrecipes.com/wp-content/uploads/2018/06/HT-Classic-Caesar-Salad-LEAD-6-600x840.jpg",
-        "product_brand": "N/A",
+        "product_image": [
+            "Weave-Quarter-Zip.png",
+            "Weave-Quarter-Zip-green.png"
+        ],
+        "product_brand": "Zara",
         "product_description": "Collared knit polo shirt with front zip fastening. Short sleeves. Ribbed trims."
     },
     {
@@ -56,7 +67,11 @@
         "product_price": 69.49,
         "product_quantity": 43,
         "product_category": "Clothing",
-        "product_image": "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/30b8322b-7dd1-4732-b8b8-396826d7be9e/air-force-1-07-mens-shoe-Znvj8P.png",
+        "product_image": [
+            "moto-polo.png",
+            "moto-polo2.png",
+            "moto-polo3.png"
+        ],
         "product_brand": "Boxy",
         "top_seller": true,
         "product_description": "We all know about t-shirts and vests, light layers which have stood the test of time. T-shirts are a seasonless staple which gives your wardrobe a solid foundation to build off. Wheather you're about plain tee, printed, striped or long-sleave or you're flexing something oversized for a confortably casula look, make sure your outfits have the foundations they need with our range of tees and vests. Combine a plain tee with denim and trainers for a versatile everyday outfit or pair with cropped trousers to secure minimalistic vibes."
@@ -66,7 +81,11 @@
         "product_price": 34.99,
         "product_quantity": 62,
         "product_category": "Clothing",
-        "product_image": "https://images-na.ssl-images-amazon.com/images/I/81oZ0TjOq7L._AC_SL1500_.jpg",
+        "product_image": [
+            "nike-sweatshirt.png",
+            "nike-sweatshirt2.png",
+            "nike-sweatshirt3.png"
+        ],
         "product_brand": "Nike",
         "product_description": "Deciding on what to wear has never been easier with this spacious layer. This sweatshirt's oversized fit pairs with varsity-inspired design details for effortless, classic style. Our midweight brushed fleece feels extra soft on the inside and smooth on the outside, helping you stay cosy while keeping its structured shape."
     },
@@ -75,7 +94,7 @@
         "product_price": 1.99,
         "product_quantity": 168,
         "product_category": "Food",
-        "product_image": "https://www.thespruceeats.com/thmb/CzS8NrJFzzXJfIn1O2pQZsYJzL0=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/sushi-combo-5836f9e13df78c6f6a6b42ad.jpg",
+        "product_image": "buldak-carbonara.png",
         "product_brand": "Samyang",
         "product_description": "Carbonara flavoured Hot Chicken Ramen made from wheat noodles."
     },
@@ -84,7 +103,7 @@
         "product_price": 1.99,
         "product_quantity": 216,
         "product_category": "Flood",
-        "product_image": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/50995441a7b84731b0eaac4000d45a0a_9366/Ultraboost_21_Shoes_White_FW4353_01_standard.jpg",
+        "product_image": "nissin-roast.png",
         "product_brand": "Nissin",
         "product_description": "Nissin are a beloved producer of instant noodles, enjoyed for their incredibly affordable prices and wide range of flavours. The Japanese brand specialises in offering ramen and noodle packets that effortlessly blend delicious flavour with quality and convenience. Choose from classics like chicken, vegetable, beef and much more to find tempting noodles that satisfy your flavour cravings."
     },
@@ -93,7 +112,7 @@
         "product_price": 4.29,
         "product_quantity": 98,
         "product_category": "Food",
-        "product_image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/apple-watch-s7-40mm-blue-cell-202109?wid=750&hei=1080&fmt=jpeg&qlt=80&op_usm=0.5,0.5&.v=1631151072000",
+        "product_image": "pepero-biscuits.png",
         "product_brand": "Lotte",
         "product_description": "These deliciously crunchy biscuit sticks are a fun and rarer alternative to the popular Glico Pocky. Pepero is Korea's answer to Pocky, produced by Korean confectionery company Lotte. To stand out from the crowd, they have made Pepero sticks with special features! Pepero Cookie & Cream, also known as 'White Cookie', is a biscuit stick covered in gorgeous thick creamy frosting, generously sprinkled with chunky bits of crushed chocolate cookie. Pepero come in smart packaging and make a lovely gift, but at this great everyday low price, you can afford to treat yourself too!"
     }

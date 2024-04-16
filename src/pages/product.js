@@ -240,14 +240,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchParams = new URLSearchParams(window.location.search);
     const product_id = searchParams.get('product_id');
 
-    console.log('product_id', product_id);
-
     if (product_id) {
         fetchItems().then((data) => {
             if (!data) return;
 
             if (data.length === 0) {
                 return;
+            }
+
+            const productExists = Object.entries(data).some(([key, value]) => {
+                const productId = value.product_name.replace(/\s/g, '-').toLowerCase();
+                return productId === product_id;
+            })
+
+            if (!productExists) {
+                window.location.href = 'products.html';
             }
 
             Object.entries(data).forEach(([key, value]) => {

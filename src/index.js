@@ -37,7 +37,7 @@ const updateProduct = () => {
 
         titleElement.innerHTML = product.product_name
         descriptionElement.innerHTML = briefDescription
-        productIdElement.href = `product.html?product_id=${productID}`;
+        productIdElement.href = `../pages/product.html?product_id=${productID}`;
 
         var product_image = product.product_image;
         const productCategory = product.product_category.toLowerCase();
@@ -97,7 +97,7 @@ const createFeaturedProducts = () => {
 
         const div = `
             <div
-                class="flex flex-col bg-[#f6f6f6] rounded-xl border-2 w-72 max-lg:w-[14rem] max-sm:w-[80%] max-extraSm:w-full h-full overflow-hidden">
+                class="flex flex-col bg-[#f6f6f6] rounded-xl border-2 w-[350px] md:w-[320px] max-md:w-full h-full overflow-hidden">
                 <div class="flex justify-end items-end my-3 mx-3 text-slate-500">
 
                     <button
@@ -117,7 +117,7 @@ const createFeaturedProducts = () => {
                 <section role="product-image"
                     class="w-full h-full flex justify-center items-center relative my-10">
                     <img src="${productImage}"
-                        alt="product-image" onerror="this.src='assets/images/utils/error.webp'; this.alt='error-image'" class="size-[100px] object-cover bg-no-white">
+                        alt="product-image" onerror="this.src='assets/images/utils/error.webp'; this.alt='error-image'" class="w-[260px] h-[300px] max-sm:size-[70%] object-cover bg-no-white">
                 </section>
 
                 <section role="product-info" class="border-t-2 w-full h-full">
@@ -125,13 +125,13 @@ const createFeaturedProducts = () => {
                         <h1 data-title-product=${product.product_name} class="col-span-2 text-xl font-bold truncate">${product.product_name}</h1>
 
                         <section role="information"
-                            class="flex justify-between w-full h-full col-span-2">
+                            class="flex justify-between max-sm:flex-col w-full h-full col-span-2 max-sm:gap-3">
                             <div role="pricing-products" class="flex flex-col gap-[0.05rem]">
                                 <p class="text-sm text-slate-400 font-medium">Price:</p>
                                 <h1 data-price-product=${product.product_price} class="text-2xl font-semibold">£${product.product_price}</s>
                             </div>
 
-                            <div role="product-actions" class="flex justify-end items-center gap-2">
+                            <div role="product-actions" class="flex justify-end max-sm:justify-start items-center gap-2">
                                 <button
                                     onclick="window.location.href='../pages/product.html?product_id=${productId}'"
 
