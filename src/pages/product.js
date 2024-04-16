@@ -253,7 +253,6 @@ const createProductElement = () => {
         </div>
     `
     productExtraDetails.insertAdjacentHTML('afterbegin', div);
-    console.log('productExtraDetailsSection', productExtraDetailsSection.children[0].children[1]);
 }
 
 const generateTags = (data) => {

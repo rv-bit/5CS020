@@ -80,7 +80,7 @@ const closeOptions = (selectElement, no_Svg) => { // no_Svg is a boolean that is
     }
 }
 
-const quantityChange = (element, productId, trigger) => {
+const quantityChange = (element, productId, cb, trigger) => {
     const elementParent = element.parentElement;
     const elementChildren = elementParent.children;
 
@@ -98,7 +98,7 @@ const quantityChange = (element, productId, trigger) => {
             return;
         }
 
-        updateCart(productId, parseInt(quantity.value));
+        updateCart(productId, parseInt(quantity.value), cb);
         return;
     }
 
@@ -110,7 +110,7 @@ const quantityChange = (element, productId, trigger) => {
 
         quantity.value = parseInt(quantity.value) + 1;
 
-        updateCart(productId, parseInt(quantity.value));
+        updateCart(productId, parseInt(quantity.value), cb);
         return;
     }
 
@@ -119,7 +119,7 @@ const quantityChange = (element, productId, trigger) => {
     }
 
     quantity.value = parseInt(quantity.value) - 1;
-    updateCart(productId, parseInt(quantity.value));
+    updateCart(productId, parseInt(quantity.value), cb);
 }
 
 const slideImages = (trigger) => {
@@ -140,6 +140,10 @@ const slideImages = (trigger) => {
     });
 }
 
+const generateTaxes = (total) => {
+    return taxes = total * 0.15;
+}
+
 const addToCart = (id, quantity) => {
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     const productExists = cartItems.find(product => product.id === id);
@@ -151,6 +155,13 @@ const addToCart = (id, quantity) => {
 
         localStorage.setItem('cart', JSON.stringify(cartItems));
         return;
+    }
+
+    const productExistsInWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    const productExistsWishlist = productExistsInWishlist.find(product => product.id === id);
+
+    if (productExistsWishlist) {
+        removeFromWishlist(id);
     }
 
     const tempCart = JSON.parse(localStorage.getItem('tmpCart')) || [];
@@ -171,7 +182,7 @@ const addToCart = (id, quantity) => {
     updateBasketNumber();
 }
 
-const updateCart = (id, quantity) => {
+const updateCart = (id, quantity, cb) => {
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     const productExists = cartItems.find(product => product.id === id);
 
@@ -199,6 +210,10 @@ const updateCart = (id, quantity) => {
 
     productExists.quantity = quantity;
     localStorage.setItem('cart', JSON.stringify(cartItems));
+
+    if (typeof cb === 'function') {
+        cb(cartItems);
+    }
 }
 
 const removeFromCart = (id, cb) => {
@@ -219,7 +234,7 @@ const removeFromCart = (id, cb) => {
     }
 }
 
-const addToWishlist = (id, cb, cb2) => {
+const addToWishlist = (id, cb) => {
     const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
     const productExists = wishlist.find(product => product.id === id);
 
@@ -236,10 +251,6 @@ const addToWishlist = (id, cb, cb2) => {
 
     if (cb) {
         cb(wishlist);
-    }
-
-    if (cb2) {
-        console.log('cb2', cb2);
     }
 }
 

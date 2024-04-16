@@ -3,8 +3,6 @@ const products = [];
 const adjustWidthSelectors = (selectedElement) => {
     var tempElement = document.createElement('span');
 
-    console.log(selectedElement.options[selectedElement.selectedIndex].text)
-
     tempElement.innerHTML = selectedElement.options[selectedElement.selectedIndex].text;
     tempElement.style.visibility = 'hidden'; // make it invisible but still rendered
     tempElement.style.position = 'absolute'; // prevent it from affecting other elements

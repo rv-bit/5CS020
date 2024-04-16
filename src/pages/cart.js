@@ -44,7 +44,41 @@ const createCartProducts = (cartItems, refresh) => {
         cartBottomInfo.classList.add('flex');
     }
 
-    console.log("cart products", cartProducts)
+    let cartTotal = cartProducts.reduce((acc, product) => {
+        const cartItem = cartItems.find(item => item.id === product.product_name.replace(/\s/g, '-').toLowerCase());
+
+        if (cartItem) {
+            return acc + parseFloat((product.product_price * cartItem.quantity).toFixed(2));
+        }
+
+        return acc;
+    }, 0);
+
+    if (typeof cartTotal !== 'number') {
+        console.log('Cart total is not a number or is undefined.');
+        return;
+    }
+
+    const taxes = parseFloat(generateTaxes(cartTotal).toFixed(2));
+    const cartTopInfoItemsParent = cartTopInfo.children[1];
+
+    cartTotal = parseFloat((cartTotal + taxes).toFixed(2));
+    cartTopInfoItemsParent.innerHTML = `TOTAL <span>(${cartProducts.length} Items)</span> <span class="font-semibold before:content-['£']">${cartTotal}</span>`;
+
+    const cartBottomInfoSummaryContainer = cartBottomInfo.children[0];
+
+
+    const cartBottomInfoSummaryItems = cartBottomInfoSummaryContainer.children[0];
+    const cartBottomInfoSummaryItemsTotal = cartBottomInfoSummaryItems.children[1].children[1];
+
+    cartBottomInfoSummaryItemsTotal.innerHTML = `${cartProducts.length}`;
+
+    const cartBottomInfoTotal = cartBottomInfoSummaryContainer.children[1];
+    const cartBottomInfoTaxes = cartBottomInfoTotal.children[0].querySelector('[role="taxes-price"]');
+    const cartBottomInfoGrandTotal = cartBottomInfoTotal.children[1];
+
+    cartBottomInfoGrandTotal.innerHTML = `${cartTotal}`;
+    cartBottomInfoTaxes.innerHTML = `${taxes}`;
 
     cartProducts.forEach((product, index) => {
         var product_image = product.product_image;
@@ -54,7 +88,7 @@ const createCartProducts = (cartItems, refresh) => {
         const cartItem = cartItems.find(product => product.id === productId);
 
         const productQuantity = cartItem ? cartItem.quantity : 1;
-        const productPrice = parseFloat(product.product_price * productQuantity);
+        const productPrice = parseFloat((product.product_price * productQuantity).toFixed(2));
 
         let productImage = `../assets/images/products/${productCategory}/${product_image}`;
 
@@ -113,7 +147,7 @@ const createCartProducts = (cartItems, refresh) => {
                         <div class="w-fit h-fit max-md:w-full flex max-extraSm:flex-col gap-5">
                             <div
                                 class="flex justify-between flex-row border border-black rounded-[5px] w-[150px] max-md:w-full h-[50px] overflow-hidden">
-                                <button onclick="quantityChange(this, '${productId}')"
+                                <button onclick="quantityChange(this, '${productId}', updateBasketItems)"
                                     class="size-auto hover:bg-[#8c8c86] opactity-40 max-md:mr-2 px-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -122,10 +156,10 @@ const createCartProducts = (cartItems, refresh) => {
                                         <path d="M5 12h14" />
                                     </svg>
                                 </button>
-                                <input onchange="quantityChange(this, '${productId}', 'input')" type="number" inputmode="numeric"
+                                <input onchange="quantityChange(this, '${productId}', updateBasketItems, 'input')" type="number" inputmode="numeric"
                                     class="h-full max-w-[60px] max-xl:max-w-[45px] text-center focus:outline-none border-0 focus:ring-transparent no-input-spin"
                                     value="${productQuantity}" />
-                                <button onclick="quantityChange(this, '${productId}', 'increase')"
+                                <button onclick="quantityChange(this, '${productId}', updateBasketItems, 'increase')"
                                     class="size-auto hover:bg-[#8c8c86] opactity-40 max-md:ml-2 px-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -221,8 +255,6 @@ const createdSavedProducts = (refresh) => {
         savedContainer.insertAdjacentHTML('afterbegin', emptyCart);
         return;
     }
-
-    console.log("wishlist products", wishListProducts)
 
     wishListProducts.forEach((product, index) => {
         var product_image = product.product_image;

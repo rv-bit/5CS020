@@ -137,8 +137,9 @@
                     <section role="cart-top-info"
                         class="w-[1500px] max-2xl:w-full h-full flex flex-col justify-center items-start">
                         <h1 class="font-Kanit text-5xl">YOUR BAG</h1>
-                        <h2 class="font-Kanit text-xl">TOTAL <span>(4 Items)</span> <span
-                                class="font-semibold">£157.23</span></h2>
+                        <h2 class="font-Kanit text-xl"></span>
+                            <span class="font-semibold before:content-['£']"></span>
+                        </h2>
                         <p class="font-Kanit text-base">Shipping and taxes calculated at checkout</p>
                     </section>
 
@@ -159,7 +160,9 @@
                                     <div
                                         class="w-full h-full flex justify-between items-center max-extraSm:items-start gap-2">
                                         <h1 class="font-Kanit text-xl">Items in your basket </h1>
-                                        <h2 class="font-Kanit text-gray-500 text-xl">(4)</h2>
+                                        <h2
+                                            class="font-Kanit text-gray-500 text-xl before:content-['('] after:content-[')']">
+                                            (4)</h2>
                                     </div>
 
                                     <div
@@ -173,10 +176,12 @@
                                     class="w-full h-full flex max-extraSm:flex-col justify-between items-center max-extraSm:items-start pt-5">
                                     <div class="flex flex-col justify-start items-start">
                                         <h1 class="font-Kanit text-xl">TOTAL</h1>
-                                        <p class="font-Kanit text-gray-500 font-medium text-md">(Including £62.56 taxes)
+
+                                        <p class="font-Kanit text-gray-500 font-medium text-md">(Including <span
+                                                role="taxes-price" class="before:content-['£']"></span> taxes)
                                         </p>
                                     </div>
-                                    <h2 class="font-Kanit font-medium text-xl">£157.23</h2>
+                                    <h2 class="font-Kanit font-medium text-xl before:content-['£']"></h2>
                                 </div>
                             </section>
 
