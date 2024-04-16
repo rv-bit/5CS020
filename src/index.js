@@ -101,7 +101,7 @@ const createFeaturedProducts = () => {
                 <div class="flex justify-end items-end my-3 mx-3 text-slate-500">
 
                     <button
-                        onclick="addToWishlist('${productId}')"
+                        onclick="addToWishlist('${productId}'); removeFromCart('${productId}')" // Remove from cart if it is in the cart
                         class="w-fit h-full flex justify-end items-end">
                         
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"

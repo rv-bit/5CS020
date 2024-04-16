@@ -147,7 +147,7 @@ const createCartProducts = (cartItems, refresh) => {
                         <div class="w-fit h-fit max-md:w-full flex max-extraSm:flex-col gap-5">
                             <div
                                 class="flex justify-between flex-row border border-black rounded-[5px] w-[150px] max-md:w-full h-[50px] overflow-hidden">
-                                <button onclick="quantityChange(this, '${productId}', updateBasketItems)"
+                                <button onclick="quantityChange(this, '${productId}', 'decrease', updateBasketItems)"
                                     class="size-auto hover:bg-[#8c8c86] opactity-40 max-md:mr-2 px-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -156,10 +156,10 @@ const createCartProducts = (cartItems, refresh) => {
                                         <path d="M5 12h14" />
                                     </svg>
                                 </button>
-                                <input onchange="quantityChange(this, '${productId}', updateBasketItems, 'input')" type="number" inputmode="numeric"
+                                <input onchange="quantityChange(this, '${productId}', 'input', updateBasketItems)" type="number" inputmode="numeric"
                                     class="h-full max-w-[60px] max-xl:max-w-[45px] text-center focus:outline-none border-0 focus:ring-transparent no-input-spin"
                                     value="${productQuantity}" />
-                                <button onclick="quantityChange(this, '${productId}', updateBasketItems, 'increase')"
+                                <button onclick="quantityChange(this, '${productId}', 'increase', updateBasketItems)"
                                     class="size-auto hover:bg-[#8c8c86] opactity-40 max-md:ml-2 px-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
