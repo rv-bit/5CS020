@@ -137,9 +137,9 @@ const createProductElement = () => {
         product_image.forEach(image => {
             const divImages = `
                 <button onclick="selectImage(this)"
-                    class="product-thumbnail w-auto h-auto flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-[25px] shrink-0 disable-dbl-tap-zoom">
+                    class="product-thumbnail w-auto h-auto flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-[25px] max-sm:rounded-full shrink-0 disable-dbl-tap-zoom">
                     <img src="../assets/images/products/${productCategory}/${image}" alt="product"
-                        class="w-full h-[100px]" />
+                        class="w-full h-[100px] max-sm:h-[90px]" />
                 </button>
             `
 

@@ -138,20 +138,37 @@ const slideImages = (trigger) => {
 }
 
 const addToCart = (id, quantity) => {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const productExists = cartItems.find(product => product.id === id);
+
+    if (productExists) {
+        productExists.quantity += quantity || 1;
+
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        return;
+    }
 
     const product = {
         id: id,
         quantity: quantity || 1
     };
 
-    cart.push(product);
+    cartItems.push(product);
 
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+
+    updateBasketNumber();
 }
 
 const addToWishlist = (id) => {
     const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+    const productExists = wishlist.find(product => product.id === id);
+
+    if (productExists) {
+        return;
+    }
 
     const product = {
         id: id
@@ -163,23 +180,24 @@ const addToWishlist = (id) => {
 }
 
 const updateBasketNumber = () => {
-    const amountOfProducts = localStorage.getItem('amountOfProducts') || 0;
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartAmount = cartItems.length;
 
-    const amount = parseInt(amountOfProducts) + 1;
+    console.log(cartAmount, cartItems);
 
-    localStorage.setItem('amountOfProducts', amount);
-
-    const element = document.querySelectorAll('.product-amount-baskets');
-    element.forEach(product => {
-        element.textContent = amount;
+    const productAmn = document.querySelectorAll('.product-amount-baskets');
+    productAmn.forEach(element => {
+        element.textContent = cartAmount;
     })
 }
 
-const amountOfProducts = localStorage.getItem('amountOfProducts') || 10;
 document.addEventListener('DOMContentLoaded', () => {
-    const products = document.querySelectorAll('.product-amount-baskets');
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartAmount = cartItems.length;
 
-    products.forEach(product => {
-        product.textContent = amountOfProducts;
+    const productAmn = document.querySelectorAll('.product-amount-baskets');
+
+    productAmn.forEach(element => {
+        element.textContent = cartAmount;
     })
 });
