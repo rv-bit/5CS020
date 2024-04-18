@@ -51,9 +51,9 @@
     <div
         class="w-full h-lvh max-md:h-full flex justify-center items-center bg-gray-100 max-md:bg-color px-10 max-md:px-0">
         <div
-            class="max-w-[1600px] w-full h-[70%] max-md:h-full flex max-md:flex-col items-center max-md:rounded-none max-md:drop-shadow-none max-md:backdrop-blur-none rounded-lg drop-shadow-2xl backdrop-blur-xl bg-color">
+            class="max-w-[1600px] w-full h-[80%] max-h-[90%] max-md:h-full flex max-md:flex-col items-center max-md:rounded-none max-md:drop-shadow-none rounded-lg drop-shadow-2xl bg-color">
 
-            <section class="w-1/2 max-md:w-full h-full z-10 flex flex-col justify-start items-start gap-20 p-10">
+            <section class="w-1/2 max-md:w-full h-full z-10 flex flex-col justify-start items-start gap-20 p-10 flex-1">
 
                 <button class="w-fit flex justify-start items-center text-[#958a8a] hover:underline"
                     onclick="window.location.href = 'cart.html'">
@@ -69,7 +69,7 @@
                 <section role="summary-items" class="w-full h-fit flex flex-col justify-start items-start gap-10">
 
                     <div class="w-full h-fit flex flex-col justify-start items-start gap-1">
-                        <h1 class="text-md font-medium text-[#958a8a]">3 Items</h1>
+                        <h1 class="text-md font-medium text-[#958a8a]"></h1>
 
                         <div class="flex justify-between items-center w-full h-fit">
                             <h1 class="text-4xl font-[400] font-hammersmith before:content-['£']"></h1>
@@ -121,36 +121,42 @@
                 </section>
             </section>
 
-            <section
-                class="w-1/2 max-md:w-full h-full flex flex-col justify-center items-center gap-5 px-44 max-2xl:px-10 z-20 max-md:shadow-none max-md:rounded-none max-md:pb-10 left-shadow rounded-lg">
+            <section role="form-section"
+                class="w-1/2 max-md:w-full h-full flex flex-col justify-center items-start gap-5 py-10 px-44 max-2xl:px-10 z-20 max-md:shadow-none max-md:rounded-none max-md:pb-10 left-shadow rounded-lg">
 
                 <div class="w-full h-fit flex flex-col gap-5">
                     <h1 class="font-[400] font-hammersmith text-2xl text-left">Shipping Information</h1>
 
                     <div class="w-full h-fit flex flex-col gap-2">
                         <h1 class="text-md font-medium text-[#958a8a]">Contact Information</h1>
-                        <input type="text" placeholder="Enter your email"
-                            class="w-full flex h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+
+                        <label class="w-full h-fit flex flex-col">
+                            <input
+                                class="peer w-full h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                                type="email" placeholder="Enter your email">
+
+                            <p class="mt-2 hidden peer-invalid:block text-red-600 ">
+                                Please enter a valid email address.
+                            </p>
+                        </label>
+
                     </div>
 
                     <div class="w-full h-fit flex flex-col gap-2">
                         <h1 class="text-md font-medium text-[#958a8a]">Shipping Address</h1>
 
-                        <span>
-                            <input type="text" placeholder="Enter your address"
-                                class="w-full flex h-9 rounded-md border border-input rounded-b-none bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                        <span class="flex gap-2 flex-col">
+                            <label class="w-full h-fit flex flex-col">
+                                <input role="address_search"
+                                    class="w-full h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                                    type="text" required placeholder="Enter your address">
 
-                            <select
-                                class="w-full flex justify-between h-9 rounded-md border border-b-0 border-t-0 rounded-t-none rounded-b-none border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
-                                <div class="w-full h-full flex justify-between items-center gap-2">
-                                    <option value="default">Default</option>
-                                    <option value="name">Name</option>
-                                    <option value="price">Price</option>
-                                </div>
-                            </select>
+                                <p class="mt-2 hidden text-red-600">
+                                    Please enter a valid address.
+                                </p>
+                            </label>
 
-                            <input type="text" placeholder="Enter your address"
-                                class="w-full flex h-9 rounded-md border rounded-t-none bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                            <div role="address_information" class="hidden flex-col gap-1"></div>
                         </span>
                     </div>
                 </div>
@@ -161,16 +167,37 @@
                     <div class="w-full h-full flex flex-col gap-2">
                         <h1 class="text-md font-medium text-[#958a8a]">Payment Information</h1>
 
-                        <input type="text" inputmode="numeric" placeholder="Enter your card number"
-                            class="w-full flex h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                        <label class="w-full flex flex-col">
+                            <input role="card-card-number" type="text" required inputmode="numeric"
+                                placeholder="Enter your card number"
+                                class="w-full flex h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
 
-                        <div class="w-full h-fit flex justify-between items-center gap-2">
-                            <input type="text" inputmode="numeric" placeholder="MM/YY"
-                                class="w-1/2 flex h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                            <p class="mt-2 hidden text-red-600">
+                                Please enter a valid card number.
+                            </p>
+                        </label>
 
-                            <input type="text" inputmode="numeric" placeholder="CVV"
-                                class="w-1/2 flex h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                        <div class="w-full h-fit flex justify-between items-start gap-2">
+                            <label class="w-1/2 h-fit flex flex-col">
+                                <input role="card-expiry-date" type="text" required inputmode="numeric"
+                                    placeholder="MM/YY"
+                                    class="w-full flex h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+
+                                <p class="mt-2 hidden text-red-600">
+                                    Please enter a valid expiry date.
+                                </p>
+                            </label>
+
+                            <label class="w-1/2 h-fit flex flex-col">
+                                <input role="card-cvv" type="text" required inputmode="numeric" placeholder="CVV"
+                                    class="w-full flex h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+
+                                <p class="mt-2 hidden text-red-600">
+                                    Please enter a valid CVV.
+                                </p>
+                            </label>
                         </div>
+
                     </div>
 
                     <div class="w-full h-full flex flex-col justify-start items-start gap-5">
@@ -185,21 +212,18 @@
                         <div class="w-full h-fit flex flex-col gap-2">
                             <h1 class="text-md font-medium text-[#958a8a]">Billing Address</h1>
 
-                            <span>
-                                <input type="text" placeholder="Enter your address"
-                                    class="w-full flex h-9 rounded-md border border-input rounded-b-none bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                            <span class="flex gap-2 flex-col">
+                                <label class="w-full h-fit flex flex-col">
+                                    <input role="address_search_billing"
+                                        class="w-full h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+                                        type="text" required placeholder="Enter your address">
 
-                                <select
-                                    class="w-full flex justify-between h-9 rounded-md border border-b-0 border-t-0 rounded-t-none rounded-b-none border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
-                                    <div class="w-full h-full flex justify-between items-center gap-2">
-                                        <option value="default">Default</option>
-                                        <option value="name">Name</option>
-                                        <option value="price">Price</option>
-                                    </div>
-                                </select>
+                                    <p class="mt-2 hidden text-red-600">
+                                        Please enter a valid address.
+                                    </p>
+                                </label>
 
-                                <input type="text" placeholder="Enter your address"
-                                    class="w-full flex h-9 rounded-md border rounded-t-none bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                                <div role="address_information_billing" class="hidden flex-col gap-1"></div>
                             </span>
                         </div>
 
@@ -208,7 +232,7 @@
 
                 <div class="w-full h-fit flex flex-col justify-start items-center gap-5">
                     <div class="w-full h-[50px] flex justify-center items-center">
-                        <button class="w-full h-full relative shadow-2xl" onclick="window.location.href = 'cart.html'">
+                        <button class="w-full h-full relative shadow-2xl" onclick="checkoutPayment()">
                             <div
                                 class="w-full h-full bg-[#646464] text-white font-Kanit text-xl py-3 px-5 rounded-lg z-10">
                             </div>
@@ -224,11 +248,87 @@
                             class="underline">Terms And Conditions</button> as well as the <button
                             class="underline">Terms
                             of Safe</button></h1>
-
                 </div>
             </section>
         </div>
     </div>
+
+    <div id="map_canvas"></div>
+
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrIbojfqr61lzoOlgAJMkTu-Yvlk9bR4g&callback=initMap&libraries=places"></script>
+
+    <script>
+        let input;
+        let addressInformation;
+
+        document.querySelector('[role="address_search"]').addEventListener('focus', () => {
+            input = document.querySelector('[role="address_search"]');
+            addressInformation = document.querySelector('[role="address_information"]');
+
+            initMap();
+        });
+
+        document.querySelector('[role="address_search_billing"]').addEventListener('focus', () => {
+            input = document.querySelector('[role="address_search_billing"]');
+            addressInformation = document.querySelector('[role="address_information_billing"]');
+
+            initMap();
+        });
+
+        function initMap() {
+            // Set map options
+            var latlng = new google.maps.LatLng(46.92, 16.96);
+            var myOptions = {
+                zoom: 4,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.TERRAIN,
+                scrollwheel: true,
+                streetViewControl: false,
+                mapTypeControl: true,
+                gestureHandling: "greedy"
+            };
+            // Create map
+            map = new google.maps.Map(document.getElementById("map_canvas"),
+                myOptions);
+
+
+            if (!input) return;
+
+            const searchBox = new google.maps.places.SearchBox(input);
+
+            const addressValues = []
+            searchBox.addListener("places_changed", () => {
+                const places = searchBox.getPlaces();
+                if (places.length == 0) { return; }
+
+                places[0].address_components.forEach((component) => {
+                    console.log(component);
+                    if (!component) return;
+
+                    if (component.types.includes('postal_code')) {
+                        addressInformation.children[0].children[0].value = component.long_name;
+                    } else if (component.types.includes('street_number')) {
+                        addressInformation.children[1].children[0].value = component.long_name;
+                    } else if (component.types.includes('postal_town')) {
+                        addressInformation.children[2].children[0].value = component.long_name;
+                    } else if (component.types.includes('country')) {
+                        addressInformation.children[3].children[0].value = component.long_name;
+                    }
+                });
+
+                if (addressInformation.classList.contains('hidden')) {
+                    addressInformation.classList.remove('hidden');
+                    addressInformation.classList.add('flex');
+
+                    return;
+                }
+
+                addressInformation.classList.add('hidden');
+                addressInformation.classList.remove('flex');
+            });
+        }
+    </script>
 
     <script src="../src/utils.js"></script>
     <script src="../src/pages/checkout.js"></script>
