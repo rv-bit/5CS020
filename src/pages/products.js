@@ -42,6 +42,162 @@ const openFilterMenu = () => {
     }, 500); // Remove the class after 0.5s, which is the duration of the animation
 }
 
+function generatePriceRanges(min, max, step) {
+    const ranges = [];
+    for (let i = min; i < max; i += step) {
+        ranges.push({ min: i, max: i + step });
+    }
+    return ranges;
+}
+
+const createFiltersBasedOnProducts = () => {
+    const parentDiv = document.querySelectorAll('[role="filters"]');
+    const categorySelector = document.querySelectorAll('[role="category-selector"]');
+
+    const categories = new Set(products.map(product => product.product_category));
+    const prices = new Set(products.map(product => product.product_price));
+    const brands = new Set(products.map(product => product.product_brand));
+    const colors = new Set(products.map(product => product.product_color ? product.product_color : 'No color'));
+    const sizes = new Set(products.map(product => product.product_size ? product.product_size : 'No size'));
+    const quantities = new Set(products.map(product => product.product_quantity));
+
+    const uniqueCategories = [...categories];
+    const uniquePrices = [...prices];
+    const uniqueBrands = [...brands];
+    const uniqueColors = [...colors];
+    const uniqueSizes = [...sizes];
+    const uniqueQuantities = [...quantities];
+
+    categorySelector.forEach(element => {
+        const categoryData = element.children[0].children[1];
+
+        uniqueCategories.forEach(category => {
+            const divCategory = `
+                <button
+                    class="w-fit bg-inherit text-slate-400 font-medium transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:text-[#3f7ef0]">
+                    ${category}
+                </button>
+            `;
+
+            categoryData.insertAdjacentHTML('afterbegin', divCategory);
+        });
+    });
+
+    const filters = [
+        { name: 'Brand', values: uniqueBrands.sort() },
+        { name: 'Color', values: uniqueColors.sort() },
+        { name: 'Size', values: uniqueSizes.sort() },
+        { name: 'Quantity', values: uniqueQuantities.sort((a, b) => a - b) }
+    ];
+
+    const minPrice = Math.min(...uniquePrices);
+    const maxPrice = Math.max(...uniquePrices);
+    const priceRanges = generatePriceRanges(minPrice, maxPrice, 10);
+
+    let divPrice
+
+    priceRanges.forEach(range => {
+        divPrice = `
+            < div class="flex flex-col gap-2 hover:cursor-pointer" >
+                <div class="flex justify-between items-center mr-2" onclick="closeOptions(this)">
+                    <h1 class="text-xl font-bold">Price</h1>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-chevron-down hidden">
+                        <path d="m6 9 6 6 6-6" />
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-chevron-up">
+                        <path d="m18 15-6-6-6 6" />
+                    </svg>
+                </div>
+
+                <div class="custom-options">
+                    <div class="flex flex-row items-center text-center gap-2">
+                        <input type="checkbox" name="price" value="${range.min}-${range.max}" id="price-${range.min}-${range.max}" class="hidden">
+                        <label for="price-${range.min}-${range.max}" class="text-lg font-medium">£${range.min}-${range.max}</label>
+                    </div>
+                </div>
+            </div >
+        `;
+    });
+
+    parentDiv.forEach(element => {
+        element.insertAdjacentHTML('afterbegin', divPrice);
+    });
+
+
+    parentDiv.forEach(element => {
+        filters.forEach(filter => {
+            const divFilter = `
+                <div class="flex flex-col gap-2 hover:cursor-pointer">
+                    <div class="flex justify-between items-center mr-2" onclick="closeOptions(this)">
+                        <h1 class="text-xl font-bold">Price</h1>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-chevron-down hidden">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-chevron-up">
+                            <path d="m18 15-6-6-6 6" />
+                        </svg>
+                    </div>
+
+                    <div class="custom-options">
+                        <div class="flex flex-row items-center text-center gap-2">
+                            <input type="checkbox" name="${filter.name}" value="${filter.values}" id="${filter.name}" class="hidden">
+                            <label for="${filter.name}" class="text-lg font-medium">${filter.name}</label>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        element.insertAdjacentHTML('afterbegin', divFilter);
+    });
+
+
+    // filters.forEach(filter => {
+    //     const divFilter = `
+    //         <div class="flex flex-col gap-2 hover:cursor-pointer">
+    //             <div class="flex justify-between items-center mr-2" onclick="closeOptions(this)">
+    //                 <h1 class="text-xl font-bold">Price</h1>
+
+    //                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+    //                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    //                     stroke-linejoin="round" class="lucide lucide-chevron-down hidden">
+    //                     <path d="m6 9 6 6 6-6" />
+    //                 </svg>
+
+    //                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+    //                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    //                     stroke-linejoin="round" class="lucide lucide-chevron-up">
+    //                     <path d="m18 15-6-6-6 6" />
+    //                 </svg>
+    //             </div>
+
+    //             <div class="custom-options">
+    //                 <div class="flex flex-row items-center text-center gap-2">
+    //                     <input type="checkbox" name="${filter.name}" value="${filter.values}" id="${filter.name}" class="hidden">
+    //                     <label for="${filter.name}" class="text-lg font-medium">${filter.name}</label>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     `;
+
+    //     parentDiv.insertAdjacentHTML('afterbegin', divFilter);
+
+    //     console.log(filter);
+    // });
+}
+
 const createProductElements = () => {
     const parentDiv = document.getElementById('data_products');
 
@@ -163,5 +319,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }).then(() => {
         createProductElements();
+        createFiltersBasedOnProducts();
     });
 });
