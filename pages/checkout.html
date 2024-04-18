@@ -51,7 +51,7 @@
     <div
         class="w-full h-lvh max-md:h-full flex justify-center items-center bg-gray-100 max-md:bg-color px-10 max-md:px-0">
         <div
-            class="max-w-[1600px] w-full h-[80%] max-h-[90%] max-md:h-full flex max-md:flex-col items-center max-md:rounded-none max-md:drop-shadow-none rounded-lg drop-shadow-2xl bg-color">
+            class="max-w-[1600px] w-full h-[90%] max-md:h-full flex max-md:flex-col items-center max-md:rounded-none max-md:drop-shadow-none rounded-lg drop-shadow-2xl bg-color">
 
             <section class="w-1/2 max-md:w-full h-full z-10 flex flex-col justify-start items-start gap-20 p-10 flex-1">
 
@@ -133,9 +133,9 @@
                         <label class="w-full h-fit flex flex-col">
                             <input
                                 class="peer w-full h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-                                type="email" placeholder="Enter your email">
+                                type="email" required placeholder="Enter your email">
 
-                            <p class="mt-2 hidden peer-invalid:block text-red-600 ">
+                            <p class="mt-2 hidden peer-valid:hidden peer-invalid:content text-red-600 ">
                                 Please enter a valid email address.
                             </p>
                         </label>
@@ -308,12 +308,24 @@
 
                     if (component.types.includes('postal_code')) {
                         addressInformation.children[0].children[0].value = component.long_name;
+
+                        addressInformation.children[0].children[1].classList.remove('content');
+                        addressInformation.children[0].children[1].classList.add('hidden');
                     } else if (component.types.includes('street_number')) {
                         addressInformation.children[1].children[0].value = component.long_name;
+
+                        addressInformation.children[1].children[1].classList.remove('content');
+                        addressInformation.children[1].children[1].classList.add('hidden');
                     } else if (component.types.includes('postal_town')) {
                         addressInformation.children[2].children[0].value = component.long_name;
+
+                        addressInformation.children[2].children[1].classList.remove('content');
+                        addressInformation.children[2].children[1].classList.add('hidden');
                     } else if (component.types.includes('country')) {
                         addressInformation.children[3].children[0].value = component.long_name;
+
+                        addressInformation.children[3].children[1].classList.remove('content');
+                        addressInformation.children[3].children[1].classList.add('hidden');
                     }
                 });
 
@@ -321,8 +333,14 @@
                     addressInformation.classList.remove('hidden');
                     addressInformation.classList.add('flex');
 
+                    input.parentElement.querySelector('p').classList.remove('content');
+                    input.parentElement.querySelector('p').classList.add('hidden');
+
                     return;
                 }
+
+                input.parentElement.querySelector('p').classList.remove('content');
+                input.parentElement.querySelector('p').classList.add('hidden');
 
                 addressInformation.classList.add('hidden');
                 addressInformation.classList.remove('flex');

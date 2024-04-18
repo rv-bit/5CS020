@@ -135,9 +135,15 @@ const createCheckoutItems = (cartItems) => {
         }
 
         const div = `
-            <div class="w-[200px] h-full flex justify-start items-center shrink-0">
-                <img src="${productImage}" alt="checkout"
+            <div class="w-[200px] h-full flex flex-col justify-start items-start shrink-0 gap-2">
+                <img src="${productImage}" alt="checkout" onerror="this.src='../assets/images/utils/error.webp'; this.alt='error-image'"
                     class="size-[120px] object-cover">
+
+                <div class="w-full h-full flex flex-col gap-5 justify-start items-start">
+                    <h1
+                        class="w-full max-h-[85px] tex-center text-xl font-medium text-ellipsis overflow-hidden break-words">${product.product_name}</h1>
+                    <h1 class="text-xl font-medium before:content-['£']">${productPrice}</h1>
+                </div>
             </div>
         `
 
@@ -147,47 +153,75 @@ const createCheckoutItems = (cartItems) => {
 }
 
 const checkoutPayment = () => {
-    var section = document.querySelector('section[role="form-section"]');
-    var inputs = section.querySelectorAll('input');
+    const billingSameAsShipping = document.getElementById('billing-same').checked;
 
-    const inputsArrayOfNotFilled = [];
+    const billingLocationSearch = document.querySelector('[role="address_search_billing"]');
+    const billingInputs = document.querySelectorAll('[role="address_information_billing"] input');
+
+    if (billingSameAsShipping) {
+        billingInputs.forEach((input) => {
+            input.required = false;
+        });
+
+        billingLocationSearch.required = false;
+    } else {
+        billingInputs.forEach((input) => {
+            input.required = true;
+        });
+
+        billingLocationSearch.required = true;
+    }
+
+    const section = document.querySelector('section[role="form-section"]');
+    const inputs = section.querySelectorAll('input');
+
+    let inputsArrayOfNotFilled = [];
 
     inputs.forEach(function (input) {
         if (input.required) {
-            console.log(input, 'required input'); // Logs the value of each required input element
-
-            input.addEventListener('input', function (e) {
-                console.log(e.target.value, 'input value'); // Logs the value of the input element
-
-                if (e.target.value === '' || e.target.value === null || e.target.value === undefined) {
-                    e.target.parentElement.querySelector('p').classList.remove('hidden');
-                    e.target.parentElement.querySelector('p').classList.add('flex');
-
-                    console.log(e.target, 'input target'); // Logs the input element
-
-                    inputsArrayOfNotFilled.push(e.target);
+            if (input.value === '' || input.value === null || input.value === undefined) {
+                if (input.type === 'email') {
+                    input.parentElement.querySelector('p').classList.remove('peer-placeholder-shown:!hidden');
+                    input.parentElement.querySelector('p').classList.remove('hidden');
                 } else {
-                    e.target.parentElement.querySelector('p').classList.add('hidden');
-                    e.target.parentElement.querySelector('p').classList.remove('flex');
+                    input.parentElement.querySelector('p').classList.remove('hidden');
+                    input.parentElement.querySelector('p').classList.add('content');
                 }
-            });
-        }
 
-        if (input.type === 'checkbox') {
-            console.log(input.checked, 'checkbox for billing'); // Logs whether the checkbox is checked
-        } else {
-            console.log(input.value); // Logs the value of each input element
+                console.log('Input is not filled', input);
+
+                inputsArrayOfNotFilled.push(input);
+            } else {
+                if (input.type === 'email') {
+                    input.parentElement.querySelector('p').classList.add('peer-placeholder-shown:!hidden');
+                    input.parentElement.querySelector('p').classList.add('hidden');
+                } else {
+                    input.parentElement.querySelector('p').classList.add('hidden');
+                    input.parentElement.querySelector('p').classList.remove('content');
+                }
+
+                console.log('Input is poped', input);
+
+                inputsArrayOfNotFilled = inputsArrayOfNotFilled.filter(function (item) {
+                    return item !== input;
+                });
+            }
         }
     });
+
+    console.log('Inputs not filled:', inputsArrayOfNotFilled);
 
     if (inputsArrayOfNotFilled.length > 0) {
         return;
     }
 
-    // window.location.href = 'cart.html';
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // If all inputs are filled, then proceed to the next step
+    cartItems.splice(0, cartItems.length); // Clear the cart
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+
     console.log('All inputs are filled');
+    window.location.href = 'cart.html';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -204,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const productExists = Object.entries(data).some(([key, value]) => {
                 const productId = value.product_name.replace(/\s/g, '-').toLowerCase();
-                return cartItems.find(product => product.id === productId) || wishListItems.find(product => product.id === productId);
+                return cartItems.find(product => product.id === productId);
             })
 
             if (!productExists) {
@@ -225,22 +259,57 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = '../pages/cart.html';
     }
 
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    const scrollableImages = document.querySelector('.scrollable-div');
+
+    scrollableImages.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - scrollableImages.offsetLeft;
+        scrollLeft = scrollableImages.scrollLeft;
+    });
+
+    scrollableImages.addEventListener('mouseleave', (e) => {
+        isDown = false;
+        scrollableImages.scrollLeft = scrollableImages.scrollLeft;
+    });
+
+    scrollableImages.addEventListener('mouseup', (e) => {
+        isDown = false;
+        scrollableImages.scrollLeft = scrollableImages.scrollLeft;
+    });
+
+    scrollableImages.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+
+        const x = e.pageX - scrollableImages.offsetLeft;
+        const walk = (x - startX);
+
+        scrollableImages.scrollLeft = scrollLeft - walk;
+    });
+
     document.querySelector('[role="card-card-number"').addEventListener('input', function (e) {
         var target = e.target,
             value = target.value;
         start = target.selectionStart,
             end = target.selectionEnd;
 
-        // Remove all whitespace characters from the input
+        // Remove all whitespace characters from the input and remove all non-digit characters
         value = value.replace(/\s/g, '');
         value = value.replace(/\D/g, '');
-        if (value.length > 16) {
+
+        console.log('Value:', value.length);
+
+        if (value.length >= 16) {
             value = value.substring(0, 16); // Truncate to 16 digits if more are entered
 
             document.querySelector('[role="card-card-number"').parentElement.querySelector('p').classList.add('hidden');
-            document.querySelector('[role="card-card-number"').parentElement.querySelector('p').classList.remove('remove');
+            document.querySelector('[role="card-card-number"').parentElement.querySelector('p').classList.remove('content');
         } else {
-            document.querySelector('[role="card-card-number"').parentElement.querySelector('p').classList.add('flex');
+            document.querySelector('[role="card-card-number"').parentElement.querySelector('p').classList.add('content');
             document.querySelector('[role="card-card-number"').parentElement.querySelector('p').classList.remove('hidden');
         }
 
@@ -262,13 +331,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Remove all non-digit characters
         var digits = value.replace(/\D/g, '');
-        if (digits.length > 4) {
+        if (digits.length >= 4) {
             digits = digits.substring(0, 4); // Truncate to 4 digits if more are entered
 
             document.querySelector('[role="card-expiry-date"').parentElement.querySelector('p').classList.add('hidden');
-            document.querySelector('[role="card-expiry-date"').parentElement.querySelector('p').classList.remove('remove');
+            document.querySelector('[role="card-expiry-date"').parentElement.querySelector('p').classList.remove('content');
         } else {
-            document.querySelector('[role="card-expiry-date"').parentElement.querySelector('p').classList.add('flex');
+            document.querySelector('[role="card-expiry-date"').parentElement.querySelector('p').classList.add('content');
             document.querySelector('[role="card-expiry-date"').parentElement.querySelector('p').classList.remove('hidden');
         }
 
@@ -293,13 +362,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Remove all non-digit characters  
         target.value = value.replace(/\D/g, '');
 
-        if (value.length > 3) {
+        if (value.length >= 3) {
             target.value = value.substring(0, 3); // Truncate to 3 digits if more are entered
 
             document.querySelector('[role="card-cvv"').parentElement.querySelector('p').classList.add('hidden');
-            document.querySelector('[role="card-cvv"').parentElement.querySelector('p').classList.remove('remove');
+            document.querySelector('[role="card-cvv"').parentElement.querySelector('p').classList.remove('content');
         } else {
-            document.querySelector('[role="card-cvv"').parentElement.querySelector('p').classList.add('flex');
+            document.querySelector('[role="card-cvv"').parentElement.querySelector('p').classList.add('content');
             document.querySelector('[role="card-cvv"').parentElement.querySelector('p').classList.remove('hidden');
         }
     });
@@ -347,35 +416,4 @@ document.addEventListener('DOMContentLoaded', () => {
         addressSearchBilling.insertAdjacentHTML('beforeend', div2);
     });
 
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    const scrollableImages = document.querySelector('.scrollable-div');
-
-    scrollableImages.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX - scrollableImages.offsetLeft;
-        scrollLeft = scrollableImages.scrollLeft;
-    });
-
-    scrollableImages.addEventListener('mouseleave', (e) => {
-        isDown = false;
-        scrollableImages.scrollLeft = scrollableImages.scrollLeft;
-    });
-
-    scrollableImages.addEventListener('mouseup', (e) => {
-        isDown = false;
-        scrollableImages.scrollLeft = scrollableImages.scrollLeft;
-    });
-
-    scrollableImages.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-
-        const x = e.pageX - scrollableImages.offsetLeft;
-        const walk = (x - startX);
-
-        scrollableImages.scrollLeft = scrollLeft - walk;
-    });
 });
