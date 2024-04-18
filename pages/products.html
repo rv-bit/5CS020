@@ -147,8 +147,8 @@
 
                 <div
                     class="flex justify-between flex-row items-center justify-center bg-[#f5f5f5] px-5 py-3 rounded-lg gap-4">
-                    <section role="selector">
 
+                    <section role="selector">
                         <label for="sort" class="text-base font-medium">
                             Sort By:
                         </label>
@@ -156,9 +156,6 @@
                         <select name="sort" id="sort" type="text"
                             class="bg-transparent border-0 focus:outline-0 focus:ring-transparent bg-none p-1 sort-selector"
                             onchange="adjustWidthSelectors(this)">
-                            <option value="price">Price</option>
-                            <option value="default">Defaultdawudhawijd</option>
-                            <option value="name">Name</option>
                         </select>
                     </section>
 
@@ -178,9 +175,9 @@
                 </div>
 
                 <div class="flex flex-col h-full w-full gap-5 overflow-auto custom-scroll px-5">
+
                     <div role="category-selector" class="flex flex-col gap-5 hover:cursor-pointer">
                         <div class="flex flex-col gap-2">
-
                             <div class="flex justify-between items-center mr-2" onclick="closeOptions(this)">
                                 <h1 class="text-xl font-bold">Category</h1>
 
@@ -197,40 +194,11 @@
                                 </svg>
                             </div>
 
-                            <div class="flex flex-col gap-2">
-                            </div>
+                            <div class="flex flex-col gap-2"></div>
                         </div>
                     </div>
 
-                    <div role="filters" class="flex flex-col gap-5">
-
-                        <div class="flex flex-col gap-2 hover:cursor-pointer">
-                            <div class="flex justify-between items-center mr-2" onclick="closeOptions(this)">
-                                <h1 class="text-xl font-bold">Price</h1>
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-chevron-down hidden">
-                                    <path d="m6 9 6 6 6-6" />
-                                </svg>
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-chevron-up">
-                                    <path d="m18 15-6-6-6 6" />
-                                </svg>
-                            </div>
-
-                            <div class="custom-options">
-                                <div class="flex flex-row items-center text-center gap-2">
-                                    <input type="checkbox" name="category" id="category1" value="category1"
-                                        class="rounded-[4px] size-5 focus:ring-transparent text-[#3f7ef0]">
-                                    <label for="category1">Category 1</label>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+                    <div role="filters" class="flex flex-col gap-5 overflow-x-hidden pr-10 custom-scroll"></div>
                 </div>
             </div>
         </section>
@@ -268,87 +236,7 @@
                             </div>
                         </div>
 
-                        <div role="filters" class="flex flex-col gap-5 pt-5">
-
-                            <!-- <div class="flex flex-col gap-2 hover:cursor-pointer">
-                                <div class="flex justify-between items-center mr-2" onclick="closeOptions(this)">
-                                    <h1 class="text-xl font-bold">Price</h1>
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="lucide lucide-chevron-down hidden">
-                                        <path d="m6 9 6 6 6-6" />
-                                    </svg>
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="lucide lucide-chevron-up">
-                                        <path d="m18 15-6-6-6 6" />
-                                    </svg>
-                                </div>
-
-                                <div class="custom-options">
-                                    <div class="flex flex-row items-center text-center gap-2">
-                                        <input type="checkbox" name="category" id="category1" value="category1"
-                                            class="rounded-[4px] size-5 focus:ring-transparent text-[#3f7ef0]">
-                                        <label for="category1">Category 1</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex flex-col gap-2 hover:cursor-pointer">
-                                <div class="flex justify-between items-center mr-2" onclick="closeOptions(this)">
-                                    <h1 class="text-xl font-bold">Price</h1>
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="lucide lucide-chevron-down hidden">
-                                        <path d="m6 9 6 6 6-6" />
-                                    </svg>
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="lucide lucide-chevron-up">
-                                        <path d="m18 15-6-6-6 6" />
-                                    </svg>
-                                </div>
-
-                                <div class="custom-options">
-                                    <div class="flex flex-row items-center text-center gap-2">
-                                        <input type="checkbox" name="category" id="category1" value="category1"
-                                            class="rounded-[4px] size-5 focus:ring-transparent text-[#3f7ef0]">
-                                        <label for="category1">Category 1</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex flex-col gap-2 hover:cursor-pointer">
-                                <div class="flex justify-between items-center mr-2" onclick="closeOptions(this)">
-                                    <h1 class="text-xl font-bold">Price</h1>
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="lucide lucide-chevron-down hidden">
-                                        <path d="m6 9 6 6 6-6" />
-                                    </svg>
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="lucide lucide-chevron-up">
-                                        <path d="m18 15-6-6-6 6" />
-                                    </svg>
-                                </div>
-
-                                <div class="custom-options">
-                                    <div class="flex flex-row items-center text-center gap-2">
-                                        <input type="checkbox" name="category" id="category1" value="category1"
-                                            class="rounded-[4px] size-5 focus:ring-transparent text-[#3f7ef0]">
-                                        <label for="category1">Category 1</label>
-                                    </div>
-                                </div>
-                            </div> -->
-
-                        </div>
+                        <div role="filters" class="flex flex-col gap-5 pt-5 overflow-x-hidden"></div>
                     </div>
 
                 </div>
@@ -369,9 +257,6 @@
                                 <select name="sort" id="sort" type="text"
                                     class="bg-transparent border-0 focus:outline-0 focus:ring-transparent bg-none p-1 sort-selector"
                                     onchange="adjustWidthSelectors(this)">
-                                    <option value="price">Price</option>
-                                    <option value="default">Defaultdawudhawijd</option>
-                                    <option value="name">Name</option>
                                 </select>
                             </section>
 

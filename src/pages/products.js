@@ -8,7 +8,7 @@ const adjustWidthSelectors = (selectedElement) => {
     tempElement.style.position = 'absolute'; // prevent it from affecting other elements
 
     document.body.appendChild(tempElement);
-    selectedElement.style.width = tempElement.offsetWidth + 10 + 'px';
+    selectedElement.style.width = tempElement.offsetWidth + 30 + 'px';
     document.body.removeChild(tempElement);
 }
 
@@ -42,7 +42,7 @@ const openFilterMenu = () => {
     }, 500); // Remove the class after 0.5s, which is the duration of the animation
 }
 
-function generatePriceRanges(min, max, step) {
+function generateRanges(min, max, step) {
     const ranges = [];
     for (let i = min; i < max; i += step) {
         ranges.push({ min: i, max: i + step });
@@ -54,24 +54,17 @@ const createFiltersBasedOnProducts = () => {
     const parentDiv = document.querySelectorAll('[role="filters"]');
     const categorySelector = document.querySelectorAll('[role="category-selector"]');
 
-    const categories = new Set(products.map(product => product.product_category));
-    const prices = new Set(products.map(product => product.product_price));
-    const brands = new Set(products.map(product => product.product_brand));
-    const colors = new Set(products.map(product => product.product_color ? product.product_color : 'No color'));
-    const sizes = new Set(products.map(product => product.product_size ? product.product_size : 'No size'));
-    const quantities = new Set(products.map(product => product.product_quantity));
-
-    const uniqueCategories = [...categories];
-    const uniquePrices = [...prices];
-    const uniqueBrands = [...brands];
-    const uniqueColors = [...colors];
-    const uniqueSizes = [...sizes];
-    const uniqueQuantities = [...quantities];
+    const categories = [...new Set(products.map(product => product.product_category))];
+    const prices = [...new Set(products.map(product => product.product_price))];
+    const brands = [...new Set(products.map(product => product.product_brand))];
+    const colors = [...new Set(products.map(product => product.product_color ? product.product_color : 'No color'))];
+    const sizes = [...new Set(products.map(product => product.product_size ? product.product_size : 'No size'))];
+    const quantities = [...new Set(products.map(product => product.product_quantity))];
 
     categorySelector.forEach(element => {
         const categoryData = element.children[0].children[1];
 
-        uniqueCategories.forEach(category => {
+        categories.forEach(category => {
             const divCategory = `
                 <button
                     class="w-fit bg-inherit text-slate-400 font-medium transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:text-[#3f7ef0]">
@@ -84,23 +77,23 @@ const createFiltersBasedOnProducts = () => {
     });
 
     const filters = [
-        { name: 'Brand', values: uniqueBrands.sort() },
-        { name: 'Color', values: uniqueColors.sort() },
-        { name: 'Size', values: uniqueSizes.sort() },
-        { name: 'Quantity', values: uniqueQuantities.sort((a, b) => a - b) }
+        { name: 'Price', values: prices, ranges: 100 },
+        { name: 'Brand', values: brands.sort() },
+        { name: 'Color', values: colors.sort() },
+        { name: 'Size', values: sizes.sort() },
+        { name: 'Quantity', values: quantities, ranges: 50 }
     ];
 
-    const minPrice = Math.min(...uniquePrices);
-    const maxPrice = Math.max(...uniquePrices);
-    const priceRanges = generatePriceRanges(minPrice, maxPrice, 10);
+    const divFilters = [];
+    filters.forEach(filter => {
+        const minPrice = filter.ranges ? Math.min(...filter.values) : null;
+        const maxPrice = filter.ranges ? Math.max(...filter.values) : null;
+        const ranges = filter.ranges ? generateRanges(minPrice, maxPrice, filter.ranges) : null;
 
-    let divPrice
-
-    priceRanges.forEach(range => {
-        divPrice = `
-            < div class="flex flex-col gap-2 hover:cursor-pointer" >
+        const divFilter = `
+            <div class="flex flex-col gap-2 hover:cursor-pointer">
                 <div class="flex justify-between items-center mr-2" onclick="closeOptions(this)">
-                    <h1 class="text-xl font-bold">Price</h1>
+                    <h1 class="text-xl font-bold">${filter.name}</h1>
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -116,86 +109,61 @@ const createFiltersBasedOnProducts = () => {
                 </div>
 
                 <div class="custom-options">
-                    <div class="flex flex-row items-center text-center gap-2">
-                        <input type="checkbox" name="price" value="${range.min}-${range.max}" id="price-${range.min}-${range.max}" class="hidden">
-                        <label for="price-${range.min}-${range.max}" class="text-lg font-medium">£${range.min}-${range.max}</label>
-                    </div>
+                
+                ${ranges ? ranges.map(range => {
+            const min = range.min.toFixed(0);
+            const max = range.max.toFixed(0);
+
+            return `
+                <div class="flex flex-row items-center text-center gap-2">
+                    <input type="checkbox" name="${filter.name}" value="${min}_${max}" id="${filter.name}_${min}_${max}">
+
+                    ${filter.name === 'Price' ? `
+                        <label for="${filter.name}-${min}_${max}" class="text-lg font-medium before:content-['£']">${min} - ${max}</label>
+                    ` : `
+                        <label for="${filter.name}-${min}_${max}" class="text-lg font-medium">${min} - ${max}</label>
+                    `
+                }
                 </div>
-            </div >
-        `;
-    });
-
-    parentDiv.forEach(element => {
-        element.insertAdjacentHTML('afterbegin', divPrice);
-    });
-
-
-    parentDiv.forEach(element => {
-        filters.forEach(filter => {
-            const divFilter = `
-                <div class="flex flex-col gap-2 hover:cursor-pointer">
-                    <div class="flex justify-between items-center mr-2" onclick="closeOptions(this)">
-                        <h1 class="text-xl font-bold">Price</h1>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="lucide lucide-chevron-down hidden">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="lucide lucide-chevron-up">
-                            <path d="m18 15-6-6-6 6" />
-                        </svg>
-                    </div>
-
-                    <div class="custom-options">
+            `
+        }).join('')
+                : filter.values.map(value => `
                         <div class="flex flex-row items-center text-center gap-2">
-                            <input type="checkbox" name="${filter.name}" value="${filter.values}" id="${filter.name}" class="hidden">
-                            <label for="${filter.name}" class="text-lg font-medium">${filter.name}</label>
+                            <input type="checkbox" name="${filter.name}" value="${value}" id="${value}">
+                            <label for="${value}" class="text-lg font-medium">${value}</label>
                         </div>
+                    `).join('')}
+                    
                     </div>
                 </div>
             `;
-        });
 
-        element.insertAdjacentHTML('afterbegin', divFilter);
+        divFilters.push(divFilter);
     });
 
+    parentDiv.forEach(element => {
+        element.insertAdjacentHTML('afterbegin', divFilters.join(''));
+    });
+}
 
-    // filters.forEach(filter => {
-    //     const divFilter = `
-    //         <div class="flex flex-col gap-2 hover:cursor-pointer">
-    //             <div class="flex justify-between items-center mr-2" onclick="closeOptions(this)">
-    //                 <h1 class="text-xl font-bold">Price</h1>
+const createSort = () => {
+    const parentDiv = document.querySelectorAll('.sort-selector');
 
-    //                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-    //                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    //                     stroke-linejoin="round" class="lucide lucide-chevron-down hidden">
-    //                     <path d="m6 9 6 6 6-6" />
-    //                 </svg>
+    const sortOptions = [
+        { name: 'Price: Low to High', value: 'price-low-to-high' },
+        { name: 'Price: High to Low', value: 'price-high-to-low' },
+        { name: 'Newest Arrivals', value: 'newest-arrivals' },
+        { name: 'Best Sellers', value: 'best-sellers' },
+        { name: 'Top Rated', value: 'top-rated' }
+    ];
 
-    //                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-    //                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-    //                     stroke-linejoin="round" class="lucide lucide-chevron-up">
-    //                     <path d="m18 15-6-6-6 6" />
-    //                 </svg>
-    //             </div>
+    const divSort = sortOptions.map(option => `
+        <option value="${option.value}">${option.name}</option>
+    `);
 
-    //             <div class="custom-options">
-    //                 <div class="flex flex-row items-center text-center gap-2">
-    //                     <input type="checkbox" name="${filter.name}" value="${filter.values}" id="${filter.name}" class="hidden">
-    //                     <label for="${filter.name}" class="text-lg font-medium">${filter.name}</label>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     `;
-
-    //     parentDiv.insertAdjacentHTML('afterbegin', divFilter);
-
-    //     console.log(filter);
-    // });
+    parentDiv.forEach(element => {
+        element.insertAdjacentHTML('afterbegin', divSort.join(''));
+    });
 }
 
 const createProductElements = () => {
@@ -206,7 +174,7 @@ const createProductElements = () => {
         const productId = product.product_name.replace(/\s/g, '-').toLowerCase();
         const productCategory = product.product_category.toLowerCase();
 
-        let productImage = `../assets/images/products/${productCategory}/${product_image}`;
+        let productImage = `../ assets / images / products / ${productCategory} /${product_image}`;
 
         if (typeof product_image === undefined || product_image === '' || product_image === null) {
             productImage = '../assets/images/utils/error.webp';
@@ -302,11 +270,6 @@ const openProductPage = (element) => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    var selectElement = document.querySelectorAll('.sort-selector');
-    selectElement.forEach(element => {
-        adjustWidthSelectors(element);
-    });
-
     fetchItems().then((data) => {
         if (!data) return;
 
@@ -320,5 +283,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }).then(() => {
         createProductElements();
         createFiltersBasedOnProducts();
+        createSort();
+
+        var selectElement = document.querySelectorAll('.sort-selector');
+        selectElement.forEach(element => {
+            adjustWidthSelectors(element);
+        });
     });
 });
