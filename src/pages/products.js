@@ -94,9 +94,14 @@ const filterProducts = (filters) => {
             (!quantityFilter || quantityFilter.some(quantity => {
                 const [min, max] = quantity.split('_');
                 return (parseInt(productQuantity) >= parseInt(min) && productQuantity <= parseInt(max));
+            })) &&
+            (categoryActive.length === 0 || categoryActive.some(category => {
+                return category === product.product_category;
             }))
         );
     });
+
+    return filteredProducts;
 }
 
 const createFiltersBasedOnProducts = () => {
@@ -210,14 +215,14 @@ const categorySelector = (element, category) => {
         categoryActive.push(category);
         element.classList.add('text-blue-600');
 
-        const filteredProducts = filterProducts(filters);
+        if (filters && filters.length > 0) {
+            const filteredProducts = filterProducts(filters);
 
-        if (filteredProducts) {
+
             filteredProducts.filter(product => {
                 return categoryActive.some(category => category === product.product_category);
             });
 
-            console.log(filteredProducts);
             createProductElements(filteredProducts);
             return;
         }
@@ -241,14 +246,13 @@ const categorySelector = (element, category) => {
         categoryActive.push(category);
     }
 
-    const filteredProducts = filterProducts(filters);
+    if (filters && filters.length > 0) {
+        const filteredProducts = filterProducts(filters);
 
-    if (filteredProducts) {
         filteredProducts.filter(product => {
             return categoryActive.some(category => category === product.product_category);
         });
 
-        console.log(filteredProducts);
         createProductElements(filteredProducts);
         return;
     }
