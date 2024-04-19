@@ -55,17 +55,19 @@
 </head>
 
 <body>
-    <div class="w-full h-lvh flex justify-center items-center bg-gray-100 max-md:bg-color px-10 max-md:px-0">
+    <div class="w-full h-lvh flex justify-center items-center bg-gray-100 max-lg:bg-color px-10 max-lg:px-0">
         <div
-            class="max-w-[1800px] w-full h-[70%] max-md:h-full flex max-md:flex-col items-center max-md:rounded-none max-md:drop-shadow-none rounded-lg drop-shadow-2xl bg-color">
+            class="max-w-[1800px] w-full h-[70%] max-lg:h-full flex items-center max-lg:rounded-none max-lg:drop-shadow-none rounded-lg drop-shadow-2xl bg-color">
 
             <section role="account-login"
-                class="w-full max-md:w-full h-full z-10 flex max-md:flex-col justify-start items-start max-sm:px-5 flex-1">
+                class="w-full max-lg:w-full h-full z-10 flex justify-start items-start max-sm:px-5 flex-1 z-10">
 
                 <section role="login-form"
-                    class="w-1/2 max-md:w-full h-full flex flex-col justify-center items-start gap-5 py-10 px-44 max-2xl:px-10 max-sm:px-5 z-20 max-md:shadow-none max-md:rounded-none max-md:pb-10">
+                    class="w-1/2 max-2xl:w-full h-full flex flex-col justify-center items-start gap-5 py-10 px-44 max-2xl:px-10 max-sm:px-5 z-20 max-md:shadow-none max-md:rounded-none max-md:pb-10">
 
-                    <h1 class="text-3xl font-bold">Login</h1>
+                    <h1 class="text-4xl font-bold">Welcome back!</h1>
+                    <h1 class="text-2xl font-bold">Login</h1>
+
                     <div class="w-full flex flex-col gap-5">
                         <div class="w-full flex flex-col gap-2">
                             <label for="email" class="text-sm font-semibold">Email</label>
@@ -77,33 +79,47 @@
                             <input type="password" name="password" id="password"
                                 class="w-full p-2 border border-gray-300 rounded-md">
                         </div>
-                        <div class="w-full flex flex-col gap-2">
-                            <button type="submit" class="w-full p-2 bg-blue-500 text-white rounded-md">Login</button>
+                        <div class="w-full flex flex-col gap-5">
+                            <button class="w-full h-full relative shadow-2xl" onclick=>
+                                <div
+                                    class="w-full h-full bg-[#646464] text-white font-Kanit text-xl p-7 rounded-md z-10">
+                                </div>
 
-                            <div class="w-full flex justify-center items-center gap-2">
-                                <button onclick="movePage()" class="text-sm text-blue-500">Create account</button>
+                                <div
+                                    class="w-full h-full flex justify-center items-center absolute top-0 left-0 bg-black text-white text-center font-Kanit text-xl p-7 rounded-md transition ease-in-out delay-50 hover:-translate-y-2 hover:-translate-x-2 hover:scale-100 z-20 hover:drop-shadow-2xl">
+                                    Login
+                                </div>
+                            </button>
+
+                            <div class="w-full flex flex-col justify-center items-center gap-3">
+                                <button onclick="movePage()"
+                                    class="text-md text-blue-500 transition ease-in-out delay-50 hover:-translate-y-2 hover:scale-120">Don't
+                                    have an account?</button>
+                                <button onclick="window.location.href = '../index.html'"
+                                    class="text-md text-blue-500 transition ease-in-out delay-50 hover:-translate-y-2 hover:scale-120">Go
+                                    back home</button>
                             </div>
                         </div>
                     </div>
                 </section>
 
                 <section role="login-details"
-                    class="w-1/2 max-md:w-full h-full flex flex-col justify-center items-start gap-5 px-44 max-2xl:px-10 max-sm:px-5 z-20 max-md:shadow-none max-md:rounded-none max-md:pb-10 left-shadow rounded-lg">
-                    <h1 class="text-3xl font-bold">Login Details</h1>
+                    class="w-1/2 max-2xl:hidden h-full flex flex-col justify-center items-start gap-5 px-10 py-5 px-10 max-sm:px-5 z-20 max-md:shadow-none max-md:rounded-none max-md:pb-10">
 
-                    <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                    <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                    <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
+                    <img src="../assets/images/utils/SignIn.png" alt="login"
+                        class="w-full h-full object-cover rounded-3xl">
+
                 </section>
             </section>
 
             <section role="account-signup"
-                class="w-full max-md:w-full h-full z-10 hidden max-md:flex-col justify-start items-start max-sm:px-5 flex-1">
+                class="w-full max-md:w-full h-full z-10 hidden max-md:flex-col justify-start items-start max-sm:px-5 flex-1 z-10">
 
                 <section role="signUp-form"
-                    class="w-1/2 max-md:w-full h-full flex flex-col justify-center items-start gap-5 py-10 px-44 max-2xl:px-10 max-sm:px-5 z-20 max-md:shadow-none max-md:rounded-none max-md:pb-10 left-shadow rounded-lg">
+                    class="w-1/2 max-2xl:w-full max-md:w-full h-full flex flex-col justify-center items-start gap-5 py-10 px-44 max-2xl:px-10 max-sm:px-5 z-20 max-2xl:shadow-none max-2xl:rounded-none max-md:pb-10 left-shadow rounded-lg">
 
-                    <h1 class="text-3xl font-bold">Sign Up</h1>
+                    <h1 class="text-4xl font-bold font-hammersmith">Welcome to ALL N ONE</h1>
+
                     <div class="w-full flex flex-col gap-5">
                         <div class="w-full flex flex-col gap-2">
                             <label for="email" class="text-sm font-semibold">Email</label>
@@ -116,23 +132,40 @@
                                 class="w-full p-2 border border-gray-300 rounded-md">
                         </div>
                         <div class="w-full flex flex-col gap-2">
-                            <button type="submit" class="w-full p-2 bg-blue-500 text-white rounded-md">Sign Up</button>
+                            <label for="password2" class="text-sm font-semibold">Password confirmation</label>
+                            <input type="password" name="password2" id="password2"
+                                class="w-full p-2 border border-gray-300 rounded-md">
+                        </div>
+                        <div class="w-full flex flex-col gap-5">
+                            <button class="w-full h-full relative shadow-2xl" onclick=>
+                                <div
+                                    class="w-full h-full bg-[#646464] text-white font-Kanit text-xl p-7 rounded-md z-10">
+                                </div>
 
-                            <div class="w-full flex justify-center items-center gap-2">
-                                <button onclick="movePage('login')" class="text-sm text-blue-500">Already Have an
+                                <div
+                                    class="w-full h-full flex justify-center items-center absolute top-0 left-0 bg-black text-white text-center font-Kanit text-xl p-7 rounded-md transition ease-in-out delay-50 hover:-translate-y-2 hover:-translate-x-2 hover:scale-100 z-20 hover:drop-shadow-2xl">
+                                    SIGN UP
+                                </div>
+                            </button>
+
+                            <div class="w-full flex flex-col justify-center items-center gap-3">
+                                <button onclick="movePage('login')"
+                                    class="text-md text-blue-500 transition ease-in-out delay-50 hover:-translate-y-2 hover:scale-120">Already
+                                    Have an
                                     account!</button>
+                                <button onclick="window.location.href = '../index.html'"
+                                    class="text-md text-blue-500 transition ease-in-out delay-50 hover:-translate-y-2 hover:scale-120">Go
+                                    back home</button>
                             </div>
                         </div>
                     </div>
                 </section>
 
                 <section role="signUp-details"
-                    class="w-1/2 max-md:w-full h-full flex flex-col justify-center items-start gap-5 px-44 max-2xl:px-10 max-sm:px-5 z-20 max-md:shadow-none max-md:rounded-none max-md:pb-10">
-                    <h1 class="text-3xl font-bold">Sign Up Details</h1>
+                    class="w-1/2 max-2xl:hidden h-full flex flex-col justify-center items-start gap-5 py-5 px-10 max-sm:px-5 z-20 max-md:shadow-none max-md:rounded-none max-md:pb-10">
 
-                    <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                    <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                    <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
+                    <img src="../assets/images/utils/SignUp.png" alt="login"
+                        class="w-full h-full object-cover rounded-3xl">
                 </section>
             </section>
 
