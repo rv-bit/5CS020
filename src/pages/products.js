@@ -1,4 +1,15 @@
 const products = [];
+let visibleSortElement = [];
+
+const sortOptions = [
+    { name: 'Price: Low to High', value: 'price-low-to-high', sortFunc: (a, b) => a.product_price - b.product_price },
+    { name: 'Price: High to Low', value: 'price-high-to-low', sortFunc: (a, b) => b.product_price - a.product_price },
+    { name: 'Best Sellers', value: 'best-sellers', sortFunc: (a, b) => b.product_sales - a.product_sales },
+    { name: 'Top Rated', value: 'top-rated', sortFunc: (a, b) => b.product_rating - a.product_rating }
+];
+
+const filters = {};
+const categoryActive = []
 
 const adjustWidthSelectors = (selectedElement) => {
     var tempElement = document.createElement('span');
@@ -10,6 +21,23 @@ const adjustWidthSelectors = (selectedElement) => {
     document.body.appendChild(tempElement);
     selectedElement.style.width = tempElement.offsetWidth + 30 + 'px';
     document.body.removeChild(tempElement);
+
+    let value = selectedElement.value;
+    document.querySelectorAll('.sort-selector').forEach(element => {
+        element.addEventListener('change', (event) => {
+            value = event.target.value;
+
+            sortOptions.forEach(option => {
+                if (option.value === value) {
+                    const filteredProducts = filterProducts(filters);
+                    createProductElements(filteredProducts, option.sortFunc);
+                    return;
+                }
+            });
+        });
+
+        element.value = value;
+    });
 }
 
 const openFilterMenu = () => {
@@ -49,17 +77,6 @@ function generateRanges(min, max, step) {
     }
     return ranges;
 }
-
-const sortOptions = [
-    { name: 'Price: Low to High', value: 'price-low-to-high' },
-    { name: 'Price: High to Low', value: 'price-high-to-low' },
-    { name: 'Newest Arrivals', value: 'newest-arrivals' },
-    { name: 'Best Sellers', value: 'best-sellers' },
-    { name: 'Top Rated', value: 'top-rated' }
-];
-
-const filters = {};
-const categoryActive = []
 
 const filterProducts = (filters) => {
     const filtersCopy = { ...filters };
@@ -371,9 +388,8 @@ const createSort = () => {
     });
 }
 
-const createProductElements = (filteredProducts) => {
+const createProductElements = (filteredProducts, sorting = false) => {
     const parentDiv = document.getElementById('data_products');
-    const allProducts = (filteredProducts && filteredProducts.length > 0) ? filteredProducts : products;
 
     if (filteredProducts) {
         parentDiv.innerHTML = '';
@@ -388,6 +404,15 @@ const createProductElements = (filteredProducts) => {
 
         parentDiv.insertAdjacentHTML('beforeend', div)
         return;
+    }
+
+    const allProducts = (filteredProducts && filteredProducts.length > 0) ? filteredProducts : products;
+
+    console.log('allProducts', allProducts);
+
+    if (sorting) {
+        console.log('sorting', sorting);
+        allProducts.sort(sorting);
     }
 
     allProducts.forEach((product, index) => {
@@ -509,6 +534,11 @@ document.addEventListener('DOMContentLoaded', () => {
         var selectElement = document.querySelectorAll('.sort-selector');
         selectElement.forEach(element => {
             adjustWidthSelectors(element);
+
+            selectElement.value = sortOptions[0].value;
         });
+
+        const filteredProducts = filterProducts(filters);
+        createProductElements(filteredProducts, sortOptions[0].sortFunc);
     });
 });
