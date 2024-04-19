@@ -77,86 +77,185 @@ const createFiltersBasedOnProducts = () => {
     });
 
     const filters = [
-        { name: 'Price', values: prices, ranges: 100 },
-        { name: 'Brand', values: brands.sort() },
-        { name: 'Color', values: colors.sort() },
-        { name: 'Size', values: sizes.sort() },
-        { name: 'Quantity', values: quantities, ranges: 50 }
+        { name: 'price', values: prices, ranges: 150 },
+        { name: 'brand', values: brands.sort() },
+        { name: 'color', values: colors.sort() },
+        { name: 'size', values: sizes.sort() },
+        { name: 'quantity', values: quantities, ranges: 50 }
     ];
 
-    const divFilters = [];
-    filters.forEach(filter => {
-        const minPrice = filter.ranges ? Math.min(...filter.values) : null;
-        const maxPrice = filter.ranges ? Math.max(...filter.values) : null;
-        const ranges = filter.ranges ? generateRanges(minPrice, maxPrice, filter.ranges) : null;
+    parentDiv.forEach((div, index) => {
+        div.id = `filters_${index}`;
 
-        const divFilter = `
-            <div class="flex flex-col gap-2 hover:cursor-pointer">
-                <div class="flex justify-between items-center mr-2" onclick="closeOptions(this)">
-                    <h1 class="text-xl font-bold">${filter.name}</h1>
+        filters.forEach(filter => {
+            const minPrice = filter.ranges ? 0 : null;
+            const maxPrice = filter.ranges ? Math.max(...filter.values) : null;
+            const ranges = filter.ranges ? generateRanges(minPrice, maxPrice, filter.ranges) : null;
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="lucide lucide-chevron-down hidden">
-                        <path d="m6 9 6 6 6-6" />
-                    </svg>
+            const filterName = filter.name.charAt(0).toUpperCase() + filter.name.slice(1);
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="lucide lucide-chevron-up">
-                        <path d="m18 15-6-6-6 6" />
-                    </svg>
-                </div>
+            const divFilter = `
+                <div class="flex flex-col gap-2">
+                    <div class="flex justify-between items-center mr-2 hover:cursor-pointer" onclick="closeOptions(this)">
+                        <h1 class="text-xl font-bold">${filterName}</h1>
 
-                <div class="custom-options">
-                
-                ${ranges ? ranges.map(range => {
-            const min = range.min.toFixed(0);
-            const max = range.max.toFixed(0);
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-chevron-down hidden">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
 
-            return `
-                <div class="flex flex-row items-center text-center gap-2">
-                    <input type="checkbox" name="${filter.name}" value="${min}_${max}" id="${filter.name}_${min}_${max}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-chevron-up">
+                            <path d="m18 15-6-6-6 6" />
+                        </svg>
+                    </div>
 
-                    ${filter.name === 'Price' ? `
-                        <label for="${filter.name}-${min}_${max}" class="text-lg font-medium before:content-['£']">${min} - ${max}</label>
-                    ` : `
-                        <label for="${filter.name}-${min}_${max}" class="text-lg font-medium">${min} - ${max}</label>
-                    `
-                }
-                </div>
-            `
-        }).join('')
-                : filter.values.map(value => `
-                        <div class="flex flex-row items-center text-center gap-2">
-                            <input type="checkbox" name="${filter.name}" value="${value}" id="${value}">
-                            <label for="${value}" class="text-lg font-medium">${value}</label>
+                    <div class="custom-options">
+                    
+                    ${ranges ? ranges.map(range => {
+                const min = range.min.toFixed(0);
+                const max = range.max.toFixed(0);
+
+                return `
+                    <div class="w-full flex items-center text-left gap-2">
+                        <input type="checkbox" name="${filter.name}" value="${min}_${max}" id="${filter.name}_${min}_${max}_${div.id}">
+                        ${filter.name === 'Price' ?
+                        `<label for="${filter.name}_${min}_${max}_${div.id}" class="text-lg font-medium w-full before:content-['£'] hover:cursor-pointer" onclick="updateProductsAfterFilter(this)">${min} - ${max}</label>`
+                        :
+                        `<label for="${filter.name}_${min}_${max}_${div.id}" class="text-lg font-medium w-full hover:cursor-pointer" onclick="updateProductsAfterFilter(this)">${min} - ${max}</label>`
+                    }
+                    </div>
+                `
+            }).join('')
+                    : filter.values.map(value => `
+                        <div class="w-full flex items-center text-left gap-2">
+                            <input type="checkbox" name="${filter.name}" value="${value}" id="${filter.name}_${value}_${div.id}">
+                            <label for="${filter.name}_${value}_${div.id}" class="text-lg font-medium w-full hover:cursor-pointer" onclick="updateProductsAfterFilter(this)">${value}</label>
                         </div>
                     `).join('')}
-                    
+                        
+                        </div>
                     </div>
+                `;
+
+            div.insertAdjacentHTML('afterbegin', divFilter);
+        });
+    });
+}
+
+const sortOptions = [
+    { name: 'Price: Low to High', value: 'price-low-to-high' },
+    { name: 'Price: High to Low', value: 'price-high-to-low' },
+    { name: 'Newest Arrivals', value: 'newest-arrivals' },
+    { name: 'Best Sellers', value: 'best-sellers' },
+    { name: 'Top Rated', value: 'top-rated' }
+];
+
+const filters = {};
+
+const deleteFilter = (filterName) => {
+    if (!filters[filterName]) {
+        filters[filterName] = [];
+    }
+
+    const index = filters[filterName].indexOf(filterValue);
+    if (index !== -1) {
+        filters[filterName].splice(index, 1);
+
+        filters[filterName].length === 0 && delete filters[filterName];
+    }
+
+    updateProductsAfterFilter();
+}
+
+const updateProductsAfterFilter = (checkBox) => {
+    const addedFilters = document.querySelector('[role="filters-added"]');
+
+    if (checkBox) {
+        const filterName = checkBox.parentElement.children[0].name;
+        const filterValue = checkBox.parentElement.children[0].value;
+
+        if (!filters[filterName]) {
+            filters[filterName] = [];
+        }
+
+        if (!checkBox.parentElement.children[0].checked) {
+            filters[filterName].push(filterValue);
+        } else {
+            const index = filters[filterName].indexOf(filterValue);
+            if (index !== -1) {
+                filters[filterName].splice(index, 1);
+
+                filters[filterName].length === 0 && delete filters[filterName];
+            }
+        }
+    }
+
+    const filtersCopy = { ...filters };
+
+    Object.entries(filtersCopy).forEach(([key, value]) => {
+        const name = key.charAt(0).toUpperCase() + key.slice(1);
+
+        const divFilter = `
+            <div class="flex flex-row gap-2 bg-[#f5f5f5] px-5 py-3 rounded-lg opacity-60 shrink-0">
+                <p class="text-base font-medium">${name}</p>
+
+                <div
+                    class="transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:cursor-pointer" onclick=deleteFilter('${key}')>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="lucide lucide-x">
+                        <path d="M18 6 6 18" />
+                        <path d="m6 6 12 12" />
+                    </svg>
                 </div>
-            `;
+            </div>
+        `;
 
-        divFilters.push(divFilter);
+        addedFilters.insertAdjacentHTML('beforeend', divFilter);
     });
 
-    parentDiv.forEach(element => {
-        element.insertAdjacentHTML('afterbegin', divFilters.join(''));
+    const filteredProducts = products.filter(product => {
+        const productPrice = product.product_price;
+        const productBrand = product.product_brand;
+        const productColor = product.product_color;
+        const productSize = product.product_size;
+        const productQuantity = product.product_quantity;
+
+        const priceFilter = filtersCopy.price;
+        const brandFilter = filtersCopy.brand;
+        const colorFilter = filtersCopy.color;
+        const sizeFilter = filtersCopy.size;
+        const quantityFilter = filtersCopy.quantity;
+
+        return (
+            (!priceFilter || priceFilter.some(price => {
+                const [min, max] = price.split('_');
+                return (parseInt(productPrice) >= parseInt(min) && productPrice <= parseInt(max));
+            })) &&
+            (!brandFilter || brandFilter.some(brand => {
+                return productBrand === brand;
+            })) &&
+            (!colorFilter || colorFilter.some(color => {
+                return productColor === color;
+            })) &&
+            (!sizeFilter || sizeFilter.some(size => {
+                return productSize === size;
+            })) &&
+            (!quantityFilter || quantityFilter.some(quantity => {
+                const [min, max] = quantity.split('_');
+                return (parseInt(productQuantity) >= parseInt(min) && productQuantity <= parseInt(max));
+            }))
+        );
     });
+
+    createProductElements(filteredProducts);
 }
 
 const createSort = () => {
     const parentDiv = document.querySelectorAll('.sort-selector');
-
-    const sortOptions = [
-        { name: 'Price: Low to High', value: 'price-low-to-high' },
-        { name: 'Price: High to Low', value: 'price-high-to-low' },
-        { name: 'Newest Arrivals', value: 'newest-arrivals' },
-        { name: 'Best Sellers', value: 'best-sellers' },
-        { name: 'Top Rated', value: 'top-rated' }
-    ];
-
     const divSort = sortOptions.map(option => `
         <option value="${option.value}">${option.name}</option>
     `);
@@ -166,10 +265,26 @@ const createSort = () => {
     });
 }
 
-const createProductElements = () => {
+const createProductElements = (filteredProducts) => {
     const parentDiv = document.getElementById('data_products');
+    const allProducts = (filteredProducts && filteredProducts.length > 0) ? filteredProducts : products;
 
-    products.forEach((product, index) => {
+    if (filteredProducts) {
+        parentDiv.innerHTML = '';
+    }
+
+    if (filteredProducts && filteredProducts.length === 0) {
+        const div = `
+            <div class="flex justify-center items-center w-full h-full">
+                <h1 class="text-2xl font-bold text-slate-400">No products found withing filters</h1>
+            </div>
+        `;
+
+        parentDiv.insertAdjacentHTML('beforeend', div)
+        return;
+    }
+
+    allProducts.forEach((product, index) => {
         var product_image = product.product_image;
         const productId = product.product_name.replace(/\s/g, '-').toLowerCase();
         const productCategory = product.product_category.toLowerCase();
@@ -254,7 +369,7 @@ const createProductElements = () => {
             </div>
         `;
 
-        parentDiv.innerHTML += div;
+        parentDiv.insertAdjacentHTML('beforeend', div);
     });
 }
 
