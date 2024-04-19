@@ -155,15 +155,24 @@ const sortOptions = [
 
 const filters = {};
 
-const deleteFilter = (filterName) => {
+const deleteFilter = (filterName, filterValue, element) => {
+    const parentDiv = document.querySelectorAll('[role="filters"]');
+    const elementParent = element.parentElement;
+
+    elementParent.remove();
+
     if (!filters[filterName]) {
         filters[filterName] = [];
     }
 
     const index = filters[filterName].indexOf(filterValue);
     if (index !== -1) {
-        filters[filterName].splice(index, 1);
+        parentDiv.forEach(div => {
+            const checkBox = div.querySelector(`input[name="${filterName}"][value="${filterValue}"]`);
+            checkBox.checked = false;
+        });
 
+        filters[filterName].splice(index, 1);
         filters[filterName].length === 0 && delete filters[filterName];
     }
 
@@ -183,6 +192,31 @@ const updateProductsAfterFilter = (checkBox) => {
 
         if (!checkBox.parentElement.children[0].checked) {
             filters[filterName].push(filterValue);
+
+            let valueFilter = null;
+            if (filterValue.includes('_')) {
+                valueFilter = filterValue.split('_').join(' - ');
+            } else {
+                valueFilter = filterValue;
+            }
+
+            const divFilter = `
+                <div class="flex flex-row gap-2 bg-[#f5f5f5] px-5 py-3 rounded-lg opacity-60 shrink-0">
+                    <p class="text-base font-medium">${valueFilter}</p>
+
+                    <div
+                        class="transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:cursor-pointer" onclick="deleteFilter('${filterName}', '${filterValue}', this)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-x">
+                            <path d="M18 6 6 18" />
+                            <path d="m6 6 12 12" />
+                        </svg>
+                    </div>
+                </div>
+            `;
+
+            addedFilters.insertAdjacentHTML('beforeend', divFilter);
         } else {
             const index = filters[filterName].indexOf(filterValue);
             if (index !== -1) {
@@ -190,33 +224,25 @@ const updateProductsAfterFilter = (checkBox) => {
 
                 filters[filterName].length === 0 && delete filters[filterName];
             }
+
+            const divFilter = addedFilters.querySelectorAll('div');
+
+            let valueFilter = null;
+            if (filterValue.includes('_')) {
+                valueFilter = filterValue.split('_').join(' - ');
+            } else {
+                valueFilter = filterValue;
+            }
+
+            divFilter.forEach(div => {
+                if (div.children[0].textContent === valueFilter) {
+                    div.remove();
+                }
+            });
         }
     }
 
     const filtersCopy = { ...filters };
-
-    Object.entries(filtersCopy).forEach(([key, value]) => {
-        const name = key.charAt(0).toUpperCase() + key.slice(1);
-
-        const divFilter = `
-            <div class="flex flex-row gap-2 bg-[#f5f5f5] px-5 py-3 rounded-lg opacity-60 shrink-0">
-                <p class="text-base font-medium">${name}</p>
-
-                <div
-                    class="transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:cursor-pointer" onclick=deleteFilter('${key}')>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="lucide lucide-x">
-                        <path d="M18 6 6 18" />
-                        <path d="m6 6 12 12" />
-                    </svg>
-                </div>
-            </div>
-        `;
-
-        addedFilters.insertAdjacentHTML('beforeend', divFilter);
-    });
-
     const filteredProducts = products.filter(product => {
         const productPrice = product.product_price;
         const productBrand = product.product_brand;
