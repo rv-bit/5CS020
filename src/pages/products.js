@@ -1,5 +1,4 @@
 const products = [];
-let visibleSortElement = [];
 
 const sortOptions = [
     { name: 'Price: Low to High', value: 'price-low-to-high', sortFunc: (a, b) => a.product_price - b.product_price },
