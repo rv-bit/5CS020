@@ -130,6 +130,14 @@
   animation: slide-top 0.5s forwards;
 }
 
+.slide-from-left {
+  animation: slide-from-left 0.5s forwards;
+}
+
+.slide-from-right {
+  animation: slide-from-right 0.5s forwards;
+}
+
 @keyframes slide-out {
   from { transform: translateX(0); }
   to { transform: translateX(-250%); }
@@ -147,4 +155,14 @@
 @keyframes slide-top {
   from { transform: translateY(0); }
   to { transform: translateY(-120%); }
+}
+
+@keyframes slide-from-left {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slide-from-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
 }
