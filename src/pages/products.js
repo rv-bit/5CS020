@@ -50,6 +50,55 @@ function generateRanges(min, max, step) {
     return ranges;
 }
 
+const sortOptions = [
+    { name: 'Price: Low to High', value: 'price-low-to-high' },
+    { name: 'Price: High to Low', value: 'price-high-to-low' },
+    { name: 'Newest Arrivals', value: 'newest-arrivals' },
+    { name: 'Best Sellers', value: 'best-sellers' },
+    { name: 'Top Rated', value: 'top-rated' }
+];
+
+const filters = {};
+const categoryActive = []
+
+const filterProducts = (filters) => {
+    const filtersCopy = { ...filters };
+
+    const filteredProducts = products.filter(product => {
+        const productPrice = product.product_price;
+        const productBrand = product.product_brand;
+        const productColor = product.product_color;
+        const productSize = product.product_size;
+        const productQuantity = product.product_quantity;
+
+        const priceFilter = filtersCopy.price;
+        const brandFilter = filtersCopy.brand;
+        const colorFilter = filtersCopy.color;
+        const sizeFilter = filtersCopy.size;
+        const quantityFilter = filtersCopy.quantity;
+
+        return (
+            (!priceFilter || priceFilter.some(price => {
+                const [min, max] = price.split('_');
+                return (parseInt(productPrice) >= parseInt(min) && productPrice <= parseInt(max));
+            })) &&
+            (!brandFilter || brandFilter.some(brand => {
+                return productBrand === brand;
+            })) &&
+            (!colorFilter || colorFilter.some(color => {
+                return productColor === color;
+            })) &&
+            (!sizeFilter || sizeFilter.some(size => {
+                return productSize === size;
+            })) &&
+            (!quantityFilter || quantityFilter.some(quantity => {
+                const [min, max] = quantity.split('_');
+                return (parseInt(productQuantity) >= parseInt(min) && productQuantity <= parseInt(max));
+            }))
+        );
+    });
+}
+
 const createFiltersBasedOnProducts = () => {
     const parentDiv = document.querySelectorAll('[role="filters"]');
     const categorySelector = document.querySelectorAll('[role="category-selector"]');
@@ -67,6 +116,7 @@ const createFiltersBasedOnProducts = () => {
         categories.forEach(category => {
             const divCategory = `
                 <button
+                    onclick="categorySelector(this, '${category}')"
                     class="w-fit bg-inherit text-slate-400 font-medium transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:text-[#3f7ef0]">
                     ${category}
                 </button>
@@ -145,15 +195,67 @@ const createFiltersBasedOnProducts = () => {
     });
 }
 
-const sortOptions = [
-    { name: 'Price: Low to High', value: 'price-low-to-high' },
-    { name: 'Price: High to Low', value: 'price-high-to-low' },
-    { name: 'Newest Arrivals', value: 'newest-arrivals' },
-    { name: 'Best Sellers', value: 'best-sellers' },
-    { name: 'Top Rated', value: 'top-rated' }
-];
+const categorySelector = (element, category) => {
+    const allProducts = [...products];
 
-const filters = {};
+    if (category === categoryActive[0]) {
+        categoryActive.splice(categoryActive.indexOf(category), 1);
+        element.classList.remove('text-blue-600');
+
+        createProductElements(allProducts);
+        return;
+    }
+
+    if (categoryActive.length === 0) {
+        categoryActive.push(category);
+        element.classList.add('text-blue-600');
+
+        const filteredProducts = filterProducts(filters);
+
+        if (filteredProducts) {
+            filteredProducts.filter(product => {
+                return categoryActive.some(category => category === product.product_category);
+            });
+
+            console.log(filteredProducts);
+            createProductElements(filteredProducts);
+            return;
+        }
+
+        const categoryFilteredProducts = allProducts.filter(product => product.product_category === category);
+        createProductElements(categoryFilteredProducts);
+        return;
+    }
+
+    if (!categoryActive.includes(category)) {
+        categoryActive.forEach(category => {
+            const elements = document.querySelectorAll('[role="category-selector"] button');
+
+            elements.forEach(element => {
+                element.classList.remove('text-blue-600');
+                categoryActive.splice(categoryActive.indexOf(category), 1);
+            });
+        });
+
+        element.classList.add('text-blue-600');
+        categoryActive.push(category);
+    }
+
+    const filteredProducts = filterProducts(filters);
+
+    if (filteredProducts) {
+        filteredProducts.filter(product => {
+            return categoryActive.some(category => category === product.product_category);
+        });
+
+        console.log(filteredProducts);
+        createProductElements(filteredProducts);
+        return;
+    }
+
+    const categoryFilteredProducts = allProducts.filter(product => product.product_category === category);
+    createProductElements(categoryFilteredProducts);
+}
 
 const deleteFilter = (filterName, filterValue, element) => {
     const parentDiv = document.querySelectorAll('[role="filters"]');
@@ -242,41 +344,15 @@ const updateProductsAfterFilter = (checkBox) => {
         }
     }
 
-    const filtersCopy = { ...filters };
-    const filteredProducts = products.filter(product => {
-        const productPrice = product.product_price;
-        const productBrand = product.product_brand;
-        const productColor = product.product_color;
-        const productSize = product.product_size;
-        const productQuantity = product.product_quantity;
+    if (addedFilters.children.length === 0) {
+        addedFilters.classList.add('mb-2', 'py-2');
+        addedFilters.classList.remove('mb-5', 'py-5');
+    } else {
+        addedFilters.classList.remove('mb-2', 'py-2');
+        addedFilters.classList.add('mb-5', 'py-5');
+    }
 
-        const priceFilter = filtersCopy.price;
-        const brandFilter = filtersCopy.brand;
-        const colorFilter = filtersCopy.color;
-        const sizeFilter = filtersCopy.size;
-        const quantityFilter = filtersCopy.quantity;
-
-        return (
-            (!priceFilter || priceFilter.some(price => {
-                const [min, max] = price.split('_');
-                return (parseInt(productPrice) >= parseInt(min) && productPrice <= parseInt(max));
-            })) &&
-            (!brandFilter || brandFilter.some(brand => {
-                return productBrand === brand;
-            })) &&
-            (!colorFilter || colorFilter.some(color => {
-                return productColor === color;
-            })) &&
-            (!sizeFilter || sizeFilter.some(size => {
-                return productSize === size;
-            })) &&
-            (!quantityFilter || quantityFilter.some(quantity => {
-                const [min, max] = quantity.split('_');
-                return (parseInt(productQuantity) >= parseInt(min) && productQuantity <= parseInt(max));
-            }))
-        );
-    });
-
+    const filteredProducts = filterProducts(filters);
     createProductElements(filteredProducts);
 }
 
