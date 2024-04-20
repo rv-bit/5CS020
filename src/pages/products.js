@@ -549,7 +549,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const elements = document.querySelectorAll('[role="category-selector"] button');
 
             elements.forEach(element => {
-                if (element.textContent === categoryFromLocalStorage) {
+                const elementName = element.textContent.trim(''); // Remove any whitespace
+                if (elementName === categoryFromLocalStorage) {
                     element.classList.add('text-blue-600');
                 }
             });
