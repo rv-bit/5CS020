@@ -110,9 +110,11 @@ const createProductElement = () => {
 
     const parentChildren = parentDiv.children;
 
-    let productMainImageSection = parentChildren[0].children[0].children[1].children[0];
-    let productImagesSection = parentChildren[0].children[1];
-    let productImageControls = parentChildren[0].children[2];
+    const addWishListElement = parentChildren[0].children[0].children[0].children;
+
+    const productMainImageSection = parentChildren[0].children[0].children[1].children[0];
+    const productImagesSection = parentChildren[0].children[1];
+    const productImageControls = parentChildren[0].children[2];
 
     var product_image = product.product_image;
     const productId = product.product_name.replace(/\s/g, '-').toLowerCase();
@@ -129,6 +131,10 @@ const createProductElement = () => {
     }
 
     productMainImageSection.src = productImage;
+
+    addWishListElement[0].addEventListener('click', () => {
+        addToWishlist(productId);
+    });
 
     if (typeof product_image === 'object') {
         productImagesSection.innerHTML = '';
@@ -159,36 +165,36 @@ const createProductElement = () => {
     productPriceSection.innerText = `£${product.product_price}`;
     productDescriptionSection.innerText = product.product_description;
 
-    // const productSizesSection = parentChildren[1].children[1].children[0];
-    // const productColorsSection = parentChildren[1].children[1].children[1];
+    const productSizesSection = parentChildren[1].children[1].children[0];
+    const productColorsSection = parentChildren[1].children[1].children[1];
 
-    // if (product.product_sizes) {
-    //     productSizesSection.innerHTML = '';
-    //     product.product_sizes.forEach(size => {
-    //         const divSizes = `
-    //             <button onclick="selectFilters(this, 'size-filter')"
-    //                 class="size-filter w-auto h-auto flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-[25px] shrink-0 disable-dbl-tap-zoom">
-    //                 ${size}
-    //             </button>
-    //         `
+    if (product.product_sizes) {
+        productSizesSection.innerHTML = '';
+        product.product_sizes.forEach(size => {
+            const divSizes = `
+                <button onclick="selectFilters(this, 'size-filter')"
+                    class="size-filter w-auto h-auto flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-[25px] shrink-0 disable-dbl-tap-zoom">
+                    ${size}
+                </button>
+            `
 
-    //         productSizesSection.innerHTML += divSizes;
-    //     });
-    // }
+            productSizesSection.innerHTML += divSizes;
+        });
+    }
 
-    // if (product.product_colors) {
-    //     productColorsSection.innerHTML = '';
-    //     product.product_colors.forEach(color => {
-    //         const divColors = `
-    //             <button onclick="selectFilters(this, 'color-filter')"
-    //                 class="color-filter w-auto h-auto flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-[25px] shrink-0 disable-dbl-tap-zoom">
-    //                 ${color}
-    //             </button>
-    //         `
+    if (product.product_colors) {
+        productColorsSection.innerHTML = '';
+        product.product_colors.forEach(color => {
+            const divColors = `
+                <button onclick="selectFilters(this, 'color-filter')"
+                    class="color-filter w-auto h-auto flex justify-center items-center p-2 bg-inherit border border-black border-opacity-30 rounded-[25px] shrink-0 disable-dbl-tap-zoom">
+                    ${color}
+                </button>
+            `
 
-    //         productColorsSection.innerHTML += divColors;
-    //     });
-    // }
+            productColorsSection.innerHTML += divColors;
+        });
+    }
 
     const productAddToCartParentElement = parentDiv.querySelector('[role="add-to-cart-buy-now"]');
 
