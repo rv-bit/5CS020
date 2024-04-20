@@ -303,7 +303,6 @@
                 if (places.length == 0) { return; }
 
                 places[0].address_components.forEach((component) => {
-                    console.log(component);
                     if (!component) return;
 
                     if (component.types.includes('postal_code')) {

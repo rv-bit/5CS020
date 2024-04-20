@@ -251,8 +251,6 @@ const removeFromCart = (id, cb) => {
 }
 
 const addToWishlist = (id, cb) => {
-    console.log('Adding to wishlist...', id);
-
     const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
     const productExists = wishlist.find(product => product.id === id);
 
@@ -284,7 +282,6 @@ const addToWishlist = (id, cb) => {
     }
 
     if (!location.includes('cart.html')) {
-        // console.log('Redirecting to cart...');
         window.location.href = '../pages/cart.html';
     }
 }

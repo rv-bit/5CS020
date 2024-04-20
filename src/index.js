@@ -6,8 +6,6 @@ const updateProduct = () => {
     console.log('Updating product...', currentProductIndex);
     const product = products_top[currentProductIndex];
 
-    console.log(product);
-
     if (!product) {
         return;
     }
@@ -24,8 +22,6 @@ const updateProduct = () => {
         const imageElement = document.querySelector('[data-top-product-image]');
 
         const productID = product.product_name.replace(/\s/g, '-').toLowerCase();
-
-        console.log(product.product_description.length)
 
         const briefDescription = product.product_description.length > 100 ? // if the description is more than 100 characters long than only show the characters before the first period
             product.product_description.substring(0, product.product_description.indexOf('.')).concat('.') :

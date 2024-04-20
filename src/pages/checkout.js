@@ -188,8 +188,6 @@ const checkoutPayment = () => {
                     input.parentElement.querySelector('p').classList.add('content');
                 }
 
-                console.log('Input is not filled', input);
-
                 inputsArrayOfNotFilled.push(input);
             } else {
                 if (input.type === 'email') {
@@ -200,16 +198,12 @@ const checkoutPayment = () => {
                     input.parentElement.querySelector('p').classList.remove('content');
                 }
 
-                console.log('Input is poped', input);
-
                 inputsArrayOfNotFilled = inputsArrayOfNotFilled.filter(function (item) {
                     return item !== input;
                 });
             }
         }
     });
-
-    console.log('Inputs not filled:', inputsArrayOfNotFilled);
 
     if (inputsArrayOfNotFilled.length > 0) {
         return;
@@ -220,7 +214,6 @@ const checkoutPayment = () => {
     cartItems.splice(0, cartItems.length); // Clear the cart
     localStorage.setItem('cart', JSON.stringify(cartItems));
 
-    console.log('All inputs are filled');
     window.location.href = 'cart.html';
 }
 
@@ -300,8 +293,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Remove all whitespace characters from the input and remove all non-digit characters
         value = value.replace(/\s/g, '');
         value = value.replace(/\D/g, '');
-
-        console.log('Value:', value.length);
 
         if (value.length >= 16) {
             value = value.substring(0, 16); // Truncate to 16 digits if more are entered

@@ -41,6 +41,15 @@ const adjustWidthSelectors = (selectedElement) => {
 
 const openFilterMenu = () => {
     const element = document.getElementById('menu_dropdown_filters');
+
+    const filtersOnPhone = document.querySelector('[role="filters-opened-phone"]');
+    const style = window.getComputedStyle(filtersOnPhone);
+    const display = style.getPropertyValue('display');
+
+    if (display === 'none') {
+        return;
+    }
+
     const body = document.querySelector('body');
     const header = document.querySelector('header');
 
@@ -230,6 +239,8 @@ const categorySelector = (element, category) => {
 
         const filteredProducts = filterProducts(filters);
         createProductElements(filteredProducts);
+
+        openFilterMenu();
         return;
     }
 
@@ -239,6 +250,8 @@ const categorySelector = (element, category) => {
 
         const filteredProducts = filterProducts(filters);
         createProductElements(filteredProducts);
+
+        openFilterMenu();
         return;
     }
 
@@ -257,6 +270,8 @@ const categorySelector = (element, category) => {
 
         const filteredProducts = filterProducts(filters);
         createProductElements(filteredProducts);
+
+        openFilterMenu();
     }
 }
 
