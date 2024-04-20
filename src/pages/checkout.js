@@ -106,13 +106,45 @@ const createCheckoutItems = (cartItems) => {
 
     infoContainerAmountTotal.innerHTML = `${cartTotal}`;
 
-    const subTotalElement = totalOrderParent.children[0].children[1];
-    const taxesElement = totalOrderParent.children[1].children[1];
-    const totalElement = totalOrderParent.children[2].children[1];
+    let totalElements = totalOrderParent.children.length;
 
-    subTotalElement.innerHTML = `${cartTotal}`;
-    taxesElement.innerHTML = `${taxes}`;
-    totalElement.innerHTML = `${(cartTotal + taxes).toFixed(2)}`;
+    const promoCodeExist = localStorage.getItem('promoCode');
+    const promoCode = JSON.parse(promoCodeExist);
+    const cartSubTotal = cartTotal;
+
+    if (promoCodeExist) {
+        const promoCodeDiscount = promoCode.discount / 100 * cartTotal;
+
+        cartTotal = parseFloat((cartTotal - promoCodeDiscount + taxes).toFixed(2));
+    } else {
+        cartTotal = parseFloat((cartTotal + taxes).toFixed(2));
+    }
+
+    const div = `
+        <div class="w-full h-fit flex justify-between items-center py-5 border-b-2 text-md font-medium">
+            <h1>Subtotal</h1>
+            <h1 class="before:content-['£']">${cartSubTotal}</h1>
+        </div>
+
+        ${promoCodeExist ? `
+            <div class="w-full h-fit flex justify-between items-center py-5 border-b-2 text-md text-zinc-600">
+                <h1 class="opacity-40">Discount</h1>
+                <h1 class="opacity-40 after:content-['%']">${promoCode.code} - ${promoCode.discount}</h1>
+            </div>
+        ` : ''}
+
+        <div class="w-full h-fit flex justify-between items-center py-5 border-b-2 text-md text-zinc-600">
+            <h1 class="opacity-40">Tax</h1>
+            <h1 class="opacity-40 before:content-['£']">${taxes}</h1>
+        </div>
+
+        <div class="w-full h-fit flex justify-between items-center py-5 text-lg font-semibold">
+            <h1>Total</h1>
+            <h1 class="before:content-['£']">${cartTotal}</h1>
+        </div>
+    `
+
+    totalOrderParent.insertAdjacentHTML('afterbegin', div);
 
     checkoutProducts.forEach((product, index) => {
         var product_image = product.product_image;
@@ -210,9 +242,15 @@ const checkoutPayment = () => {
     }
 
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const promoCodeExist = localStorage.getItem('promoCode') || [];
 
     cartItems.splice(0, cartItems.length); // Clear the cart
+
     localStorage.setItem('cart', JSON.stringify(cartItems));
+
+    if (promoCodeExist) {
+        localStorage.removeItem('promoCode');
+    }
 
     window.location.href = 'cart.html';
 }
