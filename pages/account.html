@@ -55,31 +55,32 @@
 </head>
 
 <body>
-    <div class="w-full h-lvh flex justify-center items-center bg-gray-100 max-lg:bg-color px-10 max-lg:px-0">
+    <div
+        class="w-full h-lvh max-lg:h-screen flex justify-center items-center bg-gray-100 max-lg:bg-color px-10 max-lg:px-0">
         <div
             class="max-w-[1800px] w-full h-[70%] max-lg:h-full flex items-center max-lg:rounded-none max-lg:drop-shadow-none rounded-lg drop-shadow-2xl bg-color">
 
             <section role="account-login"
-                class="w-full max-lg:w-full h-full z-10 flex justify-start items-start max-sm:px-5 flex-1 z-10">
+                class="w-full max-lg:w-full max-lg:max-h-full z-10 flex justify-start items-start max-sm:px-5 flex-1 max-lg:overflow-hidden">
 
                 <section role="login-form"
-                    class="w-1/2 max-2xl:w-full h-full flex flex-col justify-center items-start gap-5 py-10 px-44 max-2xl:px-10 max-sm:px-5 z-20 max-md:shadow-none max-md:rounded-none max-md:pb-10">
+                    class="w-1/2 max-2xl:w-full h-full flex flex-col justify-center items-start gap-5 py-10 max-lg:py-5 px-44 max-2xl:px-10 max-sm:px-5 z-20 max-md:shadow-none max-md:rounded-none">
 
-                    <h1 class="text-4xl font-bold">Welcome back!</h1>
-                    <h1 class="text-2xl font-bold">Login</h1>
+                    <h1 class="text-4xl max-lg:text-2xl font-bold">Welcome back!</h1>
+                    <h1 class="text-2xl max-lg:text-xl font-bold">Login</h1>
 
-                    <div class="w-full flex flex-col gap-5">
-                        <div class="w-full flex flex-col gap-2">
+                    <div class="w-full h-full flex flex-col gap-5">
+                        <div class="w-full h-1/2 flex flex-col gap-2">
                             <label for="email" class="text-sm font-semibold">Email</label>
                             <input type="email" name="email" id="email"
-                                class="w-full p-2 border border-gray-300 rounded-md">
+                                class="w-full h-full p-2 border border-gray-300 rounded-md">
                         </div>
-                        <div class="w-full flex flex-col gap-2">
+                        <div class="w-full h-full flex flex-col gap-2">
                             <label for="password" class="text-sm font-semibold">Password</label>
                             <input type="password" name="password" id="password"
-                                class="w-full p-2 border border-gray-300 rounded-md">
+                                class="w-full h-full p-2 border border-gray-300 rounded-md">
                         </div>
-                        <div class="w-full flex flex-col gap-5">
+                        <div class="w-full h-full flex flex-col gap-5">
                             <button class="w-full h-full relative shadow-2xl" onclick=>
                                 <div
                                     class="w-full h-full bg-[#646464] text-white font-Kanit text-xl p-7 rounded-md z-10">
@@ -91,7 +92,7 @@
                                 </div>
                             </button>
 
-                            <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <div class="w-full flex max-md:flex-col max-lg:flex-row justify-center items-center gap-3">
                                 <button onclick="movePage()"
                                     class="text-md text-blue-500 transition ease-in-out delay-50 hover:-translate-y-2 hover:scale-120">Don't
                                     have an account?</button>
@@ -113,30 +114,30 @@
             </section>
 
             <section role="account-signup"
-                class="w-full max-md:w-full h-full z-10 hidden max-md:flex-col justify-start items-start max-sm:px-5 flex-1 z-10">
+                class="w-full max-md:w-full max-lg:max-h-full z-10 hidden max-md:flex-col justify-start items-start max-sm:px-5 flex-1 max-lg:overflow-hidden">
 
                 <section role="signUp-form"
-                    class="w-1/2 max-2xl:w-full max-md:w-full h-full flex flex-col justify-center items-start gap-5 py-10 px-44 max-2xl:px-10 max-sm:px-5 z-20 max-2xl:shadow-none max-2xl:rounded-none max-md:pb-10 left-shadow rounded-lg">
+                    class="w-1/2 max-2xl:w-full h-full flex flex-col justify-center items-start gap-5 py-10 max-lg:py-5 px-44 max-2xl:px-10 max-sm:px-5 z-20 max-2xl:shadow-none max-2xl:rounded-none max-md:pb-10 left-shadow rounded-lg">
 
                     <h1 class="text-4xl font-bold font-hammersmith">Welcome to ALL N ONE</h1>
 
-                    <div class="w-full flex flex-col gap-5">
-                        <div class="w-full flex flex-col gap-2">
+                    <div class="w-full flex h-full flex-col gap-5">
+                        <div class="w-full h-[50px] flex flex-col gap-2">
                             <label for="email" class="text-sm font-semibold">Email</label>
                             <input type="email" name="email" id="email"
-                                class="w-full p-2 border border-gray-300 rounded-md">
+                                class="w-full h-full p-2 border border-gray-300 rounded-md">
                         </div>
-                        <div class="w-full flex flex-col gap-2">
+                        <div class="w-full flex h-[50px] flex-col gap-2">
                             <label for="password" class="text-sm font-semibold">Password</label>
                             <input type="password" name="password" id="password"
-                                class="w-full p-2 border border-gray-300 rounded-md">
+                                class="w-full h-full p-2 border border-gray-300 rounded-md">
                         </div>
-                        <div class="w-full flex flex-col gap-2">
+                        <div class="w-full flex h-[50px] flex-col gap-2">
                             <label for="password2" class="text-sm font-semibold">Password confirmation</label>
                             <input type="password" name="password2" id="password2"
-                                class="w-full p-2 border border-gray-300 rounded-md">
+                                class="w-full h-full p-2 border border-gray-300 rounded-md">
                         </div>
-                        <div class="w-full flex flex-col gap-5">
+                        <div class="w-full h-1/2 flex flex-col gap-5">
                             <button class="w-full h-full relative shadow-2xl" onclick=>
                                 <div
                                     class="w-full h-full bg-[#646464] text-white font-Kanit text-xl p-7 rounded-md z-10">
@@ -148,7 +149,7 @@
                                 </div>
                             </button>
 
-                            <div class="w-full flex flex-col justify-center items-center gap-3">
+                            <div class="w-full flex max-md:flex-col max-lg:flex-row justify-center items-center gap-3">
                                 <button onclick="movePage('login')"
                                     class="text-md text-blue-500 transition ease-in-out delay-50 hover:-translate-y-2 hover:scale-120">Already
                                     Have an
