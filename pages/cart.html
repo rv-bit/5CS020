@@ -171,16 +171,18 @@
                                     </div>
                                 </div>
 
-                                <div
-                                    class="w-full h-full flex max-extraSm:flex-col justify-between items-center max-extraSm:items-start pt-5">
-                                    <div class="flex flex-col justify-start items-start">
-                                        <h1 class="font-Kanit text-xl">TOTAL</h1>
+                                <div class="w-full h-full flex flex-col justify-between items-start pt-5">
+                                    <div class="w-full flex justify-between items-start pt-5">
+                                        <div class="flex flex-col justify-start items-start">
+                                            <h1 class="font-Kanit text-xl">TOTAL</h1>
 
-                                        <p class="font-Kanit text-gray-500 font-medium text-md">(Including <span
-                                                role="taxes-price" class="before:content-['£']"></span> taxes)
-                                        </p>
+                                            <p class="font-Kanit text-gray-500 font-medium text-md">(Including <span
+                                                    role="taxes-price" class="before:content-['£']"></span> taxes)
+                                            </p>
+                                        </div>
+
+                                        <h2 class="font-Kanit font-medium text-xl before:content-['£']"></h2>
                                     </div>
-                                    <h2 class="font-Kanit font-medium text-xl before:content-['£']"></h2>
                                 </div>
                             </section>
 
@@ -190,8 +192,10 @@
 
                                 <div
                                     class="w-full h-[50px] flex justify-between items-center gap-2 border rounded-sm p-2 ">
-                                    <input type="text" id="promo_code" class="w-full h-full border-0 focus:ring-0" />
-                                    <button class="size-auto hover:text-gray-400 max-md:ml-2 px-2">
+                                    <input type="text" id="promo_code"
+                                        class="w-full h-full border-0 focus:focus:ring-transparent focus:shadow-none focus:outline-0" />
+                                    <button onclick="addPromoCodes(this)"
+                                        class="size-auto hover:text-gray-400 max-md:ml-2 px-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus">

@@ -52,40 +52,7 @@ const createCartProducts = (cartItems, refresh) => {
         cartTopInfo.classList.add('flex');
     }
 
-    let cartTotal = cartProducts.reduce((acc, product) => {
-        const cartItem = cartItems.find(item => item.id === product.product_name.replace(/\s/g, '-').toLowerCase());
-
-        if (cartItem) {
-            return acc + parseFloat((product.product_price * cartItem.quantity).toFixed(2));
-        }
-
-        return acc;
-    }, 0);
-
-    if (typeof cartTotal !== 'number') {
-        console.log('Cart total is not a number or is undefined.');
-        return;
-    }
-
-    const taxes = parseFloat(generateTaxes(cartTotal).toFixed(2));
-    const cartTopInfoItemsParent = cartTopInfo.children[1];
-
-    cartTotal = parseFloat((cartTotal + taxes).toFixed(2));
-    cartTopInfoItemsParent.innerHTML = `TOTAL <span>(${cartProducts.length} Items)</span> <span class="font-semibold before:content-['£']">${cartTotal}</span>`;
-
-    const cartBottomInfoSummaryContainer = cartBottomInfo.children[0];
-
-    const cartBottomInfoSummaryItems = cartBottomInfoSummaryContainer.children[0];
-    const cartBottomInfoSummaryItemsTotal = cartBottomInfoSummaryItems.children[1].children[1];
-
-    cartBottomInfoSummaryItemsTotal.innerHTML = `${cartProducts.length}`;
-
-    const cartBottomInfoTotal = cartBottomInfoSummaryContainer.children[1];
-    const cartBottomInfoTaxes = cartBottomInfoTotal.children[0].querySelector('[role="taxes-price"]');
-    const cartBottomInfoGrandTotal = cartBottomInfoTotal.children[1];
-
-    cartBottomInfoGrandTotal.innerHTML = `${cartTotal}`;
-    cartBottomInfoTaxes.innerHTML = `${taxes}`;
+    updateTotalPrice(cartItems);
 
     cartProducts.forEach((product, index) => {
         var product_image = product.product_image;
@@ -411,6 +378,152 @@ const updateWishlistItems = (wishListItems) => {
     });
 }
 
+const updateTotalPrice = (cartItems) => {
+    const cartParentContainer = document.querySelector('[role="main-cart"]');
+    const cardsContainerParent = cartParentContainer.querySelector('[role="cart-cards"]');
+
+    const cartTopInfo = cartParentContainer.querySelector('[role="cart-top-info"]');
+    const cartBottomInfo = cartParentContainer.querySelector('[role="cart-summary"]');
+
+    const promoCodeExist = localStorage.getItem('promoCode');
+
+    let cartTotal = cartProducts.reduce((acc, product) => {
+        const cartItem = cartItems.find(item => item.id === product.product_name.replace(/\s/g, '-').toLowerCase());
+
+        if (cartItem) {
+            return acc + parseFloat((product.product_price * cartItem.quantity).toFixed(2));
+        }
+
+        return acc;
+    }, 0);
+
+    if (typeof cartTotal !== 'number') {
+        console.log('Cart total is not a number or is undefined.');
+        return;
+    }
+
+    const taxes = parseFloat(generateTaxes(cartTotal).toFixed(2));
+    const cartTopInfoItemsParent = cartTopInfo.children[1];
+
+    if (promoCodeExist) {
+        const promoCode = JSON.parse(promoCodeExist);
+        const promoCodeDiscount = promoCode.discount / 100 * cartTotal;
+
+        cartTotal = parseFloat((cartTotal - promoCodeDiscount + taxes).toFixed(2));
+    } else {
+        cartTotal = parseFloat((cartTotal + taxes).toFixed(2));
+    }
+
+    cartTopInfoItemsParent.innerHTML = `TOTAL <span>(${cartProducts.length} Items)</span> <span class="font-semibold before:content-['£']">${cartTotal}</span>`;
+
+    const cartBottomInfoSummaryContainer = cartBottomInfo.children[0];
+
+    const cartBottomInfoSummaryItems = cartBottomInfoSummaryContainer.children[0];
+    const cartBottomInfoSummaryItemsTotal = cartBottomInfoSummaryItems.children[1].children[1];
+
+    cartBottomInfoSummaryItemsTotal.innerHTML = `${cartProducts.length}`;
+
+    const cartBottomInfoTotal = cartBottomInfoSummaryContainer.children[1].children[1] === undefined ? cartBottomInfoSummaryContainer.children[1].children[0] : cartBottomInfoSummaryContainer.children[1].children[1];
+
+    const cartBottomInfoTaxes = cartBottomInfoTotal.children[0].querySelector('[role="taxes-price"]');
+    const cartBottomInfoGrandTotal = cartBottomInfoTotal.children[1];
+
+    cartBottomInfoGrandTotal.innerHTML = `${cartTotal}`;
+    cartBottomInfoTaxes.innerHTML = `${taxes}`;
+}
+
+const promoCodes = [
+    {
+        code: 'SUMMER',
+        discount: 52
+    },
+    {
+        code: 'WINTER',
+        discount: 20
+    },
+    {
+        code: 'SPRING',
+        discount: 30
+    },
+    {
+        code: 'AUTUMN',
+        discount: 40
+    }
+];
+
+const addPromoCodes = (element) => {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartAmount = cartItems.length;
+
+    if (!cartAmount) return;
+
+    const promoCodeInput = element.parentElement.children[0];
+    const promoCodeButton = element.parentElement.children[1];
+
+    const promoCodeExist = localStorage.getItem('promoCode');
+
+    if (promoCodeExist) {
+        promoCodeInput.placeholder = 'Promo code already applied';
+        return;
+    }
+
+    const promoCodeValue = promoCodeInput.value;
+    const promoCode = promoCodes.find(code => code.code === promoCodeValue);
+
+    if (!promoCode) {
+        promoCodeInput.value = '';
+        promoCodeInput.placeholder = 'Invalid promo code';
+        return;
+    }
+
+    const cartDiscountElementLocation = document.querySelector('[role="cart-summary"]').querySelector('[role="summary"]').children[1].children[0];
+
+    const div = `
+        <div class="w-full flex justify-between items-start">
+            <h1 class="font-Kanit text-xl">Discount</h1>
+
+            <div class="w-full flex justify-end items-center gap-2">
+                <p
+                    class="font-Kanit text-gray-500 font-medium text-md after:content-['%']"> ${promoCode.code} - ${promoCode.discount}</p>
+                    
+                    <button onclick="removePromoCode(this)" class="text-gray-500">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
+                                <path d="M18 6 6 18" />
+                                <path d="m6 6 12 12" />
+                            </svg>
+                        </span>
+                    </button>
+            </div>
+        </div>
+    `
+
+    cartDiscountElementLocation.insertAdjacentHTML('beforebegin', div);
+
+    promoCodeInput.value = '';
+    promoCodeInput.placeholder = 'Promo code applied';
+
+    localStorage.setItem('promoCode', JSON.stringify(promoCode));
+
+    updateTotalPrice(cartItems);
+}
+
+const removePromoCode = (element) => {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const promoCodeExist = localStorage.getItem('promoCode');
+    if (!promoCodeExist) return;
+
+    const promoCode = JSON.parse(promoCodeExist);
+
+    const elementParent = element.parentElement.parentElement;
+    elementParent.remove();
+
+    localStorage.removeItem('promoCode');
+    updateTotalPrice(cartItems);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     const cartAmount = cartItems.length;
@@ -447,5 +560,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }).then(() => {
         createCartProducts(cartItems);
         createdSavedProducts();
+
+        const promoCodeExist = localStorage.getItem('promoCode');
+        if (promoCodeExist) {
+            const cartDiscountElementLocation = document.querySelector('[role="cart-summary"]').querySelector('[role="summary"]').children[1].children[0];
+            const promoCode = JSON.parse(promoCodeExist);
+
+            const div = `
+                <div class="w-full flex justify-between items-start">
+                    <h1 class="font-Kanit text-xl">Discount</h1>
+
+                    <div class="w-full flex justify-end items-center gap-2">
+                        <p
+                            class="font-Kanit text-gray-500 font-medium text-md after:content-['%']"> ${promoCode.code} - ${promoCode.discount}</p>
+                            
+                            <button onclick="removePromoCode(this)" class="text-gray-500">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
+                                        <path d="M18 6 6 18" />
+                                        <path d="m6 6 12 12" />
+                                    </svg>
+                                </span>
+                            </button>
+                    </div>
+                </div>
+            `
+
+            cartDiscountElementLocation.insertAdjacentHTML('beforebegin', div);
+        }
     });
 })
