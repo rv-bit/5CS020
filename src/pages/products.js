@@ -147,7 +147,7 @@ const createFiltersBasedOnProducts = () => {
         });
     });
 
-    const filters = [
+    const filtersToAdd = [
         { name: 'price', values: prices, ranges: 150 },
         { name: 'brand', values: brands.sort() },
         { name: 'color', values: colors.sort() },
@@ -158,7 +158,7 @@ const createFiltersBasedOnProducts = () => {
     parentDiv.forEach((div, index) => {
         div.id = `filters_${index}`;
 
-        filters.forEach(filter => {
+        filtersToAdd.forEach(filter => {
             const minPrice = filter.ranges ? 0 : null;
             const maxPrice = filter.ranges ? Math.max(...filter.values) : null;
             const ranges = filter.ranges ? generateRanges(minPrice, maxPrice, filter.ranges) : null;
@@ -223,7 +223,8 @@ const categorySelector = (element, category) => {
         categoryActive.splice(categoryActive.indexOf(category), 1);
         element.classList.remove('text-blue-600');
 
-        createProductElements(allProducts);
+        const filteredProducts = filterProducts(filters);
+        createProductElements(filteredProducts);
         return;
     }
 
@@ -231,20 +232,8 @@ const categorySelector = (element, category) => {
         categoryActive.push(category);
         element.classList.add('text-blue-600');
 
-        if (filters && filters.length > 0) {
-            const filteredProducts = filterProducts(filters);
-
-
-            filteredProducts.filter(product => {
-                return categoryActive.some(category => category === product.product_category);
-            });
-
-            createProductElements(filteredProducts);
-            return;
-        }
-
-        const categoryFilteredProducts = allProducts.filter(product => product.product_category === category);
-        createProductElements(categoryFilteredProducts);
+        const filteredProducts = filterProducts(filters);
+        createProductElements(filteredProducts);
         return;
     }
 
@@ -260,21 +249,10 @@ const categorySelector = (element, category) => {
 
         element.classList.add('text-blue-600');
         categoryActive.push(category);
-    }
 
-    if (filters && filters.length > 0) {
         const filteredProducts = filterProducts(filters);
-
-        filteredProducts.filter(product => {
-            return categoryActive.some(category => category === product.product_category);
-        });
-
         createProductElements(filteredProducts);
-        return;
     }
-
-    const categoryFilteredProducts = allProducts.filter(product => product.product_category === category);
-    createProductElements(categoryFilteredProducts);
 }
 
 const deleteFilter = (filterName, filterValue, element) => {
@@ -387,7 +365,7 @@ const createSort = () => {
     });
 }
 
-const createProductElements = (filteredProducts, sorting = false) => {
+const createProductElements = (filteredProducts, sorting) => {
     const parentDiv = document.getElementById('data_products');
 
     if (filteredProducts) {
@@ -407,10 +385,7 @@ const createProductElements = (filteredProducts, sorting = false) => {
 
     const allProducts = (filteredProducts && filteredProducts.length > 0) ? filteredProducts : products;
 
-    console.log('allProducts', allProducts);
-
     if (sorting) {
-        console.log('sorting', sorting);
         allProducts.sort(sorting);
     }
 
