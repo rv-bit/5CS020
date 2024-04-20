@@ -42,6 +42,7 @@ const adjustWidthSelectors = (selectedElement) => {
 const openFilterMenu = () => {
     const element = document.getElementById('menu_dropdown_filters');
     const body = document.querySelector('body');
+    const header = document.querySelector('header');
 
     if (element.classList.contains('flex')) {
         element.classList.add('slide-top');
@@ -51,6 +52,8 @@ const openFilterMenu = () => {
 
             element.classList.add('hidden');
             element.classList.remove('flex');
+
+            header.classList.remove('hidden');
         }, 500); // Remove the class after 0.5s, which is the duration of the animation
 
         // Enable scrolling
@@ -62,6 +65,8 @@ const openFilterMenu = () => {
 
     element.classList.add('flex');
     element.classList.remove('hidden');
+
+    header.classList.add('hidden');
 
     element.classList.add('slide-bottom');
     setTimeout(() => {

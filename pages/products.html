@@ -127,94 +127,56 @@
 
                 </nav>
             </header>
-        </div>
 
-        <section role="filters-opened-phone" class="max-md:block hidden">
-            <div id="menu_dropdown_filters"
-                class="hidden flex-col justify-center z-999 w-full h-[92lvh] bg-gray-300 bg-opacity-40 px-5 py-10 gap-5 rounded-lg">
-                <div class="flex justify-between items-center px-5">
-                    <h1 class="text-3xl font-bold">Filters</h1>
+            <section role="filters-opened-phone" class="max-md:block hidden">
+                <div id="menu_dropdown_filters"
+                    class="hidden flex-col justify-center z-999 w-screen h-screen bg-gray-300 bg-opacity-40 px-5 py-10 gap-5 rounded-lg">
+                    <div class="flex justify-between items-center px-5">
+                        <h1 class="text-3xl font-bold">Filters</h1>
 
-                    <button onclick="openFilterMenu()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-x">
-                            <path d="M18 6 6 18" />
-                            <path d="m6 6 12 12" />
-                        </svg>
-                    </button>
-                </div>
-
-                <div
-                    class="flex justify-between flex-row items-center justify-center bg-[#f5f5f5] px-5 py-3 rounded-lg gap-4">
-
-                    <section role="selector">
-                        <label for="sort" class="text-base font-medium">
-                            Sort By:
-                        </label>
-
-                        <select name="sort" id="sort" type="text"
-                            class="bg-transparent border-0 focus:outline-0 focus:ring-transparent bg-none p-1 sort-selector"
-                            onchange="adjustWidthSelectors(this)">
-                        </select>
-                    </section>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-sliders-horizontal">
-                        <line x1="21" x2="14" y1="4" y2="4" />
-                        <line x1="10" x2="3" y1="4" y2="4" />
-                        <line x1="21" x2="12" y1="12" y2="12" />
-                        <line x1="8" x2="3" y1="12" y2="12" />
-                        <line x1="21" x2="16" y1="20" y2="20" />
-                        <line x1="12" x2="3" y1="20" y2="20" />
-                        <line x1="14" x2="14" y1="2" y2="6" />
-                        <line x1="8" x2="8" y1="10" y2="14" />
-                        <line x1="16" x2="16" y1="18" y2="22" />
-                    </svg>
-                </div>
-
-                <div class="flex flex-col h-full w-full gap-5 overflow-auto custom-scroll px-5">
-
-                    <div role="category-selector" class="flex flex-col gap-5">
-                        <div class="flex flex-col gap-2">
-                            <div class="flex justify-between items-center mr-2 hover:cursor-pointer"
-                                onclick="closeOptions(this)">
-                                <h1 class="text-xl font-bold">Category</h1>
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-chevron-down hidden">
-                                    <path d="m6 9 6 6 6-6" />
-                                </svg>
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-chevron-up">
-                                    <path d="m18 15-6-6-6 6" />
-                                </svg>
-                            </div>
-
-                            <div class="flex flex-col gap-2"></div>
-                        </div>
+                        <button onclick="openFilterMenu()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-x">
+                                <path d="M18 6 6 18" />
+                                <path d="m6 6 12 12" />
+                            </svg>
+                        </button>
                     </div>
 
-                    <div role="filters" class="flex flex-col gap-5 overflow-x-hidden pr-10 custom-scroll"></div>
-                </div>
-            </div>
-        </section>
+                    <div
+                        class="flex justify-between flex-row items-center justify-center bg-[#f5f5f5] px-5 py-3 rounded-lg gap-4">
 
-        <section role="main" class="flex w-full h-full mt-20 z-20">
+                        <section role="selector">
+                            <label for="sort" class="text-base font-medium">
+                                Sort By:
+                            </label>
 
-            <section role="filters-side"
-                class="flex max-md:hidden justify-start ml-10 max-lg:ml-4 w-[400px] h-full sticky top-5">
-                <div class="flex flex-col gap-4 w-full h-full px-5">
-                    <h1 class="text-3xl font-bold">Filters</h1>
+                            <select name="sort" id="sort" type="text"
+                                class="bg-transparent border-0 focus:outline-0 focus:ring-transparent bg-none p-1 sort-selector"
+                                onchange="adjustWidthSelectors(this)">
+                            </select>
+                        </section>
 
-                    <div class="flex flex-col h-[850px] w-full divide-y-2 gap-5 overflow-auto custom-scroll pr-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-sliders-horizontal">
+                            <line x1="21" x2="14" y1="4" y2="4" />
+                            <line x1="10" x2="3" y1="4" y2="4" />
+                            <line x1="21" x2="12" y1="12" y2="12" />
+                            <line x1="8" x2="3" y1="12" y2="12" />
+                            <line x1="21" x2="16" y1="20" y2="20" />
+                            <line x1="12" x2="3" y1="20" y2="20" />
+                            <line x1="14" x2="14" y1="2" y2="6" />
+                            <line x1="8" x2="8" y1="10" y2="14" />
+                            <line x1="16" x2="16" y1="18" y2="22" />
+                        </svg>
+                    </div>
+
+                    <div class="flex flex-col h-full w-full gap-5 overflow-auto custom-scroll px-5">
+
                         <div role="category-selector" class="flex flex-col gap-5">
                             <div class="flex flex-col gap-2">
-
                                 <div class="flex justify-between items-center mr-2 hover:cursor-pointer"
                                     onclick="closeOptions(this)">
                                     <h1 class="text-xl font-bold">Category</h1>
@@ -232,81 +194,122 @@
                                     </svg>
                                 </div>
 
-                                <div class="flex flex-col ml-10 gap-2"></div>
+                                <div class="flex flex-col gap-2"></div>
                             </div>
                         </div>
 
-                        <div role="filters" class="flex flex-col gap-5 pt-5 overflow-x-hidden"></div>
+                        <div role="filters" class="flex flex-col gap-5 overflow-x-hidden pr-10 custom-scroll"></div>
                     </div>
-
                 </div>
             </section>
 
-            <section role="products-side" class="flex flex-col w-full h-full max-md:px-5 px-10">
-                <div class="flex justify-between items-start gap-5">
-                    <h1 class="text-3xl font-semibold">Category</h1>
+            <section role="main" class="flex w-full h-full mt-20 z-20">
 
-                    <div class="flex max-md:hidden justify-end items-end">
-                        <div class="flex flex-row items-center justify-center bg-[#f5f5f5] px-5 py-3 rounded-lg gap-4">
+                <section role="filters-side"
+                    class="flex max-md:hidden justify-start ml-10 max-lg:ml-4 w-[400px] h-full sticky top-5">
+                    <div class="flex flex-col gap-4 w-full h-full px-5">
+                        <h1 class="text-3xl font-bold">Filters</h1>
 
-                            <section role="selector">
-                                <label for="sort" class="text-base font-medium">
-                                    Sort By:
-                                </label>
+                        <div class="flex flex-col h-[850px] w-full divide-y-2 gap-5 overflow-auto custom-scroll pr-10">
+                            <div role="category-selector" class="flex flex-col gap-5">
+                                <div class="flex flex-col gap-2">
 
-                                <select name="sort" id="sort" type="text"
-                                    class="bg-transparent border-0 focus:outline-0 focus:ring-transparent bg-none p-1 sort-selector"
-                                    onchange="adjustWidthSelectors(this)">
-                                </select>
-                            </section>
+                                    <div class="flex justify-between items-center mr-2 hover:cursor-pointer"
+                                        onclick="closeOptions(this)">
+                                        <h1 class="text-xl font-bold">Category</h1>
 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-sliders-horizontal">
-                                <line x1="21" x2="14" y1="4" y2="4" />
-                                <line x1="10" x2="3" y1="4" y2="4" />
-                                <line x1="21" x2="12" y1="12" y2="12" />
-                                <line x1="8" x2="3" y1="12" y2="12" />
-                                <line x1="21" x2="16" y1="20" y2="20" />
-                                <line x1="12" x2="3" y1="20" y2="20" />
-                                <line x1="14" x2="14" y1="2" y2="6" />
-                                <line x1="8" x2="8" y1="10" y2="14" />
-                                <line x1="16" x2="16" y1="18" y2="22" />
-                            </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-chevron-down hidden">
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg>
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-chevron-up">
+                                            <path d="m18 15-6-6-6 6" />
+                                        </svg>
+                                    </div>
+
+                                    <div class="flex flex-col ml-10 gap-2"></div>
+                                </div>
+                            </div>
+
+                            <div role="filters" class="flex flex-col gap-5 pt-5 overflow-x-hidden"></div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <section role="products-side" class="flex flex-col w-full h-full max-md:px-5 px-10">
+                    <div class="flex justify-between items-start gap-5">
+                        <h1 class="text-3xl font-semibold">Category</h1>
+
+                        <div class="flex max-md:hidden justify-end items-end">
+                            <div
+                                class="flex flex-row items-center justify-center bg-[#f5f5f5] px-5 py-3 rounded-lg gap-4">
+
+                                <section role="selector">
+                                    <label for="sort" class="text-base font-medium">
+                                        Sort By:
+                                    </label>
+
+                                    <select name="sort" id="sort" type="text"
+                                        class="bg-transparent border-0 focus:outline-0 focus:ring-transparent bg-none p-1 sort-selector"
+                                        onchange="adjustWidthSelectors(this)">
+                                    </select>
+                                </section>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-sliders-horizontal">
+                                    <line x1="21" x2="14" y1="4" y2="4" />
+                                    <line x1="10" x2="3" y1="4" y2="4" />
+                                    <line x1="21" x2="12" y1="12" y2="12" />
+                                    <line x1="8" x2="3" y1="12" y2="12" />
+                                    <line x1="21" x2="16" y1="20" y2="20" />
+                                    <line x1="12" x2="3" y1="20" y2="20" />
+                                    <line x1="14" x2="14" y1="2" y2="6" />
+                                    <line x1="8" x2="8" y1="10" y2="14" />
+                                    <line x1="16" x2="16" y1="18" y2="22" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div role="filters-added"
-                    class="flex flex-wrap max-sm:flex-nowrap max-sm:overflow-auto max-sm:no-scrollbar justify-start items-start gap-3 mb-5 w-full">
-                </div>
+                    <div role="filters-added"
+                        class="flex flex-wrap max-sm:flex-nowrap max-sm:overflow-auto max-sm:no-scrollbar justify-start items-start gap-3 mb-5 w-full">
+                    </div>
 
-                <div class="hidden max-md:flex items-center gap-2 mb-5 hover:cursor-pointer w-max"
-                    onclick="openFilterMenu()">
-                    <h1 class="text-xl font-semibold">Filters</h1>
+                    <div class="hidden max-md:flex items-center gap-2 mb-5 hover:cursor-pointer w-max"
+                        onclick="openFilterMenu()">
+                        <h1 class="text-xl font-semibold">Filters</h1>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-sliders-horizontal">
-                        <line x1="21" x2="14" y1="4" y2="4" />
-                        <line x1="10" x2="3" y1="4" y2="4" />
-                        <line x1="21" x2="12" y1="12" y2="12" />
-                        <line x1="8" x2="3" y1="12" y2="12" />
-                        <line x1="21" x2="16" y1="20" y2="20" />
-                        <line x1="12" x2="3" y1="20" y2="20" />
-                        <line x1="14" x2="14" y1="2" y2="6" />
-                        <line x1="8" x2="8" y1="10" y2="14" />
-                        <line x1="16" x2="16" y1="18" y2="22" />
-                    </svg>
-                </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-sliders-horizontal">
+                            <line x1="21" x2="14" y1="4" y2="4" />
+                            <line x1="10" x2="3" y1="4" y2="4" />
+                            <line x1="21" x2="12" y1="12" y2="12" />
+                            <line x1="8" x2="3" y1="12" y2="12" />
+                            <line x1="21" x2="16" y1="20" y2="20" />
+                            <line x1="12" x2="3" y1="20" y2="20" />
+                            <line x1="14" x2="14" y1="2" y2="6" />
+                            <line x1="8" x2="8" y1="10" y2="14" />
+                            <line x1="16" x2="16" y1="18" y2="22" />
+                        </svg>
+                    </div>
 
-                <section role="products" id="data_products"
-                    class="flex flex-wrap gap-[0.8rem] max-w-full lg:w-fit md:w-full max-sm:w-full h-full">
+                    <section role="products" id="data_products"
+                        class="flex flex-wrap gap-[0.8rem] max-w-full lg:w-fit md:w-full max-sm:w-full h-full">
+                    </section>
+
                 </section>
 
             </section>
-
-        </section>
+        </div>
 
 
         <footer class="mt-20 mx-5 flex justify-center items-center">
