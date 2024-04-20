@@ -61,8 +61,6 @@ const openFilterMenu = () => {
 
             element.classList.add('hidden');
             element.classList.remove('flex');
-
-            header.classList.remove('hidden');
         }, 500); // Remove the class after 0.5s, which is the duration of the animation
 
         // Enable scrolling
@@ -74,8 +72,6 @@ const openFilterMenu = () => {
 
     element.classList.add('flex');
     element.classList.remove('hidden');
-
-    header.classList.add('hidden');
 
     element.classList.add('slide-bottom');
     setTimeout(() => {
