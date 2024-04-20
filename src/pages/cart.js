@@ -36,12 +36,20 @@ const createCartProducts = (cartItems, refresh) => {
         cartContainer.insertAdjacentHTML('afterbegin', emptyCart);
         cartBottomInfo.classList.add('hidden');
         cartBottomInfo.classList.remove('flex');
+
+        cartTopInfo.classList.add('hidden');
+        cartTopInfo.classList.remove('flex');
         return;
     }
 
     if (cartBottomInfo.classList.contains('hidden')) {
         cartBottomInfo.classList.remove('hidden');
         cartBottomInfo.classList.add('flex');
+    }
+
+    if (cartTopInfo.classList.contains('hidden')) {
+        cartTopInfo.classList.remove('hidden');
+        cartTopInfo.classList.add('flex');
     }
 
     let cartTotal = cartProducts.reduce((acc, product) => {
@@ -66,7 +74,6 @@ const createCartProducts = (cartItems, refresh) => {
     cartTopInfoItemsParent.innerHTML = `TOTAL <span>(${cartProducts.length} Items)</span> <span class="font-semibold before:content-['£']">${cartTotal}</span>`;
 
     const cartBottomInfoSummaryContainer = cartBottomInfo.children[0];
-
 
     const cartBottomInfoSummaryItems = cartBottomInfoSummaryContainer.children[0];
     const cartBottomInfoSummaryItemsTotal = cartBottomInfoSummaryItems.children[1].children[1];
