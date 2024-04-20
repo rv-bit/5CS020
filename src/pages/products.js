@@ -402,7 +402,7 @@ const createProductElements = (filteredProducts, sorting) => {
     if (filteredProducts && filteredProducts.length === 0) {
         const div = `
             <div class="flex justify-center items-center w-full h-full">
-                <h1 class="text-2xl font-bold text-slate-400">No products found withing filters</h1>
+                <h1 class="text-2xl font-bold text-slate-400">No products found within these filters</h1>
             </div>
         `;
 
