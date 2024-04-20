@@ -232,6 +232,7 @@ const createFiltersBasedOnProducts = () => {
 
 const categorySelector = (element, category) => {
     const allProducts = [...products];
+    const categoryNameElement = document.getElementById('category-name');
 
     if (category === categoryActive[0]) {
         categoryActive.splice(categoryActive.indexOf(category), 1);
@@ -239,6 +240,8 @@ const categorySelector = (element, category) => {
 
         const filteredProducts = filterProducts(filters);
         createProductElements(filteredProducts);
+
+        categoryNameElement.textContent = 'All Products';
 
         openFilterMenu();
         return;
@@ -250,6 +253,8 @@ const categorySelector = (element, category) => {
 
         const filteredProducts = filterProducts(filters);
         createProductElements(filteredProducts);
+
+        categoryNameElement.textContent = category;
 
         openFilterMenu();
         return;
@@ -267,6 +272,8 @@ const categorySelector = (element, category) => {
 
         element.classList.add('text-blue-600');
         categoryActive.push(category);
+
+        categoryNameElement.textContent = category;
 
         const filteredProducts = filterProducts(filters);
         createProductElements(filteredProducts);
@@ -531,6 +538,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
             selectElement.value = sortOptions[0].value;
         });
+
+        const categoryFromLocalStorage = localStorage.getItem('category');
+
+        if (categoryFromLocalStorage) {
+            const categoryNameElement = document.getElementById('category-name');
+            categoryActive.push(categoryFromLocalStorage);
+            categoryNameElement.textContent = categoryFromLocalStorage;
+
+            const elements = document.querySelectorAll('[role="category-selector"] button');
+
+            elements.forEach(element => {
+                if (element.textContent === categoryFromLocalStorage) {
+                    element.classList.add('text-blue-600');
+                }
+            });
+
+            localStorage.removeItem('category');
+        }
 
         const filteredProducts = filterProducts(filters);
         createProductElements(filteredProducts, sortOptions[0].sortFunc);

@@ -169,6 +169,12 @@ const createFeaturedProducts = () => {
     });
 }
 
+const goToProductsWithCategory = (category) => {
+    localStorage.setItem('category', category);
+
+    window.location.href = `../pages/products.html`;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     fetchItems().then((data) => {
         if (!data) return;

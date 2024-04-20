@@ -80,8 +80,12 @@ const closeOptions = (selectElement, no_Svg) => { // no_Svg is a boolean that is
     }
 }
 
+const productsAll = [];
 const quantityChange = (element, productId, trigger, cb) => {
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const product = productsAll.find(product => product.product_name.replace(/\s/g, '-').toLowerCase() === productId);
+
+    if (!product) return;
 
     const elementParent = element.parentElement;
     const elementChildren = elementParent.children;
@@ -104,9 +108,15 @@ const quantityChange = (element, productId, trigger, cb) => {
             return;
         }
 
-        if (parseInt(quantity.value) > 10) {
+        if (parseInt(quantity.value) === 0) {
+            removeFromCart(productId, cb);
+
+            return;
+        }
+
+        if (parseInt(quantity.value) > product.product_quantity) {
             alert('Maximum quantity reached for this product.');
-            quantity.value = 10;
+            quantity.value = product.product_quantity;
             return;
         }
 
@@ -115,7 +125,7 @@ const quantityChange = (element, productId, trigger, cb) => {
     }
 
     if (trigger === 'increase') {
-        if (quantity.value === '10') {
+        if (parseInt(quantity.value) === product.product_quantity) {
             alert('Maximum quantity reached for this product.');
             return;
         }
@@ -126,7 +136,10 @@ const quantityChange = (element, productId, trigger, cb) => {
         return;
     }
 
-    if (quantity.value === '1') {
+    console.log(parseInt(quantity.value));
+
+    if (parseInt(quantity.value) === 1) {
+        removeFromCart(productId, cb);
         return;
     }
 
@@ -313,5 +326,17 @@ const updateBasketNumber = () => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    updateBasketNumber();
+    fetchItems().then((data) => {
+        if (!data) return;
+
+        if (data.length === 0) {
+            return;
+        }
+
+        Object.entries(data).forEach(([key, value]) => {
+            productsAll.push(value);
+        });
+    }).then(() => {
+        updateBasketNumber();
+    });
 });
