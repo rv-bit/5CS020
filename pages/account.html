@@ -70,38 +70,59 @@
                     <h1 class="text-2xl max-lg:text-xl font-bold">Login</h1>
 
                     <div class="w-full max-lg:h-full flex flex-col gap-5">
-                        <div class="w-full h-[50px] flex flex-col gap-2">
-                            <label for="email" class="text-sm font-semibold">Email</label>
-                            <input type="email" name="email" id="email"
-                                class="w-full h-full p-2 border border-gray-300 rounded-md">
-                        </div>
-                        <div class="w-full h-[50px] flex flex-col gap-2">
-                            <label for="password" class="text-sm font-semibold">Password</label>
-                            <input type="password" name="password" id="password"
-                                class="w-full h-full p-2 border border-gray-300 rounded-md">
-                        </div>
-                        <div class="w-full flex flex-col gap-5">
-                            <button class="w-full h-full relative shadow-2xl" onclick=>
-                                <div
-                                    class="w-full h-full bg-[#646464] text-white font-Kanit text-xl p-7 rounded-md z-10">
-                                </div>
 
-                                <div
-                                    class="w-full h-full flex justify-center items-center absolute top-0 left-0 bg-black text-white text-center font-Kanit text-xl p-7 rounded-md transition ease-in-out delay-50 hover:-translate-y-2 hover:-translate-x-2 hover:scale-100 z-20 hover:drop-shadow-2xl">
-                                    Login
-                                </div>
-                            </button>
+                        <form class="w-full h-full flex flex-col gap-5" id="loginForm" role="loginForm">
+                            <div class="w-full h-auto flex flex-col gap-2">
+                                <h1 class="text-sm font-semibold">Email</h1>
 
-                            <div
-                                class="w-full flex max-md:flex-col max-lg:flex-row lg:flex-col justify-center items-center gap-3">
-                                <button onclick="movePage()"
-                                    class="text-md text-blue-500 transition ease-in-out delay-50 hover:-translate-y-2 hover:scale-120">Don't
-                                    have an account?</button>
-                                <button onclick="window.location.href = '../index.html'"
-                                    class="text-md text-blue-500 transition ease-in-out delay-50 hover:-translate-y-2 hover:scale-120">Go
-                                    back home</button>
+                                <label class="w-full h-fit flex flex-col">
+                                    <input type="email" id="email-login" required placeholder="Enter your email"
+                                        class="peer w-full h-full p-2 border border-gray-300 rounded-md placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed">
+
+                                    <p
+                                        class="mt-2 hidden peer-placeholder-shown:!block peer-invalid:block text-red-600 ">
+                                        Email is
+                                        required</p>
+                                </label>
                             </div>
-                        </div>
+
+                            <div class="w-full h-auto flex flex-col gap-2">
+                                <h1 class="text-sm font-semibold">Password</h1>
+
+                                <label class="w-full h-fit flex flex-col">
+                                    <input type="password" id="password-login" required minlength="8" maxlength="12"
+                                        placeholder="Enter your password"
+                                        class="peer w-full h-full p-2 border border-gray-300 rounded-md placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed">
+
+                                    <p
+                                        class="mt-2 hidden peer-placeholder-shown:!block peer-invalid:block text-red-600 ">
+                                        Password is required</p>
+                                </label>
+                            </div>
+
+                            <div class="w-full flex flex-col gap-5">
+                                <button class="w-full h-full relative shadow-2xl" type="submit">
+                                    <div
+                                        class="w-full h-full bg-[#646464] text-white font-Kanit text-xl p-7 rounded-md z-10">
+                                    </div>
+
+                                    <div
+                                        class="w-full h-full flex justify-center items-center absolute top-0 left-0 bg-black text-white text-center font-Kanit text-xl p-7 rounded-md transition ease-in-out delay-50 hover:-translate-y-2 hover:-translate-x-2 hover:scale-100 z-20 hover:drop-shadow-2xl">
+                                        Login
+                                    </div>
+                                </button>
+
+                                <div
+                                    class="w-full flex max-md:flex-col max-lg:flex-row lg:flex-col justify-center items-center gap-3">
+                                    <button onclick="movePage()"
+                                        class="text-md text-blue-500 transition ease-in-out delay-50 hover:-translate-y-2 hover:scale-120">Don't
+                                        have an account?</button>
+                                    <button onclick="window.location.href = '../index.html'"
+                                        class="text-md text-blue-500 transition ease-in-out delay-50 hover:-translate-y-2 hover:scale-120">Go
+                                        back home</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </section>
 
@@ -123,44 +144,72 @@
                     <h1 class="text-4xl font-bold font-hammersmith">Welcome to ALL N ONE</h1>
 
                     <div class="w-full flex max-lg:h-full flex-col gap-5">
-                        <div class="w-full h-[50px] flex flex-col gap-2">
-                            <label for="email" class="text-sm font-semibold">Email</label>
-                            <input type="email" name="email" id="email"
-                                class="w-full h-full p-2 border border-gray-300 rounded-md">
-                        </div>
-                        <div class="w-full flex h-[50px] flex-col gap-2">
-                            <label for="password" class="text-sm font-semibold">Password</label>
-                            <input type="password" name="password" id="password"
-                                class="w-full h-full p-2 border border-gray-300 rounded-md">
-                        </div>
-                        <div class="w-full flex h-[50px] flex-col gap-2">
-                            <label for="password2" class="text-sm font-semibold">Password confirmation</label>
-                            <input type="password" name="password2" id="password2"
-                                class="w-full h-full p-2 border border-gray-300 rounded-md">
-                        </div>
-                        <div class="w-full h-1/2 flex flex-col gap-5">
-                            <button class="w-full h-full relative shadow-2xl" onclick=>
-                                <div
-                                    class="w-full h-full bg-[#646464] text-white font-Kanit text-xl p-7 rounded-md z-10">
-                                </div>
 
-                                <div
-                                    class="w-full h-full flex justify-center items-center absolute top-0 left-0 bg-black text-white text-center font-Kanit text-xl p-7 rounded-md transition ease-in-out delay-50 hover:-translate-y-2 hover:-translate-x-2 hover:scale-100 z-20 hover:drop-shadow-2xl">
-                                    SIGN UP
-                                </div>
-                            </button>
+                        <form class="w-full h-full flex flex-col gap-5" id="signUpForm" role="signUpForm">
+                            <div class="w-full h-auto flex flex-col gap-2">
+                                <h1 class="text-sm font-semibold">Email</h1>
 
-                            <div
-                                class="w-full flex max-md:flex-col max-lg:flex-row lg:flex-col justify-center items-center gap-3">
-                                <button onclick="movePage('login')"
-                                    class="text-md text-blue-500 transition ease-in-out delay-50 hover:-translate-y-2 hover:scale-120">Already
-                                    Have an
-                                    account!</button>
-                                <button onclick="window.location.href = '../index.html'"
-                                    class="text-md text-blue-500 transition ease-in-out delay-50 hover:-translate-y-2 hover:scale-120">Go
-                                    back home</button>
+                                <label class="w-full h-fit flex flex-col">
+                                    <input type="email" id="email-signup" required placeholder="Enter your email"
+                                        class="peer w-full h-full p-2 border border-gray-300 rounded-md placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed">
+
+                                    <p
+                                        class="mt-2 hidden peer-placeholder-shown:!block peer-invalid:block text-red-600 ">
+                                        Email is
+                                        required</p>
+                                </label>
                             </div>
-                        </div>
+
+                            <div class="w-full h-auto flex flex-col gap-2">
+                                <h1 class="text-sm font-semibold">Password</h1>
+
+                                <label class="w-full h-fit flex flex-col">
+                                    <input type="password" id="password-signup" required minlength="8" maxlength="12"
+                                        placeholder="Enter your password"
+                                        class="peer w-full h-full p-2 border border-gray-300 rounded-md placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed">
+
+                                    <p
+                                        class="mt-2 hidden peer-placeholder-shown:!block peer-invalid:block text-red-600 ">
+                                        Password is required</p>
+                                </label>
+                            </div>
+
+                            <div class="w-full h-auto flex flex-col gap-2">
+                                <label class="w-full h-fit flex flex-col">
+                                    <input type="password" id="password-confirmation" required minlength="8"
+                                        maxlength="12" placeholder="Enter your password confirmation"
+                                        class="peer w-full h-full p-2 border border-gray-300 rounded-md placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed">
+
+                                    <p
+                                        class="mt-2 hidden peer-placeholder-shown:!block peer-invalid:block text-red-600 ">
+                                        Password Confirmation is required</p>
+                                </label>
+                            </div>
+
+                            <div class="w-full h-1/2 flex flex-col gap-5">
+                                <button class="w-full h-full relative shadow-2xl" type="submit">
+                                    <div
+                                        class="w-full h-full bg-[#646464] text-white font-Kanit text-xl p-7 rounded-md z-10">
+                                    </div>
+
+                                    <div
+                                        class="w-full h-full flex justify-center items-center absolute top-0 left-0 bg-black text-white text-center font-Kanit text-xl p-7 rounded-md transition ease-in-out delay-50 hover:-translate-y-2 hover:-translate-x-2 hover:scale-100 z-20 hover:drop-shadow-2xl">
+                                        SIGN UP
+                                    </div>
+                                </button>
+
+                                <div
+                                    class="w-full flex max-md:flex-col max-lg:flex-row lg:flex-col justify-center items-center gap-3">
+                                    <button onclick="movePage('login')"
+                                        class="text-md text-blue-500 transition ease-in-out delay-50 hover:-translate-y-2 hover:scale-120">Already
+                                        Have an
+                                        account!</button>
+                                    <button onclick="window.location.href = '../index.html'"
+                                        class="text-md text-blue-500 transition ease-in-out delay-50 hover:-translate-y-2 hover:scale-120">Go
+                                        back home</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </section>
 
