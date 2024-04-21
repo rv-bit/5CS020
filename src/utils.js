@@ -169,6 +169,29 @@ const generateTaxes = (total) => {
     return taxes = total * 0.15;
 }
 
+const buyNow = (id) => {
+    const tmpCartItems = JSON.parse(localStorage.getItem('tmpCart')) || [];
+    let buyNowProduct = JSON.parse(localStorage.getItem('buyNow')) || [];
+
+    const productExists = buyNowProduct.find(product => product.id === id);
+    const productIsInTemp = tmpCartItems.find(product => product.id === id);
+
+    const quantity = tmpCartItems.length > 0 ? productIsInTemp.quantity : 1;
+    const product = {
+        id: id,
+        quantity: quantity
+    };
+
+    buyNowProduct = [];
+    buyNowProduct.push(product);
+    tmpCartItems.splice(productIsInTemp, 1);
+
+    localStorage.setItem('buyNow', JSON.stringify(buyNowProduct));
+    localStorage.setItem('tmpCart', JSON.stringify(tmpCartItems));
+
+    window.location.href = '../pages/checkout.html';
+}
+
 const addToCart = (id, quantity) => {
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     const productExists = cartItems.find(product => product.id === id);

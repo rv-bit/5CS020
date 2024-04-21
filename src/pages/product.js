@@ -231,6 +231,7 @@ const createProductElement = () => {
         </div>
 
         <button
+            onclick="buyNow('${productId}')"
             class="col-span-2 w-full h-[50px] bg-[#3f7ef0] text-white text-base text-center font-medium rounded-[5px] flex justify-center items-center">
             Buy Now
         </button>

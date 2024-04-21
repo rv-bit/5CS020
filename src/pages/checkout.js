@@ -255,9 +255,23 @@ const checkoutPayment = () => {
     window.location.href = 'cart.html';
 }
 
+const goBackTocCart = () => {
+    const buyNowProduct = JSON.parse(localStorage.getItem('buyNow')) || [];
+    const buyNowAmount = buyNowProduct.length;
+
+    if (buyNowAmount > 0) {
+        localStorage.removeItem('buyNow');
+    };
+
+    window.location.href = 'cart.html';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     const cartAmount = cartItems.length;
+
+    const buyNowProduct = JSON.parse(localStorage.getItem('buyNow')) || [];
+    const buyNowAmount = buyNowProduct.length;
 
     const user = JSON.parse(localStorage.getItem('user'));
 
@@ -291,11 +305,23 @@ document.addEventListener('DOMContentLoaded', () => {
             Object.entries(data).forEach(([key, value]) => {
                 const productId = value.product_name.replace(/\s/g, '-').toLowerCase();
 
-                if (cartItems.find(product => product.id === productId)) {
+                if (buyNowProduct.find(product => product.id === productId)) {
+                    checkoutProducts.push(value);
+                } else if (cartItems.find(product => product.id === productId)) {
                     checkoutProducts.push(value);
                 }
             });
         }).then(() => {
+            if (buyNowAmount > 0) {
+                checkoutProducts = checkoutProducts.filter(value => {
+                    const productId = value.product_name.replace(/\s/g, '-').toLowerCase();
+                    return buyNowProduct.find(product => product.id === productId);
+                });
+
+                createCheckoutItems(buyNowProduct);
+                return;
+            }
+
             createCheckoutItems(cartItems);
         });
     } else {
