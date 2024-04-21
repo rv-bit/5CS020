@@ -102,11 +102,10 @@ const createCheckoutItems = (cartItems) => {
         return;
     }
 
+    cartTotal = parseFloat(cartTotal.toFixed(2));
     const taxes = parseFloat(generateTaxes(cartTotal).toFixed(2));
 
     infoContainerAmountTotal.innerHTML = `${cartTotal}`;
-
-    let totalElements = totalOrderParent.children.length;
 
     const promoCodeExist = localStorage.getItem('promoCode');
     const promoCode = JSON.parse(promoCodeExist);
