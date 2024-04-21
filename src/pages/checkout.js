@@ -259,6 +259,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     const cartAmount = cartItems.length;
 
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!user) {
+        window.location.href = '../pages/account.html';
+        return;
+    }
+
+    if (user.loggedIn !== true) {
+        window.location.href = '../pages/account.html';
+        return;
+    }
+
     if (cartAmount > 0) {
         fetchItems().then((data) => {
             if (!data) return;
@@ -321,6 +333,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         scrollableImages.scrollLeft = scrollLeft - walk;
     });
+
+    const userEmailAddress = document.querySelector('[role="email"]');
+
+    if (userEmailAddress) {
+        userEmailAddress.value = user.email;
+    }
 
     document.querySelector('[role="card-card-number"').addEventListener('input', function (e) {
         var target = e.target,
